@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.UserDao">
+ 		<insert id="saveUser" parameterType="com.phym.entity.User">
+ 			insert into user(
+ 				user_id,
+ 				user_nickname,
+ 				user_password,
+ 				user_type,
+ 				user_state,
+ 				user_create_time,
+ 				user_Phone_num
+ 			)values(
+ 				#{user_id},
+ 				#{user_nickname},
+ 				#{user_password},
+ 				#{user_type},
+ 				#{user_state},
+ 				#{user_create_time},
+ 				#{user_Phone_num}
+ 			)
+ 		</insert>
+ 		<select id="findUserByName" parameterType="string"
+ 		resultType="com.phym.entity.User">
+ 			select
+ 				user_id,
+ 				user_nickname,
+ 				user_password,
+ 				user_type,
+ 				user_state,
+ 				user_create_time,
+ 				user_update_time,
+ 				user_Phone_num,
+ 				user_lastlog_time
+ 			from
+ 				user
+ 			where
+ 				user_nickname=#{name}
+ 		</select>
+ 		<select id="findUserByPhone" parameterType="string"
+ 		resultType="com.phym.entity.User">
+ 			select
+ 				user_id,
+ 				user_nickname,
+ 				user_password,
+ 				user_type,
+ 				user_state,
+ 				user_create_time,
+ 				user_update_time,
+ 				user_Phone_num,
+ 				user_lastlog_time
+ 			from
+ 				user
+ 			where
+ 				user_Phone_num=#{phone}
+ 		</select>
+ 		
+ 		<update id="updatePassword" parameterType="string">
+	 		update user set   
+	 			user_password = #{password} 
+	 		where
+	 			user_Phone_num = #{phone}					   
+	 	</update>
+	 	
+	 	<insert id="insertUserInfo" parameterType="String">
+	 			insert into user_info(
+	 				user_info_id,
+	 				user_id
+	 			)values(
+	 				#{id},
+	 				#{userId}
+	 			)
+	 	</insert>
+ </mapper>
