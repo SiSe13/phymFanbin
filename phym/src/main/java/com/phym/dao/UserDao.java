@@ -20,4 +20,6 @@ public interface UserDao {
 	 //插入完善资料表
 	 int insertUserInfo(@Param("id") String id,@Param("userId") String userId);
 	 
+	 //根据userId 查询信息
+	 User findUserById(String userId);
 }

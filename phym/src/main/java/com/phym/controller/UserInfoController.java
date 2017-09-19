@@ -9,12 +9,13 @@ import com.phym.service.UserInfoService;
 import com.phym.util.JsonResult;
 
 @RestController
-@RequestMapping("/info")
+@RequestMapping("info")
 public class UserInfoController {
 	
 	@Autowired
 	private UserInfoService userInfoService;
 	
+	@RequestMapping("/updateUserInfo.do")
 	public JsonResult<Boolean> updateUserInfo(UserInfo userInfo){
 		boolean boo=userInfoService.updateUserInfo(userInfo);
 		return new JsonResult<Boolean>(boo);

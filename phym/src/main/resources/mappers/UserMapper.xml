@@ -74,4 +74,21 @@
 	 				#{userId}
 	 			)
 	 	</insert>
+	 	<select id="findUserById" parameterType="string"
+ 		resultType="com.phym.entity.User">
+ 			select
+ 				user_id,
+ 				user_nickname,
+ 				user_password,
+ 				user_type,
+ 				user_state,
+ 				user_create_time,
+ 				user_update_time,
+ 				user_Phone_num,
+ 				user_lastlog_time
+ 			from
+ 				user
+ 			where
+ 				user_id=#{userId}
+ 		</select>
  </mapper>
