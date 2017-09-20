@@ -9,33 +9,33 @@ import com.phym.exception.UserExitException;
 public interface UserService {
 	
 	/**
-	 * Ã½ÌåÖ÷µÇÂ¼
+	 * åª’ä½“ä¸»ç™»å½•
 	 */
 	User media(String name, String password) throws NameException,PasswordException,UserExitException;
 	/**
-	 * ¹ã¸æÖ÷µÇÂ¼
+	 * å¹¿å‘Šä¸»ç™»å½•
 	 */
 	User login(String name,String password)throws UserExitException,NameException,PasswordException;
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 * ä¿®æ”¹å¯†ç 
 	 */
 	int authCode(String phone,String password,String rePassword)throws UserExitException,PasswordException;
 	/**
-	 * ×¢²á ¼ì²éÊÖ»úºÅ
+	 * æ³¨å†Œ æ£€æŸ¥æ‰‹æœºå·
 	 */
 	Object checkPhone(String phone)throws NameException,PhoneException;
 	
 	/**
-	 * Íü¼ÇÃÜÂë ¼ì²âÊÖ»úºÅ
+	 * å¿˜è®°å¯†ç  æ£€æµ‹æ‰‹æœºå·
 	 */
 	User changePhone(String phone)throws NameException,PhoneException;
 	
 	/**
-	 * ¼ì²éÓÃ»§Ãû
+	 * æ£€æŸ¥ç”¨æˆ·å
 	 */
 	Object checkName(String name)throws NameException,UserExitException;
 	/**
-	 * ×¢²áÓÃ»§
+	 * æ³¨å†Œç”¨æˆ·
 	 */
 	User regist(String name,String phone,String password,String confirm,int type)throws
 		UserExitException,NameException,PasswordException;

@@ -6,6 +6,4 @@ import com.phym.entity.OutDoorScreen;
 
 public interface OutDoorScreenService {
 	List<OutDoorScreen> findOutdoor(OutDoorScreen outDoorScreen);
-	
-	
 }

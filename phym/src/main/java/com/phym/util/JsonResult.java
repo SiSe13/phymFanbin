@@ -5,12 +5,12 @@ import java.io.Serializable;
 public class JsonResult<T> implements Serializable {
 	private static final long serialVersionUID = -6662252238032222720L;
 	
-	private int state; //×´Ì¬
-	private String message;//Òì³£
-	private T data;  //Êı¾İ
+	private int state; //çŠ¶æ€
+	private String message;//å¼‚å¸¸
+	private T data;  //æ•°æ®
 	
-	public static final int SUCCESS=0; //³É¹¦
-	public static final int ERROR=1;   //Ê§°Ü
+	public static final int SUCCESS=0; //æˆåŠŸ
+	public static final int ERROR=1;   //å¤±è´¥
 	public JsonResult() {
 		super();
 		state=SUCCESS;

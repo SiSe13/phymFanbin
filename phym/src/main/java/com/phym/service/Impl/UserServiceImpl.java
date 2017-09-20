@@ -20,156 +20,156 @@ public class UserServiceImpl implements UserService {
 	private UserDao userdao;
 	
 	/**
-	 * Ã½ÌåÖ÷µÇÂ¼ 
+	 * åª’ä½“ä¸»ç™»å½• 
 	 */
 	public User media(String name, String password) throws NameException,PasswordException,UserExitException{
 			if(name ==null || name.trim().isEmpty()) {
-				throw new NameException("ÓÃ»§Ãû²»ÄÜÎª¿Õ");
+				throw new NameException("ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 			}
 			if(password ==null || password.trim().isEmpty()) {
-				throw new PasswordException("ÃÜÂë²»ÄÜÎª¿Õ");
+				throw new PasswordException("å¯†ç ä¸èƒ½ä¸ºç©º");
 			}
 			User user = userdao.findUserByName(name);
 			if(user == null) {
-			
-				throw new UserExitException("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+				throw new UserExitException("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 			}
 			/*if(user.getUser_state()!=0){
-				throw new UserExitException("²»ÕıÈ·");
+				throw new UserExitException("ä¸æ­£ç¡®");
 			}*/
 			
 			if(user.getUser_type()!=2){
-				throw new UserExitException("ÓÃ»§ÀàĞÍ²»ÕıÈ·");
+				throw new UserExitException("ç”¨æˆ·ç±»å‹ä¸æ­£ç¡®");
 			}
-			String pwd = Md5Util.md5(password+"Æ×»ªÔÆÃ½");
+			String pwd = Md5Util.md5(password+"è°±åäº‘åª’");
 			if(!user.getUser_password().equals(pwd)) {
-				throw new PasswordException("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+				throw new PasswordException("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 			}
 			
 			return user;
 	}
 	
 	/**
-	 * ¹ã¸æÖ÷µÇÂ¼¹¦ÄÜ
+	 * å¹¿å‘Šä¸»ç™»å½•åŠŸèƒ½
 	 */
 	public User login(String name, String password) throws NameException,PasswordException,UserExitException{
 		if(name ==null || name.trim().isEmpty()) {
-			throw new NameException("ÓÃ»§Ãû²»ÄÜÎª¿Õ");
+			throw new NameException("ç”¨æˆ·åä¸èƒ½ä¸ºç©º");
 		}
 		if(password ==null || password.trim().isEmpty()) {
-			throw new PasswordException("ÃÜÂë²»ÄÜÎª¿Õ");
+			throw new PasswordException("å¯†ç ä¸èƒ½ä¸ºç©º");
 		}
 		User user = userdao.findUserByName(name);
 		if(user == null) {
-			throw new UserExitException("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			throw new UserExitException("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 		}
-		String pwd = Md5Util.md5(password+"Æ×»ªÔÆÃ½");
+		String pwd = Md5Util.md5(password+"è°±åäº‘åª’");
 		if(!user.getUser_password().equals(pwd)) {
-			throw new PasswordException("ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			
+			throw new PasswordException("ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 		}
 		if(user.getUser_type()!=1){
-			throw new UserExitException("ÓÃ»§ÀàĞÍ²»ÕıÈ·");
+			throw new UserExitException("ç”¨æˆ·ç±»å‹ä¸æ­£ç¡®");
 		}
 		return user;
 	}
 	
 	/**
-	 * Íü¼ÇÃÜÂë
+	 * å¿˜è®°å¯†ç 
 	 */
 	public int authCode(String phone,String password,String rePassword)throws UserExitException,PasswordException{
 		if(!password.equals(rePassword)){
-			throw new PasswordException("È·ÈÏÃÜÂë²»ÕıÈ·");
+			throw new PasswordException("ç¡®è®¤å¯†ç ä¸æ­£ç¡®");
 		}
-		String pwd=Md5Util.md5(password+"Æ×»ªÔÆÃ½");
+		String pwd=Md5Util.md5(password+"è°±åäº‘åª’");
 		
 		int n=userdao.updatePassword(phone, pwd);
 		if(n!=1){
-			throw new UserExitException("ĞŞ¸ÄÃÜÂëÊ§°Ü");
+			throw new UserExitException("ä¿®æ”¹å¯†ç å¤±è´¥");
 		}
 		return n;
 		
 	}
 	/**
-	 * ×¢²áÅĞ¶ÏÊÖ»úºÅ
+	 * æ³¨å†Œåˆ¤æ–­æ‰‹æœºå·
 	 */
 	public Object checkPhone(String phone) throws NameException, PhoneException {
 		if(phone==null||phone.trim().isEmpty()){
-			throw new PhoneException("ÊÖ»úºÅ²»ÄÜÎª¿Õ!");
+			throw new PhoneException("æ‰‹æœºå·ä¸èƒ½ä¸ºç©º!");
 		}
-		//ÊÖ»úºÅÕıÔò
+		//æ‰‹æœºå·æ­£åˆ™
 		String reg="^1(3\\d|5[0-35-9]|8[025-9]|47)\\d{8}$";
 		if(!phone.matches(reg)){
-			throw new PhoneException("ÊÖ»úºÅÂëµÄ¸ñÊ½²»ÕıÈ·");
+			throw new PhoneException("æ‰‹æœºå·ç çš„æ ¼å¼ä¸æ­£ç¡®");
 		}
 		User user=userdao.findUserByPhone(phone);
 		if(user!=null){
-			throw new UserExitException("ÊÖ»úºÅÒÑ×¢²á");
+			throw new UserExitException("æ‰‹æœºå·å·²æ³¨å†Œ");
 		}
 		return 0;
 	}
 	
 	/**
-	 * Íü¼ÇÃÜÂëÅĞ¶ÏÊÖ»úºÅ
+	 * å¿˜è®°å¯†ç åˆ¤æ–­æ‰‹æœºå·
 	 */
 	public User changePhone(String phone) throws NameException, PhoneException {
 		if(phone==null||phone.trim().isEmpty()){
-			throw new PhoneException("ÊÖ»úºÅ²»ÄÜÎª¿Õ!");
+			throw new PhoneException("æ‰‹æœºå·ä¸èƒ½ä¸ºç©º!");
 		}
-		//ÊÖ»úºÅÕıÔò
+		//æ‰‹æœºå·æ­£åˆ™
 		String reg="^1(3\\d|5[0-35-9]|8[025-9]|47)\\d{8}$";
 		if(!phone.matches(reg)){
-			throw new PhoneException("ÊÖ»úºÅÂëµÄ¸ñÊ½²»ÕıÈ·");
+			throw new PhoneException("æ‰‹æœºå·ç çš„æ ¼å¼ä¸æ­£ç¡®");
 		}
 		User user=userdao.findUserByPhone(phone);
 		if(user==null){
-			throw new UserExitException("ÓÃ»§²»´æÔÚ");
+			throw new UserExitException("ç”¨æˆ·ä¸å­˜åœ¨");
 		}
 		return user;
 	}
 		
 	/**
-	 * ¼ì²éÓÃ»§Ãû
+	 * æ£€æŸ¥ç”¨æˆ·å
 	 */
 	public Object checkName(String name)throws NameException,UserExitException{
 		if(name==null||name.trim().isEmpty()){
-			throw new NameException("ÓÃ»§Ãû²»ÄÜÎª¿Õ!");
+			throw new NameException("ç”¨æˆ·åä¸èƒ½ä¸ºç©º!");
 		}
-		String regname="^[Ò»-ı›a-zA-Z][Ò»-ı›a-zA-Z0-9_]*$";
+		String regname="^[ä¸€-é¾¥a-zA-Z][ä¸€-é¾¥a-zA-Z0-9_]*$";
 		if(!name.matches(regname)){
-			throw new NameException("3-20Î»£¬ÖĞÎÄ¡¢×ÖÄ¸¡¢Êı×Ö¡¢ÏÂ»®ÏßµÄ×éºÏ£¬ÒÔÖĞÎÄ»ò×ÖÄ¸¿ªÍ·");
+			throw new NameException("3-20ä½ï¼Œä¸­æ–‡ã€å­—æ¯ã€æ•°å­—ã€ä¸‹åˆ’çº¿çš„ç»„åˆï¼Œä»¥ä¸­æ–‡æˆ–å­—æ¯å¼€å¤´");
 		}
 		User user =userdao.findUserByName(name);
 		if(user!=null){
-			throw new UserExitException("ÓÃ»§ÃûÒÑ´æÔÚ");
+			throw new UserExitException("ç”¨æˆ·åå·²å­˜åœ¨");
 		}
 		
 		return 0;
 	}
 	
 	/**
-	 * ×¢²á
+	 * æ³¨å†Œ
 	 */
 	public User regist(String name, String phone, String password, String confirm,int type)
 			throws UserExitException,PasswordException {
 		
 		if(password==null||password.trim().isEmpty()){
-			throw new PasswordException("ÃÜÂë²»ÄÜÎª¿Õ!");
+			throw new PasswordException("å¯†ç ä¸èƒ½ä¸ºç©º!");
 		}
 		
 		if(!password.equals(confirm)){
-			throw new PasswordException("È·ÈÏÃÜÂë²»ÕıÈ·");
+			throw new PasswordException("ç¡®è®¤å¯†ç ä¸æ­£ç¡®");
 		}
 		
 		String userid = Md5Util.createId();
-		String pwd=Md5Util.md5(password+"Æ×»ªÔÆÃ½");
+		String pwd=Md5Util.md5(password+"è°±åäº‘åª’");
 		String userInfoId = Md5Util.createId();
 		
-		//0ÎªÕı³£
+		//0ä¸ºæ­£å¸¸
 		int state=0;
 		Timestamp createTime=new Timestamp(System.currentTimeMillis());
 		
 		if(userdao.findUserByName(name)!=null||userdao.findUserByPhone(phone)!=null){
-			throw new RuntimeException("×¢²áÊ§°Ü!");
+			throw new RuntimeException("æ³¨å†Œå¤±è´¥!");
 		}
 		User user =new User(userid,name,pwd,type,state,createTime,phone);
 		userdao.saveUser(user);

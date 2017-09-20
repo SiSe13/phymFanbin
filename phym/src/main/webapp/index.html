@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>注册</title>
+<link href="uplodify/uploadify.css" rel="stylesheet">
+<script src="uplodify/jquery-1.11.1.min.js"></script>
+<script src="uplodify/jquery.uploadify.js"></script>
+<script type="text/javascript">
+$(document).ready(
+      function fileUpload() {
+        $("#upload").uploadify({
+          "uploader": "upload/one.do",
+          "method": "post",
+          "progressData": "percentage",
+          "swf": "uplodify/uploadify.swf",
+          "buttonText": "选择要上传的文件",
+          "multi": true,
+          "auto":false,
+          "fileSizeLimit": "1000KB",
+          "queueSizeLimit": 5,
+          "successTimeout": 600,
+          
+          "onUploadSuccess": function(file, data, response) {
+            alert('The file ' + file.name 
+            + ' was successfully uploaded with a response of ' 
+            + response + ':' + data);
+        	var JsonObjs = eval("(" + data + ")");
+          	var filepath_server=JsonObjs.filePath;
+  	            arr=filepath_server.split("\\");
+  	            arr_length = arr.length;
+  	            var p = arr[arr_length-1];
+  	            console.log(p);
+  	    $("#img").html("<img width='50' src=http://127.0.0.1:8080/phym/imgs/"+p+" />")
+          
+          },
+          "onUploadError": function(file, errorCode, errorMsg, errorString) {
+        	  alert("errorCode"+errorCode);
+        	  alert("errorMsg"+errorMsg);	500
+        	  alert("errorString"+errorString);	500
+              alert('The file ' + file.name 
+              + ' could not be uploaded: ' + errorString);
+        	  
+          },
+          "onSelectError": function() {
+            alert('The file ' + file.name 
+            + ' returned an error and was not added to the queue.');
+          },
+          "onSelect":function(file){
+        	  console.log(file.id);
+          }
+        });
+      });
+      
+      
+    </script>
+  </head>
+  <body>
+    <form enctype="multipart/form-data">
+      <input id="upload" type="file" />
+		<p><a href="javascript:$('#upload').uploadify('upload')">上传</a></p> 
+    </form>
+    <div id="img"></div>
+  </body>
+</html>

@@ -4,6 +4,6 @@ import com.phym.entity.Message;
 
 public interface MessageDao {
 	
-	//²éÑ¯ËùÓĞĞÅÏ¢
+	//æŸ¥è¯¢æ‰€æœ‰ä¿¡æ¯
 	Message findMessage(String userId);
 }

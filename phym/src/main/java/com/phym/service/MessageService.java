@@ -5,6 +5,6 @@ import com.phym.exception.MessageExitException;
 
 public interface MessageService {
 	
-	//²éÑ¯ĞÅÏ¢
+	//æŸ¥è¯¢ä¿¡æ¯
 	Message findMessage(String userId)throws MessageExitException;
 }

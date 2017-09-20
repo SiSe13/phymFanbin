@@ -20,17 +20,17 @@ public class MessageImpl implements MessageService {
 	
 	public Message findMessage(String userId)throws MessageExitException {
 		if(userId==null || userId.trim().isEmpty()){
-			throw new MessageExitException("ID²»ÄÜ¿Õ");
+			throw new MessageExitException("IDä¸èƒ½ç©º");
 		}
 		User user=userdao.findUserById(userId);
 		
 		if(user==null){
-			throw new MessageExitException("ID´íÎóÁË");
+			throw new MessageExitException("IDé”™è¯¯äº†");
 		}
 		
 		Message message=messageDao.findMessage(userId);
 		if(message==null){
-			throw new MessageExitException("ÎŞÏûÏ¢");
+			throw new MessageExitException("æ— æ¶ˆæ¯");
 		}
 		return message;
 	}

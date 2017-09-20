@@ -26,7 +26,7 @@ public class UserController extends BaseController{
 	private UserService userService;
 	
 	/**
-	 * ¹ã¸æÖ÷µÇÂ¼
+	 *  å¹¿å‘Šä¸»ç™»å½•
 	 */
 	@PostMapping("/login.do")
 	public JsonResult<User> login(HttpServletRequest request,String name,String password){
@@ -38,7 +38,7 @@ public class UserController extends BaseController{
 	}
 	
 	/**
-	 * Ã½ÌåÖ÷µÇÂ¼
+	 *åª’ä½“ä¸»ç™»å½•
 	 */
 	@PostMapping("/media.do")
 	public JsonResult<User> media(HttpServletRequest request,String name,String password){
@@ -49,25 +49,25 @@ public class UserController extends BaseController{
 		return new JsonResult<User>(user);
 	}
 	@RequestMapping("/heartbeat.do")
-	//ĞÄÌø¼ì²â¿ØÖÆÆ÷·½·¨£¬Ä¿µÄ±£³ÖsessionµÄĞÂÏÊ
+	//å¿ƒè·³æ£€æµ‹æ§åˆ¶å™¨æ–¹æ³•ï¼Œç›®çš„ä¿æŒsessionçš„æ–°é²œ
 	public JsonResult<String> heartbeat(){
 		//System.out.println("OK"); 
 		return new JsonResult<String>("OK");
 	}
 	
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 *  ä¿®æ”¹å¯†ç 
 	 */
 	@RequestMapping("/authcode.do")
 	public int authCode(HttpServletRequest request,String phone,String verifyNo,String password,String rePassword){
 		HttpSession session = request.getSession(); 
 		String object=session.getAttribute(phone).toString();
 		if(session==null||session.getAttribute(phone)==null){
-			throw new RuntimeException("ÍøÂçÒì³£");
+			throw new RuntimeException("ç½‘ç»œå¼‚å¸¸");
 		}
 
 		if(!verifyNo.equals(object)){
-			throw new RuntimeException("ÑéÖ¤Âë²»ÕıÈ·");
+			throw new RuntimeException("éªŒè¯ç ä¸æ­£ç¡®");
 		}else{
 			int n=userService.authCode(phone,password,rePassword);
 			return n;
@@ -75,7 +75,7 @@ public class UserController extends BaseController{
 	}
 	
 	/**
-	 * ÑéÖ¤ÓÃ»§Ãû
+	 * éªŒè¯ç”¨æˆ·å
 	 */
 	@RequestMapping("/checkname.do")
 	public JsonResult<Object> checkName(String name){
@@ -84,7 +84,7 @@ public class UserController extends BaseController{
 	}
 	
 	/**
-	 * ×¢²áÑéÖ¤ÊÖ»úºÅ
+	 * æ³¨å†ŒéªŒè¯æ‰‹æœºå·
 	 */
 	@RequestMapping("/checkphone.do")
 	public JsonResult<Object> checkPhone(String phone){
@@ -93,7 +93,7 @@ public class UserController extends BaseController{
 	}
 	
 	/**
-	 * Íü¼ÇÃÜÂëµÄÊÖ»úÑéÖ¤
+	 * å¿˜è®°å¯†ç çš„æ‰‹æœºéªŒè¯
 	 * @param phone
 	 * @return
 	 */
@@ -105,14 +105,14 @@ public class UserController extends BaseController{
 	
 	
 	/**
-	 * ·¢ËÍÑéÖ¤Âë
+	 * å‘é€éªŒè¯ç 
 	 */
 	@RequestMapping("/phone.do")
 	public int sendCode(HttpServletRequest request,String phone){ 
 				/*
-				 * ¸ù¾İÊÖ»úºÅ²éÑ¯ÓÃ»§
-				 * Èç¹ûÓĞËµÃ÷ÒÑ¾­×¢²á·µ»ØÒì³£
-				 * Ê¡ÂÔ
+				 * æ ¹æ®æ‰‹æœºå·æŸ¥è¯¢ç”¨æˆ·
+				 * å¦‚æœæœ‰è¯´æ˜å·²ç»æ³¨å†Œè¿”å›å¼‚å¸¸
+				 * çœç•¥
 				 */
 				HttpClient client = new HttpClient();
 				PostMethod method = new PostMethod(Url);
@@ -120,16 +120,16 @@ public class UserController extends BaseController{
 				method.setRequestHeader("ContentType","application/x-www-form-urlencoded;charset=UTF-8");
 				
 				/*
-				 * Ëæ»úÉú³ÉµÄ6Î»ÑéÖ¤Âë
+				 * éšæœºç”Ÿæˆçš„6ä½éªŒè¯ç 
 				 */
 				int mobile_code=(int) ((Math.random()*9+1)*100000);
 				
-				//·¢ËÍ¶ÌĞÅÄÚÈİ
-				String content= new String("ÄúµÄÑéÖ¤ÂëÊÇ:"+mobile_code+"¡£ÇëÔÚÒ³ÃæÖĞÌá½»ÑéÖ¤ÂëÍê³ÉÑéÖ¤¡£");
-				//·¢ËÍÇëÇó
-				NameValuePair[] data={//Ìá½»¶ÌĞÅ
+				//å‘é€çŸ­ä¿¡å†…å®¹
+				String content= new String("æ‚¨çš„éªŒè¯ç æ˜¯:"+mobile_code+"ã€‚è¯·åœ¨é¡µé¢ä¸­æäº¤éªŒè¯ç å®ŒæˆéªŒè¯ã€‚");
+				//å‘é€è¯·æ±‚
+				NameValuePair[] data={//æäº¤çŸ­ä¿¡
 						 new NameValuePair("account", "C74683282"), 
-						    new NameValuePair("password", "f521ea17f244b4410f29f0ecc96bab18"), //²é¿´ÃÜÂëÇëµÇÂ¼ÓÃ»§ÖĞĞÄ->ÑéÖ¤Âë¡¢Í¨Öª¶ÌĞÅ->ÕÊ»§¼°Ç©ÃûÉèÖÃ->APIKEY
+						    new NameValuePair("password", "f521ea17f244b4410f29f0ecc96bab18"), //æŸ¥çœ‹å¯†ç è¯·ç™»å½•ç”¨æˆ·ä¸­å¿ƒ->éªŒè¯ç ã€é€šçŸ¥çŸ­ä¿¡->å¸æˆ·åŠç­¾åè®¾ç½®->APIKEY
 						    new NameValuePair("mobile", phone), 
 						    new NameValuePair("content", content),
 						    new NameValuePair("format","json")
@@ -145,7 +145,7 @@ public class UserController extends BaseController{
 						HttpSession session = request.getSession();
 						session.setAttribute(phone, mobile_code);
 						session.setMaxInactiveInterval(180);
-						//System.out.println(mobile_code);
+						System.out.println(mobile_code);
 						//System.out.println("1213223132132");
 						return code;
 					}
@@ -158,22 +158,22 @@ public class UserController extends BaseController{
 	}
 	
 	/**
-	 * ×¢²á
+	 *  æ³¨å†Œ
 	 */
 	@RequestMapping("/register.do")
 	public JsonResult<User> Register(HttpServletRequest request,String name, String phone, String password, String confirm,int type,String verifyNo){
 		HttpSession session = request.getSession(); 
 		String object=session.getAttribute(phone).toString();
 		if(session==null||session.getAttribute(phone)==null){
-			throw new RuntimeException("ÍøÂçÒì³£");
+			throw new RuntimeException("ç½‘ç»œå¼‚å¸¸");
 		}
-//		System.out.println("ÑéÖ¤Âë£º"+object);
+//		System.out.println("éªŒè¯ç ï¼š"+object);
 //		System.out.println("verifyNo:"+verifyNo);
 		if(!verifyNo.equals(object)){
-			throw new RuntimeException("ÑéÖ¤Âë²»ÕıÈ·");
-			//System.out.println("ÑéÖ¤Âë²»ÕıÈ·£¡");
+			throw new RuntimeException("éªŒè¯ç ä¸æ­£ç¡®");
+			//System.out.println("éªŒè¯ç ä¸æ­£ç¡®ï¼");
 		}else{
-			//System.out.println("ÑéÖ¤Âëok£¡");
+			//System.out.println("éªŒè¯ç okï¼");
 			User user=userService.regist(name, phone, password, confirm, type);
 			return new JsonResult<User>(user);
 		}

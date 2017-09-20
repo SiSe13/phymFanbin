@@ -5,6 +5,6 @@ import java.util.List;
 import com.phym.entity.OutDoorScreen;
 
 public interface OutDoorScreenDao {
-	//»§Íâ´óÆÁ¼ìË÷
+	//æˆ·å¤–å¤§å±æ£€ç´¢
 	List<OutDoorScreen> findOutdoor(OutDoorScreen outDoorScreen);
 }

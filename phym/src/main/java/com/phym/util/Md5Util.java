@@ -13,16 +13,16 @@ import com.phym.exception.NoteException;
 
 public class Md5Util {
 		public static String md5(String src) {
-				try {
-					//将字符串信息采用MD5处理
-					MessageDigest md = MessageDigest.getInstance("MD5");
-					//MD5加密处理
-					byte[] output = md.digest(src.getBytes());
-					//Base64 处理
-					String ret = Base64.encodeBase64String(output);
-					return ret;
-				} catch (NoSuchAlgorithmException e) {
-					throw new NoteException("密码加密失败",e);
+			try {
+				//灏嗗瓧绗︿覆淇℃伅閲囩敤MD5澶勭悊
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				//MD5鍔犲瘑澶勭悊
+				byte[] output = md.digest(src.getBytes());
+				//Base64 澶勭悊
+				String ret = Base64.encodeBase64String(output);
+				return ret;
+			} catch (NoSuchAlgorithmException e) {
+				throw new NoteException("瀵嗙爜鍔犲瘑澶辫触",e);
 				}
 		}
 		

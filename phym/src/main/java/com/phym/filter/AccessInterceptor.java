@@ -14,17 +14,16 @@ public class AccessInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler)
 			throws Exception {
-		//À¹½ØÆ÷
-		//²éÑ¯sessionÖĞÊÇ·ñ±£´æÁËµÇÂ¼ÓÃ»§ĞÅÏ¢
-		//Èç¹ûÃ»ÓĞµÇÂ¼ ·µ»ØÒ»¸öJSON£¬°üº¬¡°ĞèÒªµÇÂ¼¡±ÏûÏ¢
-		//Èç¹ûÒÑ¾­µÇÂ¼£¬ÔòÍ¨¹ı ·µ»Ø true
+		//æ‹¦æˆªå™¨
+		//æŸ¥è¯¢sessionä¸­æ˜¯å¦ä¿å­˜äº†ç™»å½•ç”¨æˆ·ä¿¡æ¯
+		//å¦‚æœæ²¡æœ‰ç™»å½• è¿”å›ä¸€ä¸ªJSONï¼ŒåŒ…å«â€œéœ€è¦ç™»å½•â€æ¶ˆæ¯
+		//å¦‚æœå·²ç»ç™»å½•ï¼Œåˆ™é€šè¿‡ è¿”å› true
 		User user=(User)req.getSession().getAttribute("user");
 		
-		System.out.println("user:"+user);
+		//System.out.println("user:"+user);
 		
 		if(user==null){
-			String json=
-				"{\"state\":1,\"message\":\"ĞèÒªµÇÂ¼\"}";
+			String json="{\"state\":1,\"message\":\"éœ€è¦ç™»å½•\"}";
 			res.setContentType("text/html; charset=utf-8");
 			res.getWriter().print(json);
 			return false;

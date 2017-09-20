@@ -7,13 +7,13 @@ public class Message implements Serializable {
 
 	private static final long serialVersionUID = 6766668557050713493L;
 	
-	private String messageId;
-	private String userId;
-	private String title;
-	private String content;
-	private Timestamp time;
-	private int type;
-	private int state;
+	private String messageId;  //id
+	private String userId;		//用户id
+	private String title;		//消息头
+	private String content;		//消息内容
+	private Timestamp time;		//时间	
+	private int type;			//类型 0系统 1警告 2提示
+	private int state;			//状态 0未读 1已读
 	public Message() {
 		super();
 	}

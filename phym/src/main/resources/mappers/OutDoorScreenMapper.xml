@@ -29,7 +29,8 @@
 			outdoor_screen_createdDate as outdoorCreatedDate,
 			outdoor_screen_remark as outdoorRemark,
 			outdoor_screen_frequency as outdoorFrequency,
-			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod
+			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+			outdoor_screen_modifyDate as outdoorModifyDate
 		from
 			outdoor_screen_mediasource
 		<where>

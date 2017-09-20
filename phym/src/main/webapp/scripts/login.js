@@ -19,13 +19,14 @@ function userGGLogin(){
 		ok=false;
 		return;
 	}
-
+	
 	var url="user/login.do";
 	var data={"name":name,"password":password};
 	if(ok){
 		$.post(url,data,function(result){
 				if(result.state == SUCCESS){
-					window.location.href = "edit.html";
+					window.location.href = "index.html";
+					setCookie("userId",result.data.user_id);
 				}else{
 					$(".tishi").show().text(result.message);
 				}
@@ -52,7 +53,7 @@ function userMTLogin(){
 	if(ok){
 		$.post(url,data,function(result){
 				if(result.state == SUCCESS){
-					window.location.href = "log_in.html";
+					window.location.href = "edit.html";
 				}else{
 					$(".tishi").show().text(result.message);
 				}

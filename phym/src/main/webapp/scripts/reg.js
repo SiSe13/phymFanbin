@@ -82,6 +82,7 @@ function ButtonRegister(){
 //			console.log("result.message"+result.message);
 //			console.log("resultstate:"+result.state);
 			if(result.state==SUCCESS){
+				
 		    	if(!verifyCheck._click()) return;
 				$(".part2").hide();
 				$(".part3").show();

@@ -13,9 +13,8 @@ import com.phym.service.OutDoorScreenService;
 public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 	@Autowired
 	private OutDoorScreenDao outDoorScreenDao;
-	
 	/**
-	 * ¼ìË÷»§Íâ´óÆÁ
+	 * æ£€ç´¢æˆ·å¤–å¤§å±
 	 */
 	public List<OutDoorScreen> findOutdoor(OutDoorScreen outDoorScreen) {
 		List<OutDoorScreen> list=outDoorScreenDao.findOutdoor(outDoorScreen);

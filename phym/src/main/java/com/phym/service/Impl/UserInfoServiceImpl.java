@@ -20,32 +20,33 @@ public class UserInfoServiceImpl implements UserInfoService {
 			return false;
 		}
 		if(userInfo.getUserId()==null||userInfo.getUserId().trim().isEmpty()){
-			throw new UserInfoExitException("Id错误");
+			throw new UserInfoExitException("Id閿欒");
 		}
 		if(userInfo.getName().length()>20){
-			throw new UserInfoExitException("姓名过长");
+			throw new UserInfoExitException("濮撳悕杩囬暱");
 		}
 		if(userInfo.getTel().length()>15){
-			throw new UserInfoExitException("号码过长");
+			throw new UserInfoExitException("鍙风爜杩囬暱");
 		}
 		if(userInfo.getAddr().length()>100){
-			throw new UserInfoExitException("地址过长");
+			throw new UserInfoExitException("鍦板潃杩囬暱");
 		}
 		if(userInfo.getEmail()!=null){
 			if(userInfo.getEmail().length()>20){
-				throw new UserInfoExitException("地址过长");
+				throw new UserInfoExitException("鍦板潃杩囬暱");
 			}
 			String reg="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
 			if(!userInfo.getEmail().matches(reg)){
-				throw new UserInfoExitException("邮箱格式不对");
+				throw new UserInfoExitException("閭鏍煎紡涓嶅");
 			}
 		}
 		
 		if(userInfo.getCompany().length()>15){
-			throw new UserInfoExitException("公司名字过长");
+			throw new UserInfoExitException("鍏徃鍚嶅瓧杩囬暱");
 		}
-		
-		
+		if(userInfo.getHeadimg()!=null){
+			
+		}
 		
 		userInfo.setUpdateTime(new Timestamp(System.currentTimeMillis()));
 		int n=userinfodao.updateUserInfo(userInfo);

@@ -5,21 +5,21 @@ import org.apache.ibatis.annotations.Param;
 import com.phym.entity.User;
 
 public interface UserDao {
-	//´´½¨Ò»¸öÓÃ»§
-	 int saveUser(User user);
-	
-	//¸ù¾İÓÃ»§Ãû²é¿´ÓÃ»§
-	 User findUserByName(String name);
-	
-	//¸ù¾İÊÖ»úºÅ²éÑ¯ÓÃ»§
-	 User findUserByPhone(String phone);
-	 
-	 //¸ù¾İÊÖ»úºÅĞŞ¸ÄÃÜÂë
-	 int updatePassword(@Param("phone") String phone,@Param("password") String password);
-	 
-	 //²åÈëÍêÉÆ×ÊÁÏ±í
-	 int insertUserInfo(@Param("id") String id,@Param("userId") String userId);
-	 
-	 //¸ù¾İuserId ²éÑ¯ĞÅÏ¢
-	 User findUserById(String userId);
+	//åˆ›å»ºä¸€ä¸ªç”¨æˆ·
+		 int saveUser(User user);
+		
+		//æ ¹æ®ç”¨æˆ·åæŸ¥çœ‹ç”¨æˆ·
+		 User findUserByName(String name);
+		
+		//æ ¹æ®æ‰‹æœºå·æŸ¥è¯¢ç”¨æˆ·
+		 User findUserByPhone(String phone);
+		 
+		 //æ ¹æ®æ‰‹æœºå·ä¿®æ”¹å¯†ç 
+		 int updatePassword(@Param("phone") String phone,@Param("password") String password);
+		 
+		 //æ’å…¥å®Œå–„èµ„æ–™è¡¨
+		 int insertUserInfo(@Param("id") String id,@Param("userId") String userId);
+		 
+		 //æ ¹æ®userId æŸ¥è¯¢ä¿¡æ¯
+		 User findUserById(String userId);
 }

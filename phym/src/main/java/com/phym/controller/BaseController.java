@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.phym.util.JsonResult;
 
 /**
- * 把所有异常封装成一个抽象类
+ * 鎶婃墍鏈夊紓甯稿皝瑁呮垚涓�涓娊璞＄被
  * @author S_s
  *
  */

@@ -16,8 +16,6 @@ import com.phym.entity.User;
 public class LoginFilter implements Filter {
 
 	public void destroy() {
-		
-
 	}
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -25,39 +23,35 @@ public class LoginFilter implements Filter {
 		HttpServletRequest request =(HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
-		//¹ıÂËÆ÷
-		//1. »ñÈ¡µÇÂ¼ÓÃ»§ĞÅÏ¢
-		//2. Èç¹ûÃ»ÓĞµÇÂ¼ÓÃ»§ĞÅÏ¢£¬ÖØ¶¨Ïòµ½ log_in.html
+		//è¿‡æ»¤å™¨
+		//1. è·å–ç™»å½•ç”¨æˆ·ä¿¡æ¯
+		//2. å¦‚æœæ²¡æœ‰ç™»å½•ç”¨æˆ·ä¿¡æ¯ï¼Œé‡å®šå‘åˆ° log_in.html
 		String path = request.getRequestURI();
-		System.out.println("path£º"+path);
+		//System.out.println("pathï¼š"+path);
 		
-		if(path.endsWith("login.html") ||path.endsWith("password.html")||path.endsWith("register.html")){ 
-				//ÉèÖÃHTTPĞ­ÒéÍ·£¬±ÜÃâä¯ÀÀÆ÷»º´æhtmlÒ³Ãæ
-				response.addHeader("Cache-Control", "no-cache");
-				chain.doFilter(req, res);
-				return;
-			}
+		if(path.endsWith("login.html") ||path.endsWith("index.html")||path.endsWith("password.html")||path.endsWith("register.html")){ 
+			//è®¾ç½®HTTPåè®®å¤´ï¼Œé¿å…æµè§ˆå™¨ç¼“å­˜htmlé¡µé¢
+			response.addHeader("Cache-Control", "no-cache");
+			chain.doFilter(req, res);
+			return;
+		}
 		User user = (User)request.getSession().getAttribute("user");
 		if(user==null){
-			//Èç¹ûuserÎªnullÔò±íÊ¾Ã»ÓĞµÇÂ¼
-			//ÖØ¶¨Ïòµ½ log_in.html
-			//²ÉÓÃ¾ø¶ÔÂ·¾¶ÖØ¶¨Ïò£¡¿ÉÒÔ±ÜÃâ´íÎó
+			//å¦‚æœuserä¸ºnullåˆ™è¡¨ç¤ºæ²¡æœ‰ç™»å½•
+			//é‡å®šå‘åˆ° log_in.html
+			//é‡‡ç”¨ç»å¯¹è·¯å¾„é‡å®šå‘ï¼å¯ä»¥é¿å…é”™è¯¯
 			String login = 
-					request.getContextPath()+ 
-				"/login.html";
+					request.getContextPath()+ "/login.html";
 			// /note/log_in.html
 			response.sendRedirect(login);
 			return;
 		}
-		
-		
-		//ÉèÖÃHTTPĞ­ÒéÍ·£¬±ÜÃâä¯ÀÀÆ÷»º´æhtmlÒ³Ãæ
+		//è®¾ç½®HTTPåè®®å¤´ï¼Œé¿å…æµè§ˆå™¨ç¼“å­˜htmlé¡µé¢
 		response.addHeader("Cache-Control", "no-cache");
 		chain.doFilter(request, response);
 	}
 
 	public void init(FilterConfig arg0) throws ServletException {
-		
 
 	}
 

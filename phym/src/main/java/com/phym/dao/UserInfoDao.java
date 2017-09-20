@@ -4,6 +4,6 @@ import com.phym.entity.UserInfo;
 
 public interface UserInfoDao {
 	
-	//更新完善资料
+	//鏇存柊瀹屽杽璧勬枡
 	int updateUserInfo(UserInfo userInfo);
 }

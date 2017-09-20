@@ -7,17 +7,17 @@ public class UserInfo implements Serializable{
 	
 	private static final long serialVersionUID = -2992717532172736317L;
 	
-	private	String id;				//ÍêÉÆ±íId
-	private	String userId;			//ÓÃ»§Id
-	private	String name;			//ÕæÊµĞÕÃû
-	private	String tel;				//×ù»ú
-	private	String addr;			//µØÖ·
-	private	String email;			//ÓÊÏä
-	private	String company;			//¹«Ë¾Ãû³Æ
-	private	Timestamp updateTime;	//¸üĞÂÊ±¼ä
-	private	String headimg;			//Í·Ïñ
-	private	String agencyName;		//´úÀíÉÌÃû³Æ
-	private	int agencyNumber;		//´úÀíÉÌ±àºÅ
+	private	String id;				//å®Œå–„è¡¨Id
+	private	String userId;			//ç”¨æˆ·Id
+	private	String name;			//çœŸå®å§“å
+	private	String tel;				//åº§æœº
+	private	String addr;			//åœ°å€
+	private	String email;			//é‚®ç®±
+	private	String company;			//å…¬å¸åç§°
+	private	Timestamp updateTime;	//æ›´æ–°æ—¶é—´
+	private	String headimg;			//å¤´åƒ
+	private	String agencyName;		//ä»£ç†å•†åç§°
+	private	int agencyNumber;		//ä»£ç†å•†ç¼–å·
 	
 	public UserInfo() {
 		super();

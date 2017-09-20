@@ -7,28 +7,29 @@ public class OutDoorScreen implements Serializable {
 	private static final long serialVersionUID = -4500740317575311427L;
 	
 	private String outdoorId;//  id
-	private String outdoorName;// Ã½ÌåÃû³Æ
-	private String outdoorProvince;// Ê¡
-	private String outdoorCity;// ÊĞ
-	private String outdoorCountry;// Çø/ÏØ
-	private String outdoorAddress;//×ÊÔ´µØÖ·
-	private String outdoorMediasourceType;//Ã½ÌåÊôĞÔ£¨ºÏÔ¼/·ÇºÏÔ¼£©
-	private String outdoorScreenType;//ÆÁÄ»ÀàĞÍ £¨¿ç½Ö£¬ºáÆÁ£¬ÊúÆÁ£©
-	private String outdoorScreenSize;//ÆÁÄ»³ß´ç
-	private String outdoorLength;//·Ö±æÂÊ ³¤
-	private String outdoorHeight;//·Ö±æÂÊ ¸ß
-	private String outdoorPlayStartTime;//²¥·ÅÊ±¼ä¿ªÊ¼
-	private String outdoorPlayEndTime;//²¥·ÅÊ±¼ä½áÊø
-	private String outdoorUserName;//ËùÓĞÕß £¨Ã½ÌåÖ÷Ãû£©
-	private int outdoorStatus;//×´Ì¬ £¨Õı³££©
-	private int outdoorCheckStatus;// ÉóºË×´Ì¬£¨Î´Í¨¹ı£¬Í¨¹ı£¬¾Ü¾ø£©
-	private String outdoorPhotoPath;//ÕÕÆ¬
-	private String outdoorSuperiority;//ÓÅÊÆ
-	private String outdoorAptitude;//×ÊÖÊÎÄ¼ş
-	private Timestamp outdoorCreatedDate;//´´½¨Ê±¼ä
-	private String outdoorRemark;//±¸×¢
-	private String outdoorFrequency;//Æµ´Î
-	private String outdoorPlaybackPeriod;//²¥·ÅÖÜÆÚ
+	private String outdoorName;// åª’ä½“åç§°
+	private String outdoorProvince;// çœ
+	private String outdoorCity;// å¸‚
+	private String outdoorCountry;// åŒº/å¿
+	private String outdoorAddress;//èµ„æºåœ°å€
+	private String outdoorMediasourceType;//åª’ä½“å±æ€§ï¼ˆåˆçº¦/éåˆçº¦ï¼‰
+	private String outdoorScreenType;//å±å¹•ç±»å‹ ï¼ˆè·¨è¡—ï¼Œæ¨ªå±ï¼Œç«–å±ï¼‰
+	private String outdoorScreenSize;//å±å¹•å°ºå¯¸
+	private String outdoorLength;//åˆ†è¾¨ç‡ é•¿
+	private String outdoorHeight;//åˆ†è¾¨ç‡ é«˜
+	private String outdoorPlayStartTime;//æ’­æ”¾æ—¶é—´å¼€å§‹
+	private String outdoorPlayEndTime;//æ’­æ”¾æ—¶é—´ç»“æŸ
+	private String outdoorUserName;//æ‰€æœ‰è€… ï¼ˆåª’ä½“ä¸»åï¼‰
+	private int outdoorStatus;//çŠ¶æ€ ï¼ˆæ­£å¸¸ï¼‰
+	private int outdoorCheckStatus;// å®¡æ ¸çŠ¶æ€ï¼ˆæœªé€šè¿‡ï¼Œé€šè¿‡ï¼Œæ‹’ç»ï¼‰
+	private String outdoorPhotoPath;//ç…§ç‰‡
+	private String outdoorSuperiority;//ä¼˜åŠ¿
+	private String outdoorAptitude;//èµ„è´¨æ–‡ä»¶
+	private Timestamp outdoorCreatedDate;//åˆ›å»ºæ—¶é—´
+	private String outdoorRemark;//å¤‡æ³¨
+	private String outdoorFrequency;//é¢‘æ¬¡
+	private String outdoorPlaybackPeriod;//æ’­æ”¾å‘¨æœŸ
+	private Timestamp outdoorModifyDate; //æ›´æ–°æ—¶é—´
 	
 	public OutDoorScreen() {
 		super();
@@ -39,7 +40,7 @@ public class OutDoorScreen implements Serializable {
 			String outdoorScreenSize, String outdoorLength, String outdoorHeight, String outdoorPlayStartTime,
 			String outdoorPlayEndTime, String outdoorUserName, int outdoorStatus, int outdoorCheckStatus,
 			String outdoorPhotoPath, String outdoorSuperiority, String outdoorAptitude, Timestamp outdoorCreatedDate,
-			String outdoorRemark, String outdoorFrequency, String outdoorPlaybackPeriod) {
+			String outdoorRemark, String outdoorFrequency, String outdoorPlaybackPeriod, Timestamp outdoorModifyDate) {
 		super();
 		this.outdoorId = outdoorId;
 		this.outdoorName = outdoorName;
@@ -64,6 +65,7 @@ public class OutDoorScreen implements Serializable {
 		this.outdoorRemark = outdoorRemark;
 		this.outdoorFrequency = outdoorFrequency;
 		this.outdoorPlaybackPeriod = outdoorPlaybackPeriod;
+		this.outdoorModifyDate = outdoorModifyDate;
 	}
 
 	public String getOutdoorId() {
@@ -78,8 +80,8 @@ public class OutDoorScreen implements Serializable {
 		return outdoorName;
 	}
 
-	public void setOutdoorName(String outdoorNname) {
-		this.outdoorName = outdoorNname;
+	public void setOutdoorName(String outdoorName) {
+		this.outdoorName = outdoorName;
 	}
 
 	public String getOutdoorProvince() {
@@ -250,6 +252,14 @@ public class OutDoorScreen implements Serializable {
 		this.outdoorPlaybackPeriod = outdoorPlaybackPeriod;
 	}
 
+	public Timestamp getOutdoorModifyDate() {
+		return outdoorModifyDate;
+	}
+
+	public void setOutdoorModifyDate(Timestamp outdoorModifyDate) {
+		this.outdoorModifyDate = outdoorModifyDate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -265,6 +275,7 @@ public class OutDoorScreen implements Serializable {
 		result = prime * result + ((outdoorId == null) ? 0 : outdoorId.hashCode());
 		result = prime * result + ((outdoorLength == null) ? 0 : outdoorLength.hashCode());
 		result = prime * result + ((outdoorMediasourceType == null) ? 0 : outdoorMediasourceType.hashCode());
+		result = prime * result + ((outdoorModifyDate == null) ? 0 : outdoorModifyDate.hashCode());
 		result = prime * result + ((outdoorName == null) ? 0 : outdoorName.hashCode());
 		result = prime * result + ((outdoorPhotoPath == null) ? 0 : outdoorPhotoPath.hashCode());
 		result = prime * result + ((outdoorPlayEndTime == null) ? 0 : outdoorPlayEndTime.hashCode());
@@ -341,6 +352,11 @@ public class OutDoorScreen implements Serializable {
 				return false;
 		} else if (!outdoorMediasourceType.equals(other.outdoorMediasourceType))
 			return false;
+		if (outdoorModifyDate == null) {
+			if (other.outdoorModifyDate != null)
+				return false;
+		} else if (!outdoorModifyDate.equals(other.outdoorModifyDate))
+			return false;
 		if (outdoorName == null) {
 			if (other.outdoorName != null)
 				return false;
@@ -403,7 +419,7 @@ public class OutDoorScreen implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Outdoor_Screen [outdoorId=" + outdoorId + ", outdoorName=" + outdoorName + ", outdoorProvince="
+		return "OutDoorScreen [outdoorId=" + outdoorId + ", outdoorName=" + outdoorName + ", outdoorProvince="
 				+ outdoorProvince + ", outdoorCity=" + outdoorCity + ", outdoorCountry=" + outdoorCountry
 				+ ", outdoorAddress=" + outdoorAddress + ", outdoorMediasourceType=" + outdoorMediasourceType
 				+ ", outdoorScreenType=" + outdoorScreenType + ", outdoorScreenSize=" + outdoorScreenSize
@@ -413,6 +429,6 @@ public class OutDoorScreen implements Serializable {
 				+ ", outdoorPhotoPath=" + outdoorPhotoPath + ", outdoorSuperiority=" + outdoorSuperiority
 				+ ", outdoorAptitude=" + outdoorAptitude + ", outdoorCreatedDate=" + outdoorCreatedDate
 				+ ", outdoorRemark=" + outdoorRemark + ", outdoorFrequency=" + outdoorFrequency
-				+ ", outdoorPlaybackPeriod=" + outdoorPlaybackPeriod + "]";
+				+ ", outdoorPlaybackPeriod=" + outdoorPlaybackPeriod + ", outdoorModifyDate=" + outdoorModifyDate + "]";
 	}
 }

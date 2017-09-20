@@ -27,11 +27,14 @@
 	<!-- 配置Spring MVC的拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/user/*.do"/>
-			
-			<mvc:exclude-mapping path="/user/login.do"/>
-			<mvc:exclude-mapping path="/user/authcode.do"/>
-			
+			<mvc:mapping path="*/*.do"/>
+			<mvc:exclude-mapping path="user/login.do"/>
+			<mvc:exclude-mapping path="user/authcode.do"/>
+			<mvc:exclude-mapping path="user/register.do"/>
+			<mvc:exclude-mapping path="user/changephone.do"/>
+			<mvc:exclude-mapping path="user/checkphone.do"/>
+			<mvc:exclude-mapping path="user/checkname.do"/>
+			<mvc:exclude-mapping path="user/phone.do"/>
 			<!-- ref 引用Bean 的 ID -->
 			<ref bean="accessInterceptor"/>
 		</mvc:interceptor>

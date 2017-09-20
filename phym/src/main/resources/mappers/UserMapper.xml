@@ -34,7 +34,9 @@
  				user_create_time,
  				user_update_time,
  				user_Phone_num,
- 				user_lastlog_time
+ 				user_lastlog_time,
+ 				user_level,
+ 				user_demo
  			from
  				user
  			where
@@ -51,7 +53,9 @@
  				user_create_time,
  				user_update_time,
  				user_Phone_num,
- 				user_lastlog_time
+ 				user_lastlog_time,
+ 				user_level,
+ 				user_demo
  			from
  				user
  			where
@@ -85,7 +89,9 @@
  				user_create_time,
  				user_update_time,
  				user_Phone_num,
- 				user_lastlog_time
+ 				user_lastlog_time,
+ 				user_level,
+ 				user_demo
  			from
  				user
  			where
