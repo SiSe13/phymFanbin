@@ -18,8 +18,9 @@ public class UserServiceTest extends BaseTest {
 	
 	@Test
 	public void TestRegist(){
-		User user =us.regist("µÈ¹şÊ¥gfk", "13332602514", "123", "123",1);
+		User user =us.regist("dfek", "13332602514", "123", "123",1);
 		System.out.println(user);
 	}
+	
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.PageHelperDao">
+	<select id="selectoutdoorName" parameterType="String" resultMap="BaseResultMap">
+		SELECT 
+			outdoor_screen_id as outdoorId,
+			outdoor_screen_name as outdoorName,
+			outdoor_screen_province as outdoorProvince,
+			outdoor_screen_city as outdoorCity,
+			outdoor_screen_country as outdoorCountry,
+			outdoor_screen_address as outdoorAddress,
+			outdoor_screen_mediasourceType as outdoorMediasourceType,
+			outdoor_screen_screenType as outdoorScreenType,
+			outdoor_screen_screenSize as outdoorScreenSize,
+			outdoor_screen_resolutionRatio_length as outdoorLength,
+			outdoor_screen_resolutionRatio_height as outdoorHeight,
+			outdoor_screen_playStartTime as outdoorPlayStartTime,
+			outdoor_screen_playEndTime as outdoorPlayEndTime,
+			outdoor_screen_userName as outdoorUserName,
+			outdoor_screen_unitPrice as outdoorUnitPrice,
+			outdoor_screen_status as outdoorStatus,
+			outdoor_screen_photoPath as outdoorPhotoPath,
+			outdoor_screen_superiority as outdoorSuperiority,
+			outdoor_screen_aptitude as outdoorAptitude,
+			outdoor_screen_createdDate as outdoorCreatedDate,
+			outdoor_screen_remark as outdoorRemark,
+			outdoor_screen_frequency as outdoorFrequency,
+			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+			outdoor_screen_modifyDate as outdoorModifyDate
+		FROM 
+			outdoor_screen_mediasource
+		WHERE 1 = 1
+		<if test="outdoorName != null and outdoorName !=''">
+		    AND 
+		    outdoor_screen_name = #{outdoorName}
+		</if>
+		ORDER BY  
+			outdoor_screen_createdDate desc
+	</select>
+ </mapper>

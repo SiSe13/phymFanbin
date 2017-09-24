@@ -29,7 +29,7 @@ public class LoginFilter implements Filter {
 		String path = request.getRequestURI();
 		//System.out.println("path："+path);
 		
-		if(path.endsWith("login.html") ||path.endsWith("index.html")||path.endsWith("password.html")||path.endsWith("register.html")){ 
+		if(path.endsWith("login.html") || path.endsWith("index.html")||path.endsWith("password.html")||path.endsWith("register.html")){ 
 			//设置HTTP协议头，避免浏览器缓存html页面
 			response.addHeader("Cache-Control", "no-cache");
 			chain.doFilter(req, res);

@@ -48,8 +48,9 @@ public class UserController extends BaseController{
 		}
 		return new JsonResult<User>(user);
 	}
-	@RequestMapping("/heartbeat.do")
+	
 	//心跳检测控制器方法，目的保持session的新鲜
+	@RequestMapping("/heartbeat.do")
 	public JsonResult<String> heartbeat(){
 		//System.out.println("OK"); 
 		return new JsonResult<String>("OK");
@@ -102,7 +103,6 @@ public class UserController extends BaseController{
 		User user=userService.changePhone(phone);
 		return new JsonResult<User>(user);
 	}
-	
 	
 	/**
 	 * 发送验证码

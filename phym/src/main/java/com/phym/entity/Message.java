@@ -3,6 +3,11 @@ package com.phym.entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+/**
+ * 消息表
+ * @author S_s
+ *
+ */
 public class Message implements Serializable {
 
 	private static final long serialVersionUID = 6766668557050713493L;

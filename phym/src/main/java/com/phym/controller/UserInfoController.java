@@ -10,7 +10,7 @@ import com.phym.util.JsonResult;
 
 @RestController
 @RequestMapping("info")
-public class UserInfoController {
+public class UserInfoController extends BaseController{
 	
 	@Autowired
 	private UserInfoService userInfoService;

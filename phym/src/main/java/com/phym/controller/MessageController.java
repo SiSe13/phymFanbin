@@ -10,7 +10,7 @@ import com.phym.util.JsonResult;
 
 @RestController
 @RequestMapping("message")
-public class MessageController {
+public class MessageController extends BaseController {
 	
 	@Autowired
 	private MessageService messageService;

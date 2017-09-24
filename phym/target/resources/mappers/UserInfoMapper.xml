@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.UserInfoDao">
+ 	<update id="updateUserInfo"
+		parameterType="com.phym.entity.UserInfo">
+		update 
+			user_info
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id!=null">
+					user_info_id=#{id},
+				</if>
+				<if test="name!=null">
+					user_info_name=#{name},
+				</if>
+				<if test="tel!=null">
+					user_info_tel=#{tel},
+				</if>
+				<if test="addr!=null">
+					user_info_addr=#{addr},
+				</if>
+				<if test="email!=null">
+					user_info_email=#{email},
+				</if>		
+				<if test="company!=null">
+					user_info_company=#{company},
+				</if>
+				<if test="updateTime!=null">
+					user_info_updateTime=#{updateTime},
+				</if>
+				<if test="headimg!=null">
+					user_info_headimg=#{headimg}
+				</if>
+			</trim>
+		</set>
+		<where>
+			user_id=#{userId}
+		</where>
+	</update>
+ </mapper>

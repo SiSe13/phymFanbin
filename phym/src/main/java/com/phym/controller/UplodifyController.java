@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
  */
 @RestController
 @RequestMapping("upload")
-public class  UplodifyController{
+public class  UplodifyController extends BaseController{
 
   @PostMapping("/one.do")
   public String uploadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -24,8 +24,7 @@
 	<util:properties id="db" 
 		location="classpath:conf/db.properties"/> 
 	<!-- 配置数据库连接池dbcp -->
-	<bean id="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="#{db.driver}"/>
 		<property name="url" value="#{db.url}"/>
 		<property name="username" value="#{db.username}"/>
@@ -35,12 +34,9 @@
 	<!-- 配置MyBatis SqlSessionFactory -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource"
-			ref="dataSource"/>
+		<property name="dataSource" ref="dataSource"/>
 		
-		<property name="mapperLocations"
-			value="classpath:mappers/*.xml"/>
-			
+		<property name="mapperLocations" value="classpath:mappers/*.xml"/>
 	</bean>
 	
 	<!-- Mapper 接口扫描器 -->

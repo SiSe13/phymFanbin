@@ -1,0 +1,589 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="assets/css/amazeui.min.css" />
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <!-- 地区 -->
+    <link rel="stylesheet" href="assets/css/jquery.inputbox.css">
+    <style>
+            .nav{width:200px;height:20px;margin:20px auto;}
+            .nav p{display:block;padding-left:10px;line-height:30px;border:1px solid #CCC;}
+            .new{width:198px;position:absolute;border:1px solid #CCC;display:none;}
+            .nav ul li{line-height:30px;padding-left:10px;}
+            .nav ul li:hover{background:#CCC;color:#FFF;}
+            .mark{background: url("assets/img/mark1.png") no-repeat -1px -1px;
+}
+
+    </style>
+</head>
+
+<body data-type="index">
+
+<!-- top开始 -->
+<header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <a href="javascript:;" class="tpl-logo">
+                <img src="assets/img/logo.png" alt="">
+            </a>
+        </div>
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                    </a>
+                    <ul class="am-dropdown-content tpl-dropdown-content">
+                        <li class="tpl-dropdown-content-external">
+                            <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="###">全部</a></li>
+                        <li>
+                            <a href="#" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                      <img src="assets/img/user02.png" alt=""> </span>
+                                <span class="tpl-dropdown-content-subject">
+                      <span class="tpl-dropdown-content-from"> 禁言小张 </span>
+                                <span class="tpl-dropdown-content-time">10分钟前 </span>
+                                </span>
+                                <span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+                            </a>
+                            <a href="#" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                      <img src="assets/img/user03.png" alt=""> </span>
+                                <span class="tpl-dropdown-content-subject">
+                      <span class="tpl-dropdown-content-from"> Steam </span>
+                                <span class="tpl-dropdown-content-time">18分钟前</span>
+                                </span>
+                                <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+                        <li><a href="change-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+</header>
+<!-- top结束 -->
+<!-- content开始 -->
+<div class="tpl-page-container tpl-page-header-fixed">
+
+    <!-- 侧导航开始 -->
+     <div class="tpl-left-nav tpl-left-nav-hover">
+            <div class="tpl-left-nav-title" style="height:20px;">
+                
+            </div>
+            <div class="tpl-left-nav-list">
+                <ul class="tpl-left-nav-menu">
+                    <li class="tpl-left-nav-item">
+                        <a href="index.html" class="nav-link ">
+                            <i class="am-icon-home"></i>
+                            <span>首页</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <!-- 打开状态 a 标签添加 active 即可   -->
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list active">
+                            <i class="am-icon-table"></i>
+                            <span>媒体信息</span>
+                            <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu" style="display:block">
+                            <li>
+                                <!-- 打开状态 a 标签添加 active 即可   -->
+                                <a href="outdoors-resources.html" >
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>户外大屏</span>
+                                   <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                                </a>
+
+                                <a href="bus-resources.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>公交车后视屏</span>
+                                </a>
+  
+
+                                    <a href="text-resources.html" >
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>出租车后视屏</span>
+                                    </a>
+
+
+                                        <a href="tv-resources.html" class="active">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>楼宇电视</span>
+
+                                        </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="order.html" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>订单</span>
+                        </a>
+                    </li>
+                    <li class="tpl-left-nav-item">
+                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-table"></i>
+                            <span>财务</span>
+                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                        </a>
+                        <ul class="tpl-left-nav-sub-menu">
+                            <li>
+                                <a href="recharge.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>充值</span>
+                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                                </a>
+
+                                <a href="withdrawals.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>提现</span>
+                                    <i class="tpl-left-nav-content tpl-badge-success">
+               18
+             </i>
+
+                                    <a href="transact.html">
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>交易明细</span>
+                                        <i class="tpl-left-nav-content tpl-badge-primary">
+               5
+             </i>
+
+
+                                        <a href="form-news-list.html">
+                                            <i class="am-icon-angle-right"></i>
+                                            <span>银行卡绑定</span>
+
+                                        </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    </div>
+    <!-- 侧导航结束 -->
+
+    <!-- 内容开始 -->
+    <div class="tpl-content-wrapper">
+
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                    </div>
+                    <div class="tpl-portlet-input tpl-fz-ml">
+                        <div class="portlet-input input-small input-inline">
+                            <div class="input-icon right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tpl-block">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-4" style="height: 32px !important;">
+                            <div class="am-btn-toolbar" style="height: 32px !important;">
+                            <div id="test1" style="height: 32px !important;" >
+
+                                <input type="hidden" class="province" value="010000"/>
+
+                                <input type="hidden" class="city" value="010100"/>
+
+                                <input type="hidden" class="area" value="010101"/>
+
+                                <div name="province" type="selectbox" style="z-index:2;height: 32px"><div class="opts"></div></div>
+
+                                <div name="city" type="selectbox" style="z-index:2;height: 32px !important;"><div class="opts"></div></div>
+
+                                <div name="area" type="selectbox" style="z-index:2;height: 32px !important;"><div class="opts"></div></div>
+
+                            </div>
+
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-btn-group am-btn-group-xs">
+                                <div class="am-btn-toolbar" style="margin-left: 20px;">
+                                <div class="am-btn-group am-btn-group-xs">
+                                        <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                                            <option value="option1">播放频次</option>
+                                                            <option value="option2">IT业界</option>
+                                                            <option value="option3">数码产品</option>
+                                                            <option value="option3">笔记本电脑</option>
+                                                            <option value="option3">平板电脑</option>
+                                                            <option value="option3">只能手机</option>
+                                                            <option value="option3">超极本</option>
+                                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-form-group">
+                                <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                                            <option value="option1">投放类型</option>
+                                                            <option value="option1">合约式投放</option>
+                                                            <option value="option2">非合约式投放</option>
+                                                            </select>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-12 am-u-md-2">
+                            <div class="am-input-group am-input-group-sm" style="margin-left:-60px;margin-top: 4px;">
+                            <input type="button" style="width: 80px;height: 30px; background-color: #5b9bd1;" value="搜索">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="am-g">
+                        <div class="am-u-sm-12">
+                            <form class="am-form">
+                                <table class="am-table am-table-striped am-table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-check">
+                                                <input type="checkbox" class="tpl-table-fz-check">
+
+                                            </th>
+                                            <th class="table-id">ID</th>
+                                            <th class="table-title">地址</th>
+                                            <th class="table-type">屏幕类型</th>
+                                            <th class="table-author am-hide-sm-only">频次</th>
+                                            <th class="table-date am-hide-sm-only">修改日期</th>
+                                            <th class="table-set">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>1</td>
+                                            <td><a href="#">河北省石家庄市长安区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>2</td>
+                                            <td><a href="#">河北省石家庄市桥东区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>3</td>
+                                            <td><a href="#">河北省石家庄市桥东区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>4</td>
+                                            <td><a href="#">河北省石家庄市桥东区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>5</td>
+                                            <td><a href="#">河北省石家庄市桥西区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>6</td>
+                                            <td><a href="#">河北省秦皇岛市海港区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>7</td>
+                                            <td><a href="#">河北省秦皇岛市北戴河区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>8</td>
+                                            <td><a href="#">河北省秦皇岛市山海关区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                    <div class="am-cf">
+                                     <div class="tpl-alert" style="width:30%;position: absolute;left: 30%">
+                                       <a href="order.html" style="padding:10px 30px;background-color:#337ab7;border:2px solid #337ab7;border-radius: 5px; color: #000;font-size:18px;" >加入订单</a>
+                                    </div>
+                                </div>
+
+                                    <div class="am-fr pagination" id="pagination">
+                                        <ul class="am-pagination tpl-pagination pagination">
+                                            <li class="am-disabled"><a href="#">«</a></li>
+                                            <li class="am-active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 内容结束 -->
+
+</div>
+<!-- content结束 -->
+<!-- footer开始 -->
+   <div class="footer" style="width: 100%;height: 10%;position: relative;">
+            <p style="position: absolute;left: 45%;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备xxxxx号</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p style="position: absolute;left: 38%;top:10%">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
+</div>
+<!-- footer结束 -->
+    <script src="assets/js/jquery-1.12.3.min.js"></script>
+    <script src="assets/js/amazeui.min.js"></script>
+    <script src="assets/js/iscroll.js"></script>
+    <script src="assets/js/app.js"></script>
+   <!--  全选 -->
+    <script src="assets/js/common.js"></script>
+     <!-- 地区 -->      
+    <script src="assets/js/jquery.ganged.js"></script>
+    <script src="assets/js/jquery.inputbox.js"></script>
+    <script src="assets/js/resources.js"></script>
+    <script>
+    var pageSize =8;     //每页显示多少条记录
+    var total;           //总共多少记录
+    $(function() {
+    Init(0); //注意参数，初始页面默认传到后台的参数，第一页是0;    
+        $("#Pagination").pagination(total, {   //total不能少        
+             callback: PageCallback,            
+             prev_text: '上一页',             
+             next_text: '下一页',              
+             items_per_page: pageSize,              
+             num_display_entries: 4,        //连续分页主体部分显示的分页条目数
+             num_edge_entries: 1,           //两侧显示的首尾分页的条目数 
+         });             
+        function PageCallback(index, jq) {     //前一个表示您当前点击的那个分页的页数索引值，后一个参数表示装载容器。  
+             Init(index);      
+        }
+    });
+ 
+ function Init(pageIndex){      //这个参数就是点击的那个分页的页数索引值，第一页为0，上面提到了，下面这部分就是AJAX传值了。
+     $.ajax({
+        async: false,
+        type: "post",
+      url:"aa.java"
+      dataType: "json",
+      success: function (data) {
+            $(".tpl-portlet-components").empty();
+/*             total = data.total; */
+            var array = data.rows;
+            for(var i=0;i<array.length;i++){
+                var info=array[i];
+                
+                if(info.refPic != null){
+                $(".tpl-portlet-components").append(' <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>+ID</td>
+                                            <td><a href="#">+address+</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>') 
+                }else{
+                $(".neirong").append(' <tr>
+                                            <td><input type="checkbox" class="cartBox"></td>
+                                            <td>2</td>
+                                            <td><a href="#">河北省石家庄市桥东区</a></td>
+                                            <td>default</td>
+                                            <td class="am-hide-sm-only">测试1号</td>
+                                            <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                                            <td>
+                                                <div class="am-btn-toolbar">
+                                                    <div class="am-btn-group am-btn-group-xs">
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                        <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>');
+                };
+         }       
+      },
+      error: function () {
+          alert("请求超时，请重试！");
+      }
+    });  
+};
+
+//改变内容
+$(function(){
+    $("#").change(function(){
+
+});
+})
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

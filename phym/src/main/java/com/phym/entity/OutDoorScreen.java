@@ -3,6 +3,11 @@ package com.phym.entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+/**
+ * 户外大屏表
+ * @author S_s
+ *
+ */
 public class OutDoorScreen implements Serializable {
 	private static final long serialVersionUID = -4500740317575311427L;
 	
@@ -20,6 +25,7 @@ public class OutDoorScreen implements Serializable {
 	private String outdoorPlayStartTime;//播放时间开始
 	private String outdoorPlayEndTime;//播放时间结束
 	private String outdoorUserName;//所有者 （媒体主名）
+	private String outdoorUnitPrice; //单价
 	private int outdoorStatus;//状态 （正常）
 	private int outdoorCheckStatus;// 审核状态（未通过，通过，拒绝）
 	private String outdoorPhotoPath;//照片
@@ -30,17 +36,17 @@ public class OutDoorScreen implements Serializable {
 	private String outdoorFrequency;//频次
 	private String outdoorPlaybackPeriod;//播放周期
 	private Timestamp outdoorModifyDate; //更新时间
-	
 	public OutDoorScreen() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-
 	public OutDoorScreen(String outdoorId, String outdoorName, String outdoorProvince, String outdoorCity,
 			String outdoorCountry, String outdoorAddress, String outdoorMediasourceType, String outdoorScreenType,
 			String outdoorScreenSize, String outdoorLength, String outdoorHeight, String outdoorPlayStartTime,
-			String outdoorPlayEndTime, String outdoorUserName, int outdoorStatus, int outdoorCheckStatus,
-			String outdoorPhotoPath, String outdoorSuperiority, String outdoorAptitude, Timestamp outdoorCreatedDate,
-			String outdoorRemark, String outdoorFrequency, String outdoorPlaybackPeriod, Timestamp outdoorModifyDate) {
+			String outdoorPlayEndTime, String outdoorUserName, String outdoorUnitPrice, int outdoorStatus,
+			int outdoorCheckStatus, String outdoorPhotoPath, String outdoorSuperiority, String outdoorAptitude,
+			Timestamp outdoorCreatedDate, String outdoorRemark, String outdoorFrequency, String outdoorPlaybackPeriod,
+			Timestamp outdoorModifyDate) {
 		super();
 		this.outdoorId = outdoorId;
 		this.outdoorName = outdoorName;
@@ -56,6 +62,7 @@ public class OutDoorScreen implements Serializable {
 		this.outdoorPlayStartTime = outdoorPlayStartTime;
 		this.outdoorPlayEndTime = outdoorPlayEndTime;
 		this.outdoorUserName = outdoorUserName;
+		this.outdoorUnitPrice = outdoorUnitPrice;
 		this.outdoorStatus = outdoorStatus;
 		this.outdoorCheckStatus = outdoorCheckStatus;
 		this.outdoorPhotoPath = outdoorPhotoPath;
@@ -67,199 +74,156 @@ public class OutDoorScreen implements Serializable {
 		this.outdoorPlaybackPeriod = outdoorPlaybackPeriod;
 		this.outdoorModifyDate = outdoorModifyDate;
 	}
-
 	public String getOutdoorId() {
 		return outdoorId;
 	}
-
 	public void setOutdoorId(String outdoorId) {
 		this.outdoorId = outdoorId;
 	}
-
 	public String getOutdoorName() {
 		return outdoorName;
 	}
-
 	public void setOutdoorName(String outdoorName) {
 		this.outdoorName = outdoorName;
 	}
-
 	public String getOutdoorProvince() {
 		return outdoorProvince;
 	}
-
 	public void setOutdoorProvince(String outdoorProvince) {
 		this.outdoorProvince = outdoorProvince;
 	}
-
 	public String getOutdoorCity() {
 		return outdoorCity;
 	}
-
 	public void setOutdoorCity(String outdoorCity) {
 		this.outdoorCity = outdoorCity;
 	}
-
 	public String getOutdoorCountry() {
 		return outdoorCountry;
 	}
-
 	public void setOutdoorCountry(String outdoorCountry) {
 		this.outdoorCountry = outdoorCountry;
 	}
-
 	public String getOutdoorAddress() {
 		return outdoorAddress;
 	}
-
 	public void setOutdoorAddress(String outdoorAddress) {
 		this.outdoorAddress = outdoorAddress;
 	}
-
 	public String getOutdoorMediasourceType() {
 		return outdoorMediasourceType;
 	}
-
 	public void setOutdoorMediasourceType(String outdoorMediasourceType) {
 		this.outdoorMediasourceType = outdoorMediasourceType;
 	}
-
 	public String getOutdoorScreenType() {
 		return outdoorScreenType;
 	}
-
 	public void setOutdoorScreenType(String outdoorScreenType) {
 		this.outdoorScreenType = outdoorScreenType;
 	}
-
 	public String getOutdoorScreenSize() {
 		return outdoorScreenSize;
 	}
-
 	public void setOutdoorScreenSize(String outdoorScreenSize) {
 		this.outdoorScreenSize = outdoorScreenSize;
 	}
-
 	public String getOutdoorLength() {
 		return outdoorLength;
 	}
-
 	public void setOutdoorLength(String outdoorLength) {
 		this.outdoorLength = outdoorLength;
 	}
-
 	public String getOutdoorHeight() {
 		return outdoorHeight;
 	}
-
 	public void setOutdoorHeight(String outdoorHeight) {
 		this.outdoorHeight = outdoorHeight;
 	}
-
 	public String getOutdoorPlayStartTime() {
 		return outdoorPlayStartTime;
 	}
-
 	public void setOutdoorPlayStartTime(String outdoorPlayStartTime) {
 		this.outdoorPlayStartTime = outdoorPlayStartTime;
 	}
-
 	public String getOutdoorPlayEndTime() {
 		return outdoorPlayEndTime;
 	}
-
 	public void setOutdoorPlayEndTime(String outdoorPlayEndTime) {
 		this.outdoorPlayEndTime = outdoorPlayEndTime;
 	}
-
 	public String getOutdoorUserName() {
 		return outdoorUserName;
 	}
-
 	public void setOutdoorUserName(String outdoorUserName) {
 		this.outdoorUserName = outdoorUserName;
 	}
-
+	public String getOutdoorUnitPrice() {
+		return outdoorUnitPrice;
+	}
+	public void setOutdoorUnitPrice(String outdoorUnitPrice) {
+		this.outdoorUnitPrice = outdoorUnitPrice;
+	}
 	public int getOutdoorStatus() {
 		return outdoorStatus;
 	}
-
 	public void setOutdoorStatus(int outdoorStatus) {
 		this.outdoorStatus = outdoorStatus;
 	}
-
 	public int getOutdoorCheckStatus() {
 		return outdoorCheckStatus;
 	}
-
 	public void setOutdoorCheckStatus(int outdoorCheckStatus) {
 		this.outdoorCheckStatus = outdoorCheckStatus;
 	}
-
 	public String getOutdoorPhotoPath() {
 		return outdoorPhotoPath;
 	}
-
 	public void setOutdoorPhotoPath(String outdoorPhotoPath) {
 		this.outdoorPhotoPath = outdoorPhotoPath;
 	}
-
 	public String getOutdoorSuperiority() {
 		return outdoorSuperiority;
 	}
-
 	public void setOutdoorSuperiority(String outdoorSuperiority) {
 		this.outdoorSuperiority = outdoorSuperiority;
 	}
-
 	public String getOutdoorAptitude() {
 		return outdoorAptitude;
 	}
-
 	public void setOutdoorAptitude(String outdoorAptitude) {
 		this.outdoorAptitude = outdoorAptitude;
 	}
-
 	public Timestamp getOutdoorCreatedDate() {
 		return outdoorCreatedDate;
 	}
-
 	public void setOutdoorCreatedDate(Timestamp outdoorCreatedDate) {
 		this.outdoorCreatedDate = outdoorCreatedDate;
 	}
-
 	public String getOutdoorRemark() {
 		return outdoorRemark;
 	}
-
 	public void setOutdoorRemark(String outdoorRemark) {
 		this.outdoorRemark = outdoorRemark;
 	}
-
 	public String getOutdoorFrequency() {
 		return outdoorFrequency;
 	}
-
 	public void setOutdoorFrequency(String outdoorFrequency) {
 		this.outdoorFrequency = outdoorFrequency;
 	}
-
 	public String getOutdoorPlaybackPeriod() {
 		return outdoorPlaybackPeriod;
 	}
-
 	public void setOutdoorPlaybackPeriod(String outdoorPlaybackPeriod) {
 		this.outdoorPlaybackPeriod = outdoorPlaybackPeriod;
 	}
-
 	public Timestamp getOutdoorModifyDate() {
 		return outdoorModifyDate;
 	}
-
 	public void setOutdoorModifyDate(Timestamp outdoorModifyDate) {
 		this.outdoorModifyDate = outdoorModifyDate;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -287,10 +251,10 @@ public class OutDoorScreen implements Serializable {
 		result = prime * result + ((outdoorScreenType == null) ? 0 : outdoorScreenType.hashCode());
 		result = prime * result + outdoorStatus;
 		result = prime * result + ((outdoorSuperiority == null) ? 0 : outdoorSuperiority.hashCode());
+		result = prime * result + ((outdoorUnitPrice == null) ? 0 : outdoorUnitPrice.hashCode());
 		result = prime * result + ((outdoorUserName == null) ? 0 : outdoorUserName.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -409,6 +373,11 @@ public class OutDoorScreen implements Serializable {
 				return false;
 		} else if (!outdoorSuperiority.equals(other.outdoorSuperiority))
 			return false;
+		if (outdoorUnitPrice == null) {
+			if (other.outdoorUnitPrice != null)
+				return false;
+		} else if (!outdoorUnitPrice.equals(other.outdoorUnitPrice))
+			return false;
 		if (outdoorUserName == null) {
 			if (other.outdoorUserName != null)
 				return false;
@@ -416,7 +385,6 @@ public class OutDoorScreen implements Serializable {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "OutDoorScreen [outdoorId=" + outdoorId + ", outdoorName=" + outdoorName + ", outdoorProvince="
@@ -425,10 +393,13 @@ public class OutDoorScreen implements Serializable {
 				+ ", outdoorScreenType=" + outdoorScreenType + ", outdoorScreenSize=" + outdoorScreenSize
 				+ ", outdoorLength=" + outdoorLength + ", outdoorHeight=" + outdoorHeight + ", outdoorPlayStartTime="
 				+ outdoorPlayStartTime + ", outdoorPlayEndTime=" + outdoorPlayEndTime + ", outdoorUserName="
-				+ outdoorUserName + ", outdoorStatus=" + outdoorStatus + ", outdoorCheckStatus=" + outdoorCheckStatus
-				+ ", outdoorPhotoPath=" + outdoorPhotoPath + ", outdoorSuperiority=" + outdoorSuperiority
-				+ ", outdoorAptitude=" + outdoorAptitude + ", outdoorCreatedDate=" + outdoorCreatedDate
-				+ ", outdoorRemark=" + outdoorRemark + ", outdoorFrequency=" + outdoorFrequency
-				+ ", outdoorPlaybackPeriod=" + outdoorPlaybackPeriod + ", outdoorModifyDate=" + outdoorModifyDate + "]";
+				+ outdoorUserName + ", outdoorUnitPrice=" + outdoorUnitPrice + ", outdoorStatus=" + outdoorStatus
+				+ ", outdoorCheckStatus=" + outdoorCheckStatus + ", outdoorPhotoPath=" + outdoorPhotoPath
+				+ ", outdoorSuperiority=" + outdoorSuperiority + ", outdoorAptitude=" + outdoorAptitude
+				+ ", outdoorCreatedDate=" + outdoorCreatedDate + ", outdoorRemark=" + outdoorRemark
+				+ ", outdoorFrequency=" + outdoorFrequency + ", outdoorPlaybackPeriod=" + outdoorPlaybackPeriod
+				+ ", outdoorModifyDate=" + outdoorModifyDate + "]";
 	}
+
+	
 }
