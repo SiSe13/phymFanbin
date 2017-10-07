@@ -3,13 +3,8 @@ package com.phym.entity;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-/**
- * 订单表
- * @author S_s
- *
- */
-public class OrderForm  implements Serializable{
-	
+public class OrderForm implements Serializable {
+
 	private static final long serialVersionUID = -314209549742452513L;
 	private String id;// 
 	private String number;//订单标号
@@ -17,7 +12,7 @@ public class OrderForm  implements Serializable{
 	private String startTime;//开始时间
 	private String endTime;//结束时间
 	private String videoType;//视频 url
-	private String duration;//时长
+	private String duration;//播放时长
 	private String userId;//用户id
 	private int orderType; //订单状态  0审核中 1 审核通过 2未通过 3支付4未支付
 	private int status;//播放状态 --0未播放 --1播放中
@@ -29,8 +24,10 @@ public class OrderForm  implements Serializable{
 	private String cost;//费用
 	
 	public OrderForm() {
+		super();
+		
 	}
-
+	
 	public OrderForm(String id, String number, String videoName, String startTime, String endTime, String videoType,
 			String duration, String userId, int orderType, int status, Timestamp createTime, String htRemark,
 			String qtRemark, Timestamp auditTime, String auditName, String cost) {
@@ -52,135 +49,102 @@ public class OrderForm  implements Serializable{
 		this.auditName = auditName;
 		this.cost = cost;
 	}
-
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getNumber() {
 		return number;
 	}
-
 	public void setNumber(String number) {
 		this.number = number;
 	}
-
 	public String getVideoName() {
 		return videoName;
 	}
-
 	public void setVideoName(String videoName) {
 		this.videoName = videoName;
 	}
-
 	public String getStartTime() {
 		return startTime;
 	}
-
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
-
 	public String getEndTime() {
 		return endTime;
 	}
-
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-
 	public String getVideoType() {
 		return videoType;
 	}
-
 	public void setVideoType(String videoType) {
 		this.videoType = videoType;
 	}
-
 	public String getDuration() {
 		return duration;
 	}
-
 	public void setDuration(String duration) {
 		this.duration = duration;
 	}
-
 	public String getUserId() {
 		return userId;
 	}
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
 	public int getOrderType() {
 		return orderType;
 	}
-
 	public void setOrderType(int orderType) {
 		this.orderType = orderType;
 	}
-
 	public int getStatus() {
 		return status;
 	}
-
 	public void setStatus(int status) {
 		this.status = status;
 	}
-
 	public Timestamp getCreateTime() {
 		return createTime;
 	}
-
 	public void setCreateTime(Timestamp createTime) {
 		this.createTime = createTime;
 	}
-
 	public String getHtRemark() {
 		return htRemark;
 	}
-
 	public void setHtRemark(String htRemark) {
 		this.htRemark = htRemark;
 	}
-
 	public String getQtRemark() {
 		return qtRemark;
 	}
-
 	public void setQtRemark(String qtRemark) {
 		this.qtRemark = qtRemark;
 	}
-
 	public Timestamp getAuditTime() {
 		return auditTime;
 	}
-
 	public void setAuditTime(Timestamp auditTime) {
 		this.auditTime = auditTime;
 	}
-
 	public String getAuditName() {
 		return auditName;
 	}
-
 	public void setAuditName(String auditName) {
 		this.auditName = auditName;
 	}
-
 	public String getCost() {
 		return cost;
 	}
-
 	public void setCost(String cost) {
 		this.cost = cost;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -203,7 +167,6 @@ public class OrderForm  implements Serializable{
 		result = prime * result + ((videoType == null) ? 0 : videoType.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -289,7 +252,6 @@ public class OrderForm  implements Serializable{
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "OrderForm [id=" + id + ", number=" + number + ", videoName=" + videoName + ", startTime=" + startTime
@@ -300,6 +262,4 @@ public class OrderForm  implements Serializable{
 	}
 	
 	
-	
-
 }

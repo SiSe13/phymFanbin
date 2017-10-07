@@ -20,32 +20,32 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 	
-	<!-- 导入数据库参数 db.properties -->
-	<util:properties id="db" 
-		location="classpath:conf/db.properties"/> 
-	<!-- 配置数据库连接池dbcp -->
+	<util:properties id="db" location="classpath:conf/db.properties"/>
+	
+	<!-- 配置数据库连接参数及连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="#{db.driver}"/>
-		<property name="url" value="#{db.url}"/>
 		<property name="username" value="#{db.username}"/>
 		<property name="password" value="#{db.password}"/>
+		<property name="driverClassName" value="#{db.driver}"></property>
+		<property name="url" value="#{db.url}"></property>
 	</bean>
-	
-	<!-- 配置MyBatis SqlSessionFactory -->
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- 配置SqlSessionFactory处理类 -->
+	<bean id="ssf" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 制定dataSource -->
 		<property name="dataSource" ref="dataSource"/>
-		
-		<property name="mapperLocations" value="classpath:mappers/*.xml"/>
+		<!-- 指定SQL定义文件 -->
+		<property name="mapperLocations" value="classpath:mapper/*.xml"/>			
 	</bean>
-	
-	<!-- Mapper 接口扫描器 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<!-- 
-		<property name="sqlSessionFactory"
-			ref="sqlSessionFactory"></property>
-		-->
-		<property name="basePackage"
-			value="com.phym.dao"></property>
+	<!-- 配置mapper扫描 -->
+	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- 指定Mapper接口 -->
+		<property name="basePackage" value="com.phym.dao"></property>
 	</bean>
 </beans>
+
+
+
+
+
+
+

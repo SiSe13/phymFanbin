@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta name="renderer" content="webkit">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>登录</title>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/basevalue.js"></script>
+<script type="text/javascript" src="js/cookie_util.js"></script>
 <link type="text/css" href="css/base.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/cookie_util.js"></script>
-<script type="text/javascript" src="scripts/login.js"></script>
 
 </head>
 
@@ -35,39 +35,29 @@
 						<dl>
 							<dd><input type="password" id="Userpwd"  placeholder="请输入您的密码" /></dd>
 						</dl>
-						<!-- <dl id="logincode" style="display: none;">
-						<dd><input type="text" id="txtCode" name="txtCode" style="width: 133px; margin-right: 10px;" placeholder="验证码" /><img id="vCodeImg" src="" width="90" height="34" title="点击换一个" style="vertical-align: middle; margin-top: -4px;" onclick="this.src='/ImgCode.aspx?t='+Math.random()*100" /></dd>
-						</dl> -->
-						<div class="psword" style="margin-top:15px;"><a href="./password.html" tabindex="-1" class="right" target="_blank">忘记密码?</a></div>
+						<div class="psword" style="margin-top:15px;"><a href="./password.html"  tabindex="-1" class="right" target="_blank">忘记密码?</a></div>
 						<div class="tishi"></div>
-						<button onClick="cliLogin()" id="logbtn" style="outline:none">登 录</button>
+						<button onkeydown="keyLogin()" onClick="cliLogin()" id="logbtn" style="outline:none">登 录</button>
 					</div>
 					<div class="login-style" style="display: none;">
-						<dl><dd><input name="txtUser" type="text" id="txtMedia" placeholder="用户名" /></dd></dl>
+						<dl><dd><input name="txtUser" type="text" id="txtUser1" placeholder="用户名" /></dd></dl>
 						<dl>
-							<dd><input type="password" id="Mediapwd"  placeholder="请输入您的密码" /></dd>
+							<dd><input type="password" id="Userpwd1"  placeholder="请输入您的密码" /></dd>
 						</dl>
-						<!-- <dl id="logincode" style="display: none;"> -->
-						<!-- <dd><input type="text" id="txtCode" name="txtCode" style="width: 133px; margin-right: 10px;" placeholder="验证码" /><img id="vCodeImg" src="" width="90" height="34" title="点击换一个" style="vertical-align: middle; margin-top: -4px;" onclick="this.src='/ImgCode.aspx?t='+Math.random()*100" /></dd>
-						</dl> -->
-						<div class="psword" style="margin-top:15px;"><a href="./password.html" tabindex="-1" class="right" target="_blank">忘记密码?</a></div>
+						<div class="psword" style="margin-top:15px;"><a href="./password.html"  tabindex="-1" class="right" target="_blank">忘记密码?</a></div>
 						<div class="tishi"></div>
-						<button onClick="cliLogin()" id="Mediabtn" style="outline:none">登 录</button>
+						<button  onClick="cliLogin1()" id="logbtn1" style="outline:none">登 录</button>
 					</div>
 				</div>
 				<div class="hezuo">
 					<!-- <h3>使用合作网站的账号登录：</h3> -->
 					<p>
-						<!-- <a href="javascript:;" onClick="showWxlog()"><i class="wx"></i>微信</a> -->
 						<a href="register.html" target="_blank">账号注册
 					<em style="width:16px; height:16px; background:#999; float:right; color:#fff; border-radius:100%; text-align:center; line-height:16px; margin:4px 0 0 5px; font-family:'宋体'; font-weight:bold;">&gt;</em>
 					</a>
 					</p>
 				</div>
-				<!-- <div class="qiehuan"></div> -->
-				<!-- <div id="zhishi" style="position:absolute; right:-185px; bottom:0; cursor:pointer;"><img src="images/zhishi2.png" /></div> -->
 			</div>
-			
 		</div>
 		<div class="clear"></div>
 	</div>

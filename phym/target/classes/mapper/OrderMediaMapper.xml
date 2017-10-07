@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.OrderMediaDao">
+	<insert id="insertOrderMedia" parameterType="com.phym.entity.OrderMedia">
+ 			insert into order_media(
+ 				order_screen_id,
+ 				order_number,
+ 				media_id,
+ 				media_status,
+ 				media_cost,
+ 				media_name,
+ 				media_createTime,
+ 				media_orderStatus,
+ 				media_advertName
+ 			)values(
+ 				#{id},
+ 				#{number},
+ 				#{mediaId},
+ 				#{status},
+ 				#{mediaCost},
+				#{videoName},
+				#{createTime},
+				#{orderStatus},
+				#{advertName}
+ 			)
+ 		</insert>
+ 		<update id="updateMediaStatus" parameterType="string">
+ 			update
+ 						order_media
+ 			set
+ 						media_orderStatus = #{orderStatus}
+ 			where
+ 						order_number = #{number}						
+ 		</update>
+	 	<delete id="deleteOrderMedia" parameterType="string">
+	 		delete			from
+	 		order_media
+	 						where
+	 		order_number = #{number}
+	 	</delete>
+ </mapper>

@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>谱华云媒网络科技有限公司</title>
+<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<!--  详情 -->
+<script src="assets/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="assets/js/cookie_util.js"></script>
+<script type="text/javascript" src="scripts/name.js"></script>
+<!-- 地区 -->
+<link rel="stylesheet" href="assets/css/jquery.inputbox.css">     
+<script src="assets/js/jquery.ganged.js"></script>
+<script src="assets/js/jquery.inputbox.js"></script>
+<script src="assets/js/resources.js"></script>
+ <link rel="stylesheet" href="assets/css/media-resources.css">
+<!-- 上传文件 -->
+ <link rel="stylesheet" href="uploadify/uploadify.css">
+<script src="uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript" src="../mediaowner/scripts/modification.js"></script>
+<script type="text/javascript">
+  		$(document).ready(
+  				 //上传文件
+  		       function fileUpload() {
+  		        $("#upload").uploadify({
+  		          "uploader": "upload/one.do",
+  		          "method": "get",
+  		          "progressData": "percentage",
+  		          "swf": "uploadify/uploadify.swf",
+  		          "buttonText": "选择要上传的文件",            
+  		          "multi": true,
+  		          "auto":false,
+  		           "fileSizeLimit": "1000KB",
+  		          "successTimeout": 600,  
+  		          "queueSizeLimit": 5,
+  		          "fileTypeExts": '*.mp4',
+  		          "onUploadSuccess": function(file, data, response) {
+  		            alert("上传成功");
+  		            var JsonObjs = eval("(" + data + ")");
+  		            addCookie("js",JsonObjs.filePath,2);
+  		          },
+  		          "onUploadError": function(file, errorCode, errorMsg, 
+  		            errorString) {
+  		              alert("上传失败");
+  		          },
+  		          "onSelectError": function() {
+  		        	alert("上传失败");
+  		          },
+  		        "onSelect":function(file){
+  	        	  console.log(file.id)
+  	          }
+  		      });
+  		      }
+  		)
+  	</script>
+</head>
+
+
+
+<body data-type="generalComponents">
+<!-- top 开始 -->
+<header class="am-topbar am-topbar-inverse admin-header">
+<div class="am-topbar-brand">
+    <a href="javascript:;" class="tpl-logo">
+        <img src="assets/img/logo.png" alt="">
+    </a>
+</div>
+<div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+</div>
+
+<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+  
+        <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+            <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+            </a>
+            <ul class="am-dropdown-content tpl-dropdown-content">
+                <li class="tpl-dropdown-content-external">
+                    <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="###">全部</a></li>
+                <li>
+                    <a href="#" class="tpl-dropdown-content-message">
+                        <span class="tpl-dropdown-content-photo">
+              <img src="../advertiser/assets/img/user02.png" alt=""> </span>
+                        <span class="tpl-dropdown-content-subject">
+              <span class="tpl-dropdown-content-from"> 禁言小张 </span>
+                        <span class="tpl-dropdown-content-time">10分钟前 </span>
+                        </span>
+                        <span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+                    </a>
+                    <a href="#" class="tpl-dropdown-content-message">
+                        <span class="tpl-dropdown-content-photo">
+              <img src="../advertiser/assets/img/user03.png" alt=""> </span>
+                        <span class="tpl-dropdown-content-subject">
+              <span class="tpl-dropdown-content-from"> Steam </span>
+                        <span class="tpl-dropdown-content-time">18分钟前</span>
+                        </span>
+                        <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+         <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
+	                </a>
+	                <ul class="am-dropdown-content">
+	              <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
+	                    <li><a href="media-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+	                    <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
+	                </ul>
+	           </li>
+    </ul>
+</div>
+</header>
+<!-- top end -->
+
+<!-- content -->
+<div class="tpl-page-container tpl-page-header-fixed" style="position: relative;">
+
+
+<!-- 侧导航开始 -->
+<div class="tpl-left-nav tpl-left-nav-hover">
+    <div class="tpl-left-nav-title" style="height:20px;">
+        
+    </div>
+    <div class="tpl-left-nav-list">
+        <ul class="tpl-left-nav-menu">
+            <li class="tpl-left-nav-item">       
+                <a href="index.html" class="nav-link ">
+                    <i class="am-icon-home"></i>
+                    <span>首页</span>
+                </a>
+            </li>
+             
+            <li class="tpl-left-nav-item">
+                <!-- 打开状态 a 标签添加 active 即可   -->
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-table"></i>
+                    <span>媒体资源</span>
+                    <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
+                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                </a>
+                <ul class="tpl-left-nav-sub-menu" style="display:block">
+                    <li>
+                        <!-- 打开状态 a 标签添加 active 即可   -->
+                        <a href="media-outdoors.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>户外大屏</span>
+                           <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                        </a>
+                        <a href="media-bus.html" >
+                            <i class="am-icon-angle-right"></i>
+                            <span>公交车后视屏</span>
+                        </a>
+                        <a href="media-text.html" >
+                            <i class="am-icon-angle-right"></i>
+                            <span>出租车后视屏</span>
+                        </a>
+                        <a href="media-tv.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>楼宇电视</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="tpl-left-nav-item">
+                <a href="media-indent.html" class="nav-link tpl-left-nav-link-list">
+                    <i class="am-icon-wpforms"></i>
+                    <span>订单</span>
+                </a>
+            </li>
+            <li class="tpl-left-nav-item">
+                <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                    <i class="fa fa-credit-card fa-sm"></i>
+                    <span>财务</span>
+                    <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                </a>
+                <ul class="tpl-left-nav-sub-menu">
+                    <li>
+                        <a href="media-recharge.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>充值</span>
+                            <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                        </a>
+
+                        <a href="media-withdrawal.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>提现</span>
+                            <i class="tpl-left-nav-content tpl-badge-success">
+       18
+     </i>
+                            <a href="media-transact.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>交易明细</span>
+                                <i class="tpl-left-nav-content tpl-badge-primary">
+       5
+     </i>
+                                <a href="media-bank.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>银行卡绑定</span>
+                                </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div><!-- 侧导航结束 -->
+
+<!-- 内容开始 -->
+<div class="tpl-content-wrapper">
+    <div class="tpl-portlet-components">
+        <div class="portlet-title">
+            <div class="caption  bold">
+              媒体资源修改:
+            </div>
+            <div class="tpl-portlet-input tpl-fz-ml">
+                <div class="portlet-input input-small input-inline">
+                    <div class="input-icon right"></div>
+                </div>
+            </div>
+        </div>
+        <div class="tpl-block" style="height: 500px;">
+            <div class="am-g">
+              <span></span>
+            </div>
+            <div class="am-g" style="height: 500px;">
+			    <div class="reg" style="height: 500px;float: left;">
+        <form action="" method="post" name="form1" id="form1"  style="position: relative;">
+            <dl style="width:56%">
+                <dd style="margin-bottom: 20px; margin-left:10px;"><span class="title">大屏名称：</span><input class="reg_input" name="t_UserName" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
+                      <!-- 屏幕尺寸 strat -->
+              <dd style="position: absolute;left: 1%;top:161%;">
+                 <span class="title">屏幕尺寸：</span>
+                 <input class="reg_input" name="" id="outdoorScreenSize" type="text" style="position: absolute;left: 100%;top:6px;"/><span style="position: absolute;top:11%;left:290%;color:#999;">寸</span>
+
+
+              </dd>
+              <!-- 播放周期 -->
+                  <dd style="position: absolute;left: 1%;top:320%">
+                                                  <span class="title">播放周期：</span>
+                 <input class="reg_input" name="" id="outdoorPlaybackPeriod" type="text" style="position: absolute;left: 100%;top:4px;"/><span style="position: absolute;top:11%;left:283%;width:30px;color:#999;">分钟</span>
+                                                    
+              </dd>
+            <!--   播放周期end -->
+            <!-- 播放时间 -->
+                <dd style="position: absolute;left: 1%;top:485%"><span class="title">播放时间：</span>
+                                                   
+                                                   <input class="reg_input" name="" id="outdoorPlayStartTime" type="text" style="width: 90px;position: left:1px;"/>
+                                                  <strong>*</strong>
+                                                 
+                                                   <input class="reg_input" name="" id="outdoorPlayEndTime" type="text" style="width: 90px;"/>
+                                                   <span style="color:#999;font-size: 13px;margin-left: 5px;">开始时间*结束时间</span>
+                                                    
+              </dd>
+            <!--  时间end -->
+                       <!-- 分辨率 -->
+                <dd style="position: absolute;left: 1%;top:660%;"><span class="title">分辨率：</span>
+                                                   <input class="reg_input" name="" id="outdoorLength" type="text" style="width: 90px;"/>
+                                                  <strong>*</strong>
+                                                   <input class="reg_input" name="" id="outdoorHeight" type="text" style="width: 90px;"/>
+                                                   <span style="color:#999;font-size: 13px;margin-left: 5px;">长*宽</span>
+                                                    
+              </dd>
+
+            <!--   分辨率结束 -->
+            
+              <dd style="position: absolute;left: 1%;top:835%;">
+                <span class="title">屏幕类型：</span>
+                 <div class="am-form-group"   id="select_screen" style="position: absolute;left: 101%;top:3%;">
+                            <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                                        <option value="option1">屏幕类型</option>
+                                                        <option value="option1" id="heyue">横屏</option>                                                            
+                                                        <option value="option2" selected = "selected"  id="noheyue">竖屏</option>
+                                                        <option value="option2" id="noheyue2">跨街屏</option>
+                                                        </select>
+                        </div>
+
+              </dd>
+              <!--   屏幕类型 end -->
+                <!-- 投放类型 -->
+                <dd style="position: absolute;left: 1%;top:1037%"><span class="title" id="select_type">投放类型：</span>
+                	<input type="checkbox" id="Sex_Man" name="rb_Sex" value="0"/>
+                		<label for="Sex_Man" style="font-weight:normal;margin-left: 5px;margin-right: 15px;"> 合约式投放</label>
+                    <input type="checkbox" id="Sex_Woman" name="rb_Sex" value="0" />
+                    	<label for="Sex_Woman" style="font-weight:normal;margin-left: 5px"> 非合约式投放</label>　
+                                                    
+              </dd>
+             <!-- 投放类型end -->
+             </dl>
+
+        <dl style="float: left;">
+         <dd style="position: absolute;left: 49%;width: 500px;top:0%;">
+                <span class="title">省市区(县)：</span>
+               <!--  省市区 -->
+               <div class="am-btn-toolbar" style="height: 34px !important;position: absolute;top:8%;left:21.5%;">
+                        <div id="test1" style="height: 34px !important;" >
+
+                            <input type="hidden" class="province" value="010000"/>
+								
+                            <input type="hidden" class="city" value="010100"/>
+
+                            <input type="hidden" class="area" value="010101"/>
+
+                            <div id="province_div" name="province" type="selectbox" style="z-index:2;height: 32px"><div class="opts"></div></div>
+
+                            <div id="city_div" name="city" type="selectbox" style="z-index:2;height: 32px !important;"><div class="opts"></div></div>
+
+                            <div id="area_div" name="area" type="selectbox" style="z-index:2;height: 32px !important;"><div class="opts"></div></div>
+
+                        </div>
+
+                </div>
+                </dd>
+               <!--  省市区end -->
+                       <!--  地址start -->
+               <dd style="position: absolute;left: 49%;top:150%"><span class="address">详细地址：</span><input class="reg_input" name="t_UserName" id="outdoorAddress" type="text" style="width:325px;"/><span id="t_UserNameTip" class="onshow"></span></dd>
+               <!--  地址end -->
+           <!--   上传文件    -->
+           <dd style="position: absolute;top:296%;left: 46.7%;">
+           <span class="title" style="margin-left:29px;">上传文件：</span>
+                 <div class="wenjian">                     
+                             <form enctype="multipart/form-data" >
+                                <input id="upload" type="file" style="position: absolute;left:101%;top:7%;" />
+                            </form>
+                           <a href="javascript:$('#upload').uploadify('upload')" style="width:80px;height:40px;line-height:40px;font-size: 14px;  background-color: #45b6c8;border-radius: 10%;position: absolute;right: -303px;top:-3%;padding-left: 25px;">上传</a> 
+                        <div id="img" src=""></div>                   
+                        </div><!-- 文件结束 -->
+           </dd>
+           <!-- 上传文件end -->
+
+          <!--  优势 -->
+          <dd style="position: absolute;top:497%;left:49%;">
+             <span class="title">优势：</span>
+             <textarea name="" id="outdoorSuperiority" cols="30" rows="6"></textarea>
+          </dd>
+          <!-- 优势end -->
+          <!--  备注 -->
+          <dd style="position: absolute;top:970%;left:49%;">
+             <span class="title">备注：</span>
+             <textarea name="" id="outdoorRemark" cols="30" rows="6"></textarea>
+          </dd>
+          <!-- 备注end -->
+        <dd>
+            <a href="javaScript:void(0);"><input type="button" id="amendBtn" value="修改" class="button" style="position: absolute;left:424px;bottom:-410px;padding:10px 20px;border-radius: 10px;"></a>
+
+        </dd>
+        </dl>
+        </form>                              
+    </div>
+
+
+   <!--  图片 -->
+   <div class="reg1" style="float: left;position:absolute;right:55px;top:160px">
+        <img src="../advertiser/assets/img/a9.png" alt="" style="width: 200px;height: 200px;">
+   </div>
+            </div><!-- am-g -->        
+        </div><!-- tpl-block -->
+
+    </div><!-- tpl-portlet-components -->
+
+</div><!-- 内容结束 -->
+
+</div><!-- content -->
+
+<!-- footer开始 -->
+<div class="footer" style="width: 100%;height: 10%;position: relative;">
+    <p style="position: absolute;left: 45%;    font-size: 14px;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备xxxxx号</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <p style="position: absolute;left: 39%;top:40%;font-size: 14px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
+</div>
+<!-- footer结束 -->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<!-- 上传文件 -->
+
+</body>
+</html>

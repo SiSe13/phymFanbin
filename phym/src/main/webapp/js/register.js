@@ -1,4 +1,4 @@
-var SUCCESS=0;
+
 (function($) {
 	var h, timerC = 60,
 		opt;
@@ -7,10 +7,12 @@ var SUCCESS=0;
 			opt = a;
 			return (new require())._init(a)
 		};
-	
+
 	function require(f) {
 		var g = {
-			phone:/^1(3\d|5[0-35-9]|8[025-9]|47)\d{8}$/,
+			phone: /^1(3\d|5[0-35-9]|8[025-9]|47)\d{8}$/,
+			       
+			       
 			// company: /^[一-龥a-zA-Z][一-龥a-zA-Z0-9\s-,-.]*$/,
 			uname: /^[一-龥a-zA-Z][一-龥a-zA-Z0-9_]*$/,
 			// zh: /^[一-龥]+$/,
@@ -382,9 +384,10 @@ $(function() {
 });
 
 
+
+
 $(function(){	
 	//第一页的确定按钮
-	
 	$("#btn_part1").click(function(){						
 		if(!verifyCheck._click()) return;
 		$(".part1").hide();
@@ -392,6 +395,23 @@ $(function(){
 		$(".step li").eq(1).addClass("on");
 	});
 	//第二页的确定按钮
+//	$("#btn_part2").click(function(){			
+//		if(!verifyCheck._click()) return;
+//		$(".part2").hide();
+//		$(".part3").show();
+//        $(".part4").show();	
+//        $(".step li").eq(2).addClass("on");
+//        countdown({
+//            maxTime:10,
+//            ing:function(c){
+//                $("#times").text(c);
+//            },
+//            after:function(){
+//                window.location.href="login.html";      
+//            }
+//        });
+//	});	
+
 });
 function showoutc(){$(".m-sPopBg,.m-sPopCon").show();}
 function closeClause(){

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.phym.dao.OutDoorScreenDao">
+ 	<insert id="insertOutDoor" parameterType="com.phym.entity.OutDoorScreen">
+ 		insert into outdoor_screen_mediasource(
+ 							outdoor_screen_id,
+							outdoor_screen_name,
+							outdoor_screen_province,
+							outdoor_screen_city,
+							outdoor_screen_country,
+							outdoor_screen_address,
+							outdoor_screen_mediasourceType,
+							outdoor_screen_screenType,
+							outdoor_screen_screenSize,
+							outdoor_screen_resolutionRatio_length,
+							outdoor_screen_resolutionRatio_height,
+							outdoor_screen_playStartTime,
+							outdoor_screen_playEndTime,
+							outdoor_screen_userName,
+							outdoor_screen_unitPrice,
+							outdoor_screen_status,
+							outdoor_screen_checkStatus,
+							outdoor_screen_photoPath,
+							outdoor_screen_superiority,
+							outdoor_screen_aptitude,
+							outdoor_screen_createdDate,
+							outdoor_screen_remark,
+							outdoor_screen_frequency,
+							outdoor_screen_playbackPeriod
+ 			)values(
+ 							#{outdoorId},
+							#{outdoorName},
+							#{outdoorProvince},
+							#{outdoorCity},
+							#{outdoorCountry},
+							#{outdoorAddress},
+							#{outdoorMediasourceType},
+							#{outdoorScreenType},
+							#{outdoorScreenSize},
+							#{outdoorLength},
+							#{outdoorHeight},
+							#{outdoorPlayStartTime},
+							#{outdoorPlayEndTime},
+							#{outdoorUserName},
+							#{outdoorUnitPrice},
+							#{outdoorStatus},
+							#{outdoorCheckStatus},
+							#{outdoorPhotoPath},
+							#{outdoorSuperiority},
+							#{outdoorAptitude},
+							#{outdoorCreatedDate},
+							#{outdoorRemark},
+							#{outdoorFrequency},
+							#{outdoorPlaybackPeriod}
+							
+ 			)	
+ 	</insert>
+ 	<select id="findOutDoorScreenById" parameterType="string" resultType="com.phym.entity.OutDoorScreen">
+ 		select				outdoor_screen_id as outdoorId,
+							outdoor_screen_name as outdoorName,
+							outdoor_screen_province as outdoorProvince,
+							outdoor_screen_city as outdoorCity,
+							outdoor_screen_country as outdoorCountry,
+							outdoor_screen_address as outdoorAddress,
+							outdoor_screen_mediasourceType as outdoorMediasourceType,
+							outdoor_screen_screenType as outdoorScreenType,
+							outdoor_screen_screenSize as outdoorScreenSize,
+							outdoor_screen_resolutionRatio_length as outdoorLength,
+							outdoor_screen_resolutionRatio_height as outdoorHeight,
+							outdoor_screen_playStartTime as outdoorPlayStartTime,
+							outdoor_screen_playEndTime as outdoorPlayEndTime,
+							outdoor_screen_userName as outdoorUserName,
+							outdoor_screen_unitPrice as outdoorUnitPrice,
+							outdoor_screen_status as outdoorStatus,
+							outdoor_screen_checkStatus as outdoorCheckStatus,
+							outdoor_screen_photoPath as outdoorPhotoPath,
+							outdoor_screen_superiority as outdoorSuperiority,
+							outdoor_screen_aptitude as outdoorAptitude,
+							outdoor_screen_createdDate as outdoorCreatedDate,
+							outdoor_screen_remark as outdoorRemark,
+							outdoor_screen_frequency as outdoorFrequency,
+							outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+							outdoor_screen_modifyDate as outdoorModifyDate,
+							outdoor_screen_auditName as auditName,
+							outdoor_screen_auditDate auditDate,
+							outdoor_screen_remainTime remainTime
+		from
+							outdoor_screen_mediasource
+		where
+							outdoor_screen_id = #{outdoorId}										
+ 	</select>
+	<delete id="deleteMediaResource" parameterType="string">
+		delete from outdoor_screen_mediasource
+		where
+						outdoor_screen_id = #{outdoorId}
+	</delete>
+ 	<select id="loadOutDoor" parameterType="string" resultType="com.phym.entity.OutDoorScreen">
+ 			select 
+			outdoor_screen_id as outdoorId,
+			outdoor_screen_name as outdoorName,
+			outdoor_screen_province as outdoorProvince,
+			outdoor_screen_city as outdoorCity,
+			outdoor_screen_country as outdoorCountry,
+			outdoor_screen_address as outdoorAddress,
+			outdoor_screen_mediasourceType as outdoorMediasourceType,
+			outdoor_screen_screenType as outdoorScreenType,
+			outdoor_screen_screenSize as outdoorScreenSize,
+			outdoor_screen_resolutionRatio_length as outdoorLength,
+			outdoor_screen_resolutionRatio_height as outdoorHeight,
+			outdoor_screen_playStartTime as outdoorPlayStartTime,
+			outdoor_screen_playEndTime as outdoorPlayEndTime,
+			outdoor_screen_userName as outdoorUserName,
+			outdoor_screen_unitPrice as outdoorUnitPrice,
+			outdoor_screen_status as outdoorStatus,
+			outdoor_screen_photoPath as outdoorPhotoPath,
+			outdoor_screen_superiority as outdoorSuperiority,
+			outdoor_screen_aptitude as outdoorAptitude,
+			outdoor_screen_createdDate as outdoorCreatedDate,
+			outdoor_screen_remark as outdoorRemark,
+			outdoor_screen_frequency as outdoorFrequency,
+			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+			outdoor_screen_modifyDate as outdoorModifyDate,
+			outdoor_screen_remainTime as remainTime
+		from
+			outdoor_screen_mediasource
+		<where>
+			<trim suffixOverrides="and">
+					outdoor_screen_userName = #{outdoorUserName} and
+				<if test="outdoorProvince!=null">
+					outdoor_screen_province=#{outdoorProvince} and
+				</if>
+				<if test="outdoorCity!=null">
+					outdoor_screen_city=#{outdoorCity} and
+				</if>
+				<if test="outdoorCountry!=null">
+					outdoor_screen_country=#{outdoorCountry} and
+				</if>
+				<if test="outdoorScreenType!=null">
+					outdoor_screen_screenType=#{outdoorScreenType} and
+				</if>
+				<if test="outdoorMediasourceType!=null">
+					outdoor_screen_mediasourceType=#{outdoorMediasourceType}
+				</if>
+			</trim>		
+		</where>		
+		order by 
+			outdoor_screen_createdDate desc 
+ 	</select>
+ 	
+ 	<update id="modifyOutDoor" parameterType="com.phym.entity.OutDoorScreen">
+ 		update 			outdoor_screen_mediasource
+ 		<set>
+			<trim suffixOverrides=",">
+				<if test="outdoorName!=null">
+					outdoor_screen_name= #{outdoorName},
+				</if>
+				<if test="outdoorProvince!=null">
+					outdoor_screen_province= #{outdoorProvince},
+				</if>
+				<if test="outdoorCity!=null">
+					outdoor_screen_city= #{outdoorCity},
+				</if>
+				<if test="outdoorCountry!=null">
+					outdoor_screen_country= #{outdoorCountry},
+				</if>
+				<if test="outdoorAddress!=null">
+					outdoor_screen_address= #{outdoorAddress},
+				</if>		
+				<if test="outdoorMediasourceType!=null">
+					outdoor_screen_mediasourceType= #{outdoorMediasourceType},,
+				</if>
+				<if test="outdoorScreenType!=null">
+					outdoor_screen_screenType= #{outdoorScreenType},
+				</if>
+				<if test="outdoorScreenSize!=null">
+					outdoor_screen_screenSize= #{outdoorScreenSize},
+				</if>
+				<if test="outdoorLength!=null">
+					outdoor_screen_resolutionRatio_length= #{outdoorLength},
+				</if>
+				<if test="outdoorHeight!=null">
+					outdoor_screen_resolutionRatio_height= #{outdoorHeight},
+				</if>
+				<if test="outdoorPlayStartTime!=null">
+					outdoor_screen_playStartTime= #{outdoorPlayStartTime},
+				</if>
+				<if test="outdoorPlayEndTime!=null">
+					outdoor_screen_playEndTime= #{outdoorPlayEndTime},
+				</if>
+				<if test="outdoorUnitPrice!=null">
+					outdoor_screen_unitPrice= #{outdoorUnitPrice},
+				</if>
+				<if test="outdoorPhotoPath!=null">
+					outdoor_screen_photoPath= #{outdoorPhotoPath},
+				</if>
+				<if test="outdoorSuperiority!=null">
+					outdoor_screen_superiority= #{outdoorSuperiority},
+				</if>
+				<if test="outdoorAptitude!=null">
+					outdoor_screen_aptitude= #{outdoorAptitude},
+				</if>
+				<if test="outdoorModifyDate!=null">
+					outdoor_screen_modifyDate= #{outdoorModifyDate},
+				</if>
+				<if test="outdoorRemark!=null">
+					outdoor_screen_remark= #{outdoorRemark},
+				</if>
+				<if test="outdoorPlaybackPeriod!=null">
+					outdoor_screen_playbackPeriod= #{outdoorPlaybackPeriod}
+				</if>
+			</trim>
+		</set>
+		<where>
+			outdoor_screen_id = #{outdoorId}
+		</where>
+ 	</update>
+ 	<select id="findOutDoor" parameterType="string"
+		resultType="com.phym.entity.OutDoorScreen">
+		select 
+			outdoor_screen_id as outdoorId,
+			outdoor_screen_name as outdoorName,
+			outdoor_screen_province as outdoorProvince,
+			outdoor_screen_city as outdoorCity,
+			outdoor_screen_country as outdoorCountry,
+			outdoor_screen_address as outdoorAddress,
+			outdoor_screen_mediasourceType as outdoorMediasourceType,
+			outdoor_screen_screenType as outdoorScreenType,
+			outdoor_screen_screenSize as outdoorScreenSize,
+			outdoor_screen_resolutionRatio_length as outdoorLength,
+			outdoor_screen_resolutionRatio_height as outdoorHeight,
+			outdoor_screen_playStartTime as outdoorPlayStartTime,
+			outdoor_screen_playEndTime as outdoorPlayEndTime,
+			outdoor_screen_userName as outdoorUserName,
+			outdoor_screen_unitPrice as outdoorUnitPrice,
+			outdoor_screen_status as outdoorStatus,
+			outdoor_screen_photoPath as outdoorPhotoPath,
+			outdoor_screen_superiority as outdoorSuperiority,
+			outdoor_screen_aptitude as outdoorAptitude,
+			outdoor_screen_createdDate as outdoorCreatedDate,
+			outdoor_screen_remark as outdoorRemark,
+			outdoor_screen_frequency as outdoorFrequency,
+			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+			outdoor_screen_modifyDate as outdoorModifyDate,
+			outdoor_screen_remainTime as remainTime
+		from
+			outdoor_screen_mediasource
+		<where>
+			<trim suffixOverrides="and">
+				outdoor_screen_checkStatus = 1	and
+				<if test="outdoorProvince!=null">
+					outdoor_screen_province=#{outdoorProvince} and
+				</if>
+				<if test="outdoorCity!=null">
+					outdoor_screen_city=#{outdoorCity} and
+				</if>
+				<if test="outdoorCountry!=null">
+					outdoor_screen_country=#{outdoorCountry} and
+				</if>
+				<if test="outdoorScreenType!=null">
+					outdoor_screen_screenType=#{outdoorScreenType} and
+				</if>
+				<if test="outdoorMediasourceType!=null">
+					outdoor_screen_mediasourceType=#{outdoorMediasourceType}
+				</if>
+			</trim>		
+		</where>		
+		order by 
+			outdoor_screen_createdDate desc limit #{pager},10
+	</select>
+	
+	<select id="sumOutDoor" parameterType="com.phym.entity.OutDoorScreen" resultType="int">
+		select 
+					count(*)
+		from
+					outdoor_screen_mediasource
+		<where>
+			<trim suffixOverrides="and">	
+				outdoor_screen_checkStatus = 1	and
+				<if test="outdoorProvince!=null">
+					outdoor_screen_province=#{outdoorProvince} and
+				</if>
+				<if test="outdoorCity!=null">
+					outdoor_screen_city=#{outdoorCity} and
+				</if>
+				<if test="outdoorCountry!=null">
+					outdoor_screen_country=#{outdoorCountry} and
+				</if>
+				<if test="outdoorScreenType!=null">
+					outdoor_screen_screenType=#{outdoorScreenType} and
+				</if>
+				<if test="outdoorMediasourceType!=null">
+					outdoor_screen_mediasourceType=#{outdoorMediasourceType}
+				</if>
+			</trim>		
+		</where>						
+	</select>
+	
+	
+	<select id="findOutDoorContent" parameterType="list" resultType="com.phym.entity.OutDoorScreen">
+		select 
+			outdoor_screen_id as outdoorId,
+			outdoor_screen_name as outdoorName,
+			outdoor_screen_province as outdoorProvince,
+			outdoor_screen_city as outdoorCity,
+			outdoor_screen_country as outdoorCountry,
+			outdoor_screen_address as outdoorAddress,
+			outdoor_screen_mediasourceType as outdoorMediasourceType,
+			outdoor_screen_screenType as outdoorScreenType,
+			outdoor_screen_screenSize as outdoorScreenSize,
+			outdoor_screen_resolutionRatio_length as outdoorLength,
+			outdoor_screen_resolutionRatio_height as outdoorHeight,
+			outdoor_screen_playStartTime as outdoorPlayStartTime,
+			outdoor_screen_playEndTime as outdoorPlayEndTime,
+			outdoor_screen_userName as outdoorUserName,
+			outdoor_screen_unitPrice as outdoorUnitPrice,
+			outdoor_screen_status as outdoorStatus,
+			outdoor_screen_photoPath as outdoorPhotoPath,
+			outdoor_screen_superiority as outdoorSuperiority,
+			outdoor_screen_aptitude as outdoorAptitude,
+			outdoor_screen_createdDate as outdoorCreatedDate,
+			outdoor_screen_remark as outdoorRemark,
+			outdoor_screen_frequency as outdoorFrequency,
+			outdoor_screen_playbackPeriod as outdoorPlaybackPeriod,
+			outdoor_screen_modifyDate as outdoorModifyDate,
+			outdoor_screen_remainTime as remainTime
+	from 
+		outdoor_screen_mediasource
+	where
+		outdoor_screen_id
+	in  
+		<foreach collection="list" item="item"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach> 	
+	</select>
+	
+	<update id="auditOutDoor" parameterType="com.phym.entity.OutDoorScreen">
+		update 			outdoor_screen_mediasource
+		set
+						outdoor_screen_checkStatus = #{checkStatus},
+						outdoor_screen_auditName = #{auditName},
+						outdoor_screen_auditDate = #{auditDate}
+		where
+						outdoor_screen_id = #{outDoorId}				
+	</update>
+	
+	
+ </mapper>

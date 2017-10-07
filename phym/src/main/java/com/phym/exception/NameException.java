@@ -1,10 +1,19 @@
 package com.phym.exception;
 
-public class NameException extends RuntimeException {
-
-	private static final long serialVersionUID = 8017463898445818605L;
+public class NameException extends RuntimeException{
 
 	public NameException() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public NameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+
+	public NameException(String message, Throwable cause) {
+		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,14 +27,9 @@ public class NameException extends RuntimeException {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NameException(String message, Throwable cause) {
-		super(message, cause);
-		// TODO Auto-generated constructor stub
-	}
-
-	public NameException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-		// TODO Auto-generated constructor stub
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2768879365705782918L;
 
 }

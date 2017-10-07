@@ -1,26 +1,36 @@
 package com.phym.exception;
 
-public class OrderFormException extends RuntimeException {
+public class OrderFormException extends RuntimeException{
 
-	private static final long serialVersionUID = -3219066540174276488L;
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2008936595328303277L;
 	public OrderFormException() {
-	}
-
-	public OrderFormException(String message) {
-		super(message);
-	}
-
-	public OrderFormException(Throwable cause) {
-		super(cause);
-	}
-
-	public OrderFormException(String message, Throwable cause) {
-		super(message, cause);
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public OrderFormException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
 	}
+
+	public OrderFormException(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	public OrderFormException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	public OrderFormException(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	
 
 }

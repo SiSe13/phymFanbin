@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.OrderFormDao">
+	<insert id="insertOrderForm" parameterType="com.phym.entity.OrderForm">
+ 			insert into order_form(
+ 				order_id,
+ 				order_number,
+ 				order_videoName,
+ 				order_startTime,
+ 				order_endTime,
+ 				order_videoType,
+ 				order_duration,
+ 				order_userId,
+ 				order_orderType,
+ 				order_createTime,
+ 				order_status,
+ 				order_qtRemark,
+ 				order_cost
+ 			)values(
+ 				#{id},
+ 				#{number},
+ 				#{videoName},
+ 				#{startTime},
+ 				#{endTime},
+ 				#{videoType},
+ 				#{duration},
+ 				#{userId},
+ 				#{orderType},
+ 				#{createTime},
+ 				#{status},
+ 				#{qtRemark},
+ 				#{cost}
+ 			)
+ 	</insert>
+ 	<select id="findOrderFormById" parameterType="string" resultType="map">
+ 		select  		
+ 						*
+ 		from
+ 		(select 		*
+ 						<!-- o.order_id as id,
+				 		o.order_number as number,
+						o.order_videoName as videoName,
+						o.order_startTime as startTime,
+						o.order_endTime as endTime,
+						o.order_videoType as videoType,
+						o.order_duration as duration,
+						o.order_orderType as orderType,
+						o.order_userId as userId,
+						o.order_status as status,
+						o.order_createTime as createTime,
+						o.order_htRemark as htRemark,
+						o.order_qtRemark as qtRemark,
+						o.order_auditTime as auditTime,
+						o.order_auditName as auditName,
+						o.order_cost as cost,
+						u.user_nickname,
+						u.user_id  -->
+		from
+						order_form o left join user u 
+	    on
+	    				o.order_userId = u.user_id) table1
+	    left join
+	    				order_media m 
+	    on
+	    				table1.order_number = m.order_number								
+		where
+						table1.order_id = #{orderFormId}													
+												
+ 	
+ 	</select>	
+ 	<delete id="deleteOrderById" parameterType="string">
+ 		delete
+ 						from
+ 		order_form
+ 						where
+ 		order_id = #{orderFormId}
+ 	</delete>
+ 	<select id="findOrderNumById" parameterType="string" resultType="com.phym.entity.OrderForm">
+ 		select
+ 						order_id as id,
+				 		order_number as number,
+						order_videoName as videoName,
+						order_startTime as startTime,
+						order_endTime as endTime,
+						order_videoType as videoType,
+						order_duration as duration,
+						order_orderType as orderType,
+						order_userId as userId,
+						order_status as status,
+						order_createTime as createTime,
+						order_htRemark as htRemark,
+						order_qtRemark as qtRemark,
+						order_auditTime as auditTime,
+						order_auditName as auditName,
+						order_cost as cost
+		from
+						order_form
+		where
+						order_number = #{id}								
+ 	
+ 	</select>
+ 	<update id="modifyOrder" parameterType="com.phym.entity.OrderForm">
+ 		update			
+ 						order_form
+ 		<set>
+ 			<trim suffixOverrides=",">
+ 				<if test="videoType!=null">
+ 					order_videoType = #{videoType},
+ 				</if>
+ 				<if test="orderType!= -1">
+ 					order_orderType = #{orderType},
+ 				</if>
+ 				<if test="status!= -1">
+ 					order_status = #{status},
+ 				</if>
+ 				<if test="htRemark">
+ 					order_htRemark = #{htRemark},
+ 				</if>
+ 				<if test="auditName">
+ 					order_auditName = #{auditName}
+ 				</if>
+ 			</trim>
+ 		</set>
+ 		<where>
+ 					order_id = #{id}
+ 		</where>								
+ 	</update>
+ 	<select id="findAllOrderForm" resultType="com.phym.entity.OrderForm">
+ 		select
+ 						order_id as id,
+				 		order_number as number,
+						order_videoName as videoName,
+						order_startTime as startTime,
+						order_endTime as endTime,
+						order_videoType as videoType,
+						order_duration as duration,
+						order_orderType as orderType,
+						order_userId as userId,
+						order_status as status,
+						order_createTime as createTime,
+						order_htRemark as htRemark,
+						order_qtRemark as qtRemark,
+						order_auditTime as auditTime,
+						order_auditName as auditName,
+						order_cost as cost
+		from
+						order_form
+		order  by  order_createTime desc								
+ 	</select>
+ 	<select id="findAllUserOrder" parameterType="string" resultType="com.phym.entity.OrderForm">
+ 		select
+ 						order_id as id,
+				 		order_number as number,
+						order_videoName as videoName,
+						order_startTime as startTime,
+						order_endTime as endTime,
+						order_videoType as videoType,
+						order_duration as duration,
+						order_orderType as orderType,
+						order_userId as userId,
+						order_status as status,
+						order_createTime as createTime,
+						order_htRemark as htRemark,
+						order_qtRemark as qtRemark,
+						order_auditTime as auditTime,
+						order_auditName as auditName,
+						order_cost as cost
+		from
+						order_form
+		where
+						order_userId = #{userId}
+		order 	by	order_createTime desc												
+ 	</select>
+ 		
+ 		
+ </mapper>

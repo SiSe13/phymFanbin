@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>成功</title>
+	<style>
+		*{margin:0;padding: 0;}
+		h1{text-align: center;}
+	</style>
+	<script type="text/javascript">       
+function countDown(secs,surl){           
+ var jumpTo = document.getElementById('jumpTo');  
+ jumpTo.innerHTML=secs;    
+ if(--secs>0){       
+     setTimeout("countDown("+secs+",'"+surl+"')",1000);       
+     }       
+ else{         
+     location.href=surl;       
+     -ma  
+     }       
+ }       
+</script>
+</head>
+<body>
+<div>	
+<h1>您已修改成功，请等待审核!</h1>
+
+<a href="media-outdoors.html" style="position: absolute;left: 40%;color: #000;font-size: 16px;text-decoration: none;"><span id="jumpTo">5</span>秒后系统会自动跳转，户外大屏页面</a>  
+</div>
+ 
+<script type="text/javascript">  
+    countDown(5,'media-outdoors.html');  
+</script>   
+</body>
+</html>

@@ -91,10 +91,10 @@
 			var c = false;
 			var d = this;
 			if (b.code) {
-//				$("#verifyYz").click(function() {
-//					$("#time_box").text("60 s后可重发");
-//					d._sendVerify()
-//				})
+				$("#verifyYz").click(function() {
+					//$("#time_box").text("60 s后可重发");
+					//d._sendVerify()
+				})
 			}
 			$('body').on({
 				blur: function(a) {
@@ -153,8 +153,8 @@
 			opt.successTip ? (opt.resultTips ? opt.resultTips(a, true) : j._resultTips(a, true)) : j._clearTips(a);
 			return true
 		},
-/*		_sendVerify: function() {
-			var a = this;
+		_sendVerify: function() {
+			/*var a = this;
 			$("#verifyYz").text("发送验证码").hide();
 			$("#time_box").text("10 s后可重发").show();
 			if (timerC === 0) {
@@ -173,8 +173,8 @@
 			timerC--;
 			h = setTimeout(function() {
 				a._sendVerify()
-			}, 1000)
-		},*/
+			}, 1000)*/
+		},
 		_change: function(a) {
 			var b = this;
 			if (a.val().length != 11) {
@@ -388,6 +388,25 @@ $(function() {
 });
 
 
+$(function(){	
+	//第二页的确定按钮
+	$("#btn_part2").click(function(){			
+//		//if(!verifyCheck._click()) return;
+//		//$(".part2").hide();
+//		//$(".part4").show();
+//       // $(".step li").eq(1).addClass("on");
+////         countdown({
+////             maxTime:10,
+////             ing:function(c){
+////                 $("#times").text(c);
+////             },
+////             after:function(){
+////                 window.location.href="login.html";      
+////             }
+////         });
+	});	
+
+});
 function showoutc(){$(".m-sPopBg,.m-sPopCon").show();}
 function closeClause(){
 	$(".m-sPopBg,.m-sPopCon").hide();		

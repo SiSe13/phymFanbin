@@ -14,16 +14,14 @@ public class AccessInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object handler)
 			throws Exception {
-		//拦截器
 		//查询session中是否保存了登录用户信息
 		//如果没有登录 返回一个JSON，包含“需要登录”消息
 		//如果已经登录，则通过 返回 true
 		User user=(User)req.getSession().getAttribute("user");
-		
 		//System.out.println("user:"+user);
-		
 		if(user==null){
-			String json="{\"state\":1,\"message\":\"需要登录\"}";
+			String json=
+			"{\"state\":1,\"message\":\"需要登录\"}";
 			res.setContentType("text/html; charset=utf-8");
 			res.getWriter().print(json);
 			return false;

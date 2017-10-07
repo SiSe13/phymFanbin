@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="com.phym.dao.UserDao">
+ 	<select id="findUserByName" parameterType="string" resultType="com.phym.entity.User">
+ 		select
+ 					*
+ 		from
+ 				user
+ 		where
+ 				user_nickname = #{name}					
+ 	
+ 	</select>
+ 
+ 	<select id="findUserByPhone" parameterType="string" resultType="com.phym.entity.User">
+ 		select
+ 					*
+ 		from
+ 				user
+ 		where
+ 				user_Phone_num = #{phone}
+ 	</select>
+ 	
+ 	<insert id="saveUser" parameterType="com.phym.entity.User">
+ 		insert into user(
+ 							user_id,
+	 						user_nickname,
+ 							user_password,
+ 							user_type,
+ 							user_state,
+ 							user_create_time,
+ 							user_Phone_num
+ 			)values(
+ 							#{user_id},
+			 				#{user_nickname},
+			 				#{user_password},
+ 							#{user_type},
+			 				#{user_state},
+			 				#{user_create_time},
+			 				#{user_Phone_num}
+ 			)
+ 	
+ 	</insert>
+ 	<update id="updatePassword" parameterType="string">
+ 		update user set   
+ 							   user_password = #{password} 
+ 		where
+ 							   user_Phone_num = #{phone}					   
+ 		
+ 	</update>
+ 	<insert id="insertUserInfo" parameterType="String">
+	 			insert into user_info(
+	 				user_info_id,
+	 				user_id
+	 			)values(
+	 				#{id},
+	 				#{userId}
+	 			)
+	</insert>
+ 	<select id="findUserById" parameterType="string" resultType="com.phym.entity.User">
+ 		select			
+ 							user_id,
+							user_nickname,
+							user_password,
+							user_type,
+							user_state,
+							user_create_time,
+							user_update_time,
+							user_Phone_num,
+							user_lastlog_time,
+							user_level,
+							user_demo
+		from
+							user
+		where
+							user_id = #{userId}										
+ 	
+ 	</select>
+ 	<update id="modifyStatus">
+ 		update 	
+ 							user
+ 		set
+ 							user_state = #{userStatus}
+ 		where
+ 							user_id = #{userId}					
+ 												
+ 	</update>
+ 	
+ 	<delete id="deleteUser" parameterType="string">
+ 		delete
+ 							from
+ 		user
+ 							where
+ 		user_id = #{userId}										
+ 		
+ 	</delete>
+ 	
+ 	<select id="userParticulars" parameterType="string" resultType="map">
+ 		select 
+							u.user_nickname,
+							u.user_password,
+							u.user_type,
+							u.user_state,
+							u.user_create_time,
+							u.user_update_time,
+							u.user_Phone_num,
+							u.user_lastlog_time,
+							u.user_level,
+							u.user_demo,
+							t.user_info_name,
+							t.user_info_tel,
+							t.user_info_addr,
+							t.user_info_email,
+							t.user_info_company,
+							t.user_info_updateTime,
+							t.user_info_headimg,
+							t.user_info_agency_name,
+							t.user_info_agency_number
+		from
+							user u left join user_info t
+		on
+							u.user_id = t.user_id	
+		where
+							u.user_id = #{userId}														
+ 	</select>
+ 	<select id="selectAllUser" resultType="com.phym.entity.User">
+ 		select
+ 							user_id,
+							user_nickname,
+							user_password,
+							user_type,
+							user_state,
+							user_create_time,
+							user_update_time,
+							user_Phone_num,
+							user_lastlog_time,
+							user_level,
+							user_demo
+		from
+							user
+		order by 		
+							user_create_time desc										
+ 	</select>
+ 	
+ 	<update id="updatePwd" parameterType="string">
+ 		update 
+ 				user	
+ 		set
+ 				user_password = #{newpass}
+ 		where
+ 				user_nickname = #{user_nickname}				
+ 	</update>
+ 	
+ </mapper>

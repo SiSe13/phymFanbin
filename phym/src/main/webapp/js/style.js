@@ -36,6 +36,30 @@ function cliLogin() {
 	return false;
 }
 
+//登录操作
+function cliLogin1() {
+
+	var txtUser = $.trim($("#txtUser1").val());
+	var txtPwd = $("#Userpwd1").val();
+	var txtCode = $.trim($('#txtCode').val());
+	if ($.trim(txtUser) == "") {
+		Tip('请输入账号！');
+		$("#txtUser").focus();
+		return;
+	}
+	if ($.trim(txtPwd) == "") {
+		Tip('请输入密码！');
+		$("#Userpwd").focus();
+		return;
+	}
+	if ($('#logincode').attr('iscode') == "1" && txtCode == "") {
+		Tip('请输入验证码！');
+		$("#txtCode").focus();
+		return false;
+	}
+	return false;
+}
+
 function Sendpwd(sender) {
 	var code = $("#txtCode2").val();
 	var phone = $.trim($("#phone").val());

@@ -1,0 +1,23 @@
+
+html, body { padding: 0; margin: 0;  font-family:"微软雅黑";}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th,td { padding: 0; margin: 0; }
+body, button, input, textarea {font-family:"微软雅黑";}
+ol,ul,li { list-style:none;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+a { text-decoration:none;}
+img { display:block; border:0;}
+.clearfix:after{content:".";display:block;height:0px;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+button{background:none; border:none;}
+.preserve{padding:0 6px; float:right; margin-top:10px;}
+
+.append_btu,.delete_btu{ float:right; margin-right:10px; color:#000; font-weight:normal;} 
+
+.box_max{width:1000px; margin:40px auto 0 auto; font-size:14px; }
+.login_box{width:1000px;}
+/*table*/
+#addCont{border-left: 1px solid #000;border-top: 1px solid #000; }
+#addCont td{border-bottom: 1px solid #000;border-right: 1px solid #000;}
+#addCont .box_td_left{ text-align:center;padding:10px 0; background:#d9dbd8;}
+#addCont .box_td_right{padding:5px;}
+#addCont .box_td_right textarea{max-width:450px;min-width:450px; min-height:50px; border:none}

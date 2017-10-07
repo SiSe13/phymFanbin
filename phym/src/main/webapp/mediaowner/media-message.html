@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>谱华云媒网络科技有限公司</title>
+<link rel="stylesheet" href="../advertiser/assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="../advertiser/assets/css/admin.css">
+<link rel="stylesheet" href="../advertiser/assets/css/app.css">
+<link rel="stylesheet" href="../advertiser/assets/css/font-awesome.min.css">
+
+<script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
+
+<script src="../advertiser/assets/js/formValidator_min.js" type="text/javascript" charset="UTF-8"></script>
+<script src="../advertiser/assets/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
+ <script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
+ <script type="text/javascript" src="../advertiser/scripts/name.js"></script>
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;text-align:justify;text-justify:inter-ideograph;word-break:break-all;word-wrap:break-word}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+address,cite,dfn,em,var,i,u{font-style:normal}
+code,kbd,pre,samp{font-family:courier new,courier,monospace}
+small{font-size:12px}ul,ol{list-style:none}
+sup{vertical-align:text-top}sub{vertical-align:text-bottom}
+legend{color:#000}fieldset,img{border:0}button,input,select,textarea{font-size:100%;padding:0;margin:0}
+table{border-collapse:collapse;border-spacing:0}caption,th{ text-align:left }
+.ovh{overflow:hidden}.l{float:left}.r{float:right}.cur{cursor:pointer}
+.c_b{content:".";display:block;height:0;clear:both;visibility:hidden;zoom:1;font-size:0px;overflow:hidden;visibility:hidden}.c_b2{clear:both}.dn{display:none}.dis{display:block}.b{font-weight:bold}
+body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
+
+/*会员注册*/
+.login ul{/*background:url(../advertiser/images/line.png) repeat-x;*/ padding-top:10px; border-top:1px solid #fff}
+.login ul a{ color:#005cb1}
+.login .id input,.login .pw input,.in_id,.in_mo,.reg_input,.reg_input_pic{background-color:#FFF; border:1px solid #d5cfc2;  font-size:14px; font-weight:bold; vertical-align:middle}
+.login .id input,.login .pw input{width:170px; height:30px;margin:0 5px 5px 0; line-height:30px; padding:0 5px;}
+.login .id input:hover,.login .pw input:hover,.in_id:hover,.in_mo:hover,.reg_input:hover,.reg_input_pic:hover{border:1px solid #005cb1;background-color:#F2FAFF;}
+.l_button,.r_button{width:118px; height:39px; border:none; cursor:pointer; display:block; float:left; text-indent:-9000px}
+.l_button{background-position:0 -60px;}
+.r_button{background-position:-138px -60px; margin-right:4px}
+.l_button:hover{background-position:0 0;}
+.r_button:hover{background-position:-138px 0;}
+.f_reg_but{margin:10px 0 0 115px}
+
+.reg{width:460px; font-size:14px;line-height:25px; overflow:hidden;}
+.reg dl{padding-left:10px; font-size:14px;}
+.reg dl dt{ margin-top:15px}
+.reg dl dd{padding:3px 0}
+.reg .title{width:100px; display:inline-block; text-align:right; padding-right:10px}
+.reg_input_pic{width:80px;}
+.in_pic_s{margin-left:83px}
+.reg .img{position:absolute}
+.onShow,.onFocus,.onError,.onCorrect,.onLoad{padding-left:30px; font-size: 12px; height:25px; width:124px; display:inline-block; line-height:25px; vertical-align:middle; overflow:hidden; margin-left:6px}
+.onShow{color:#999; padding-left:0px}
+.onFocus{background-position:0px -30px; color:#333}
+.onError{background-position:0px -60px; color:#333}
+.onCorrect{background-position:0px 0; text-indent:-9000px}
+.onLoad{background-position:0px 0}
+.reg_m{margin-left:90px}
+.clew_txt{display:inline-block; padding:7px  0 0 15px; font-size:12px;}
+.id input,.pw input,.in_id,.in_mo,.reg_input,.reg_input_pic{-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px; height:25px;}
+.user_button a,.pay_but{-moz-border-radius:100px;-webkit-border-radius:100px;border-radius:100px;}
+#one1,#one2{display:block; background-color:#e9eed8; padding:5px 0; text-align:center; clear:both; cursor:pointer}
+#one2{margin-top:15px}
+#one1:hover,#one2:hover{background-color:#d4dfb0}
+#one1 span,#one2 span{color:#F00}
+</style>
+</head>
+<body data-type="generalComponents">
+<!-- top 开始 -->
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:;" class="tpl-logo">
+            <img src="../advertiser/assets/img/logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+    </div>
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+        <li class="shopping"><a href="order.html"><img src="../advertiser/assets/img/shopping.png" alt="" >
+            <span style="color:#999;margin-top:1px;">购物车</span>          
+            </a></li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                </a>
+                <ul class="am-dropdown-content tpl-dropdown-content">
+                    <li class="tpl-dropdown-content-external">
+                        <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="message.html">全部</a></li>
+                    <li>
+                        <a href="#" class="tpl-dropdown-content-message">
+                            <span class="tpl-dropdown-content-photo">
+                  <img src="../assets/img/user02.png" alt=""> </span>
+                            <span class="tpl-dropdown-content-subject">
+                  <span class="tpl-dropdown-content-from"> 禁言小张 </span>
+                            <span class="tpl-dropdown-content-time">10分钟前 </span>
+                            </span>
+                            <span class="tpl-dropdown-content-font"> Amaze UI 的诞生，依托于 GitHub 及其他技术社区上一些优秀的资源；Amaze UI 的成长，则离不开用户的支持。 </span>
+                        </a>
+                        <a href="#" class="tpl-dropdown-content-message">
+                            <span class="tpl-dropdown-content-photo">
+                  <img src="../assets/img/user03.png" alt=""> </span>
+                            <span class="tpl-dropdown-content-subject">
+                  <span class="tpl-dropdown-content-from"> Steam </span>
+                            <span class="tpl-dropdown-content-time">18分钟前</span>
+                            </span>
+                            <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
+	                </a>
+	                <ul class="am-dropdown-content">
+	              <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
+	                    <li><a href="media-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+	                    <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
+	                </ul>
+	           </li>
+        </ul>
+    </div>
+</header>
+<!-- top end -->
+
+<div class="tpl-page-container tpl-page-header-fixed" >
+
+    <div class="tpl-left-nav tpl-left-nav-hover">
+        <div class="tpl-left-nav-title" style="height:20px;">
+            
+        </div>
+        <div class="tpl-left-nav-list">
+            <ul class="tpl-left-nav-menu">
+                <li class="tpl-left-nav-item">
+                    <a href="index.html" class="nav-link ">
+                        <i class="am-icon-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <!-- 打开状态 a 标签添加 active 即可   -->
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-table"></i>
+                        <span>媒体信息</span>
+                        <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu" style="display:block">
+                        <li>
+                            <!-- 打开状态 a 标签添加 active 即可   -->
+                            <a href="outdoors-resources.html" >
+                                <i class="am-icon-angle-right" ></i>
+                                <span>户外大屏</span>
+                               <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
+                            </a>
+                            <a href="bus-resources.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>公交车后视屏</span>
+                            </a>
+                                <a href="text-resources.html" >
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>出租车后视屏</span>
+                                </a>
+
+
+                                    <a href="tv-resources.html">
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>楼宇电视</span>
+                                    </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="order-after.html" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-wpforms"></i>
+                        <span>订单</span>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="fa fa-credit-card fa-sm"></i>
+                        <span>财务</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu">
+                        <li>
+                            <a href="recharge.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>充值</span>
+
+                            <a href="withdrawals.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>提现</span>
+                                <a href="transact.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>交易明细</span>
+                                    <a href="form-news-list.html">
+                                        <i class="am-icon-angle-right"></i>
+                                        <span>银行卡绑定</span>
+
+                                    </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!-- 内容开始 -->
+<div class="tpl-content-wrapper">
+
+        <div class="tpl-portlet-components" >
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                </div>
+                <div class="tpl-portlet-input tpl-fz-ml">
+                    <div class="portlet-input input-small input-inline">
+                        <div class="input-icon right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tpl-block" style="height: 550px;">
+
+                <div class="am-g"  >
+                    <div class="am-u-sm-12">
+                    <div class="reg" style="margin:0 auto;">
+        <form action="" method="post" name="form1" id="form1" style="position:relative;">
+            <dl style="margin-bottom:20px;">
+                <dd><span class="title">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span><img src="../advertiser/assets/img/32.jpg" alt="" style="width: 100px;height: 100px;border-radius:50%;"></dd>
+            </dl>
+            <dl>
+                <dd style="margin-bottom:20px;"><span class="title">真实姓名：</span><input name="iptName" id="iptName" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="iptNameTip" class="onshow"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="zuoji" class="onshow"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">座&nbsp;&nbsp;机&nbsp;号：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="zuoji" class="onshow"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">邮箱地址：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" onblur="checkemail(this.value)" /><span id="t_EmailTip" class="onshow"></span></dd>
+                 <dd style="margin-bottom:20px;"><span class="title">公司名称：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" onblur="checkemail(this.value)" /><span id="t_EmailTip" class="onshow"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">代理商名称：</span>
+                    <span>谱华云媒网络科技有限公司</span>
+                <span id="t_EmailTip" class="onshow"></span></dd>
+
+                
+            </dl>
+        </form>
+       <a href="" style="display:block;width:100px;padding:10px 4px;border-radius:15px;background-color: #0e90d2;text-align:center;font-size:20px;color:#fff;margin-left:120px;">提交</a>                              
+    </div>
+
+                    </div><!-- am-u-sm-12  end -->
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- 内容结束 -->
+
+
+
+<!-- footer开始 -->
+<div class="footer" style="width: 100%;height: 10%;position: relative;">
+        <p style="position: absolute;left: 45%;font-size:16px;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备xxxxx号</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <p style="position: absolute;left: 38%;top:50%;font-size:16px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
+</div>
+<!-- footer结束 -->
+
+<script src="../advertiser/assets/js/amazeui.min.js"></script>
+<script src="../advertiser/assets/js/app.js"></script>
+<script src="../advertiser/assets/js/common.js"></script>
+
+
+    <script type="text/javascript">
+$(document).ready(function(){
+    $.formValidator.initConfig({formid:"form1",debug:false,submitonce:true,
+        onerror:function(msg,obj,errorlist){
+            //$.map(errorlist,function(msg1){alert(msg1)});
+            alert(msg);
+        }
+    });
+    $("#iptName").formValidator({onshow:"至少4个字符",onfocus:"至少4个字符"}).inputValidator({min:4,empty:{leftempty:false,rightempty:false,emptyerror:"输入有误"},onerror:"输入有误"});
+    $("#t_Email").formValidator({onshow:"6-100个字符",onfocus:"6-100个字符"}).inputValidator({min:6,max:100,onerror:"长度非法"}).regexValidator({regexp:"^([\\w-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([\\w-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$",onerror:"格式不正确"});
+    $("#zuoji").formValidator({onshow:"请输入座机号",onfocus:"请输入座机号",}).inputValidator({min:6,max:100,onerror:"长度非法"}).regexValidator({regexp:"/\d{3}-\d{8}|\d{4}-\d{7}/",onerror:"格式不正确"});
+});
+function test1(obj)
+{
+    if(obj.value=="全角字符当做1个长度")
+    {
+        $.formValidator.getInitConfig("1").wideword = false;
+        obj.value = "全角字符当做2个长度";
+    }
+    else
+    {
+        $.formValidator.getInitConfig("1").wideword = true;
+        obj.value = "全角字符当做1个长度";
+    }
+    
+}
+
+</script>
+
+</body>
+
+</html>
