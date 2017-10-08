@@ -41,4 +41,37 @@
 	 						where
 	 		order_number = #{number}
 	 	</delete>
+	 	<select id="findAllOrderMedia" resultType="com.phym.entity.OrderMedia">
+	 		select
+	 					order_screen_id as id,
+		 				order_number as number,
+		 				media_id as mediaId,
+		 				media_status as status,
+		 				media_cost as mediaCost,
+		 				media_name as videoName,
+		 				media_createTime as createTime,
+		 				media_orderStatus as orderStatus,
+		 				media_advertName as advertName
+		 	from
+		 				order_media
+		 	where	
+		 		media_orderStatus = 3					
+	 	</select>
+	 	<select id="findOrderMediaByNumber" parameterType="string" resultType="com.phym.entity.OrderMedia">
+	 		select
+	 					order_screen_id as id,
+		 				order_number as number,
+		 				media_id as mediaId,
+		 				media_status as status,
+		 				media_cost as mediaCost,
+		 				media_name as videoName,
+		 				media_createTime as createTime,
+		 				media_orderStatus as orderStatus,
+		 				media_advertName as advertName
+		 	from
+		 				order_media	
+		 	where
+		 				
+	 					order_number = #{number}
+	 	</select>
  </mapper>

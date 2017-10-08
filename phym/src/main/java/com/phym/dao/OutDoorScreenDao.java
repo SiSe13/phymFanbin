@@ -27,6 +27,8 @@ public interface OutDoorScreenDao {
 	//审核
 	public int auditOutDoor(OutDoorScreen outDoor);
 	
+	//通过用户名查询大屏
+	public List<OutDoorScreen> findOutDoorScreenByUserName(String userName);
 	
 	
 }

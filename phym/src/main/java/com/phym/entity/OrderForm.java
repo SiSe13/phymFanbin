@@ -7,7 +7,7 @@ public class OrderForm implements Serializable {
 
 	private static final long serialVersionUID = -314209549742452513L;
 	private String id;// 
-	private String number;//订单标号
+	private String number;//订单编号
 	private String videoName;//视频名称
 	private String startTime;//开始时间
 	private String endTime;//结束时间

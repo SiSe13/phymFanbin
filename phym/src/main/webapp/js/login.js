@@ -4,13 +4,6 @@ $(function(){
 	$("#logbtn1").click(userMTLogin);
 });
 
-$("#logbtn").keydown(function(event) {
-	 if (event.keyCode == "13") {//keyCode=13是回车键
-		 $("#logbtn").click();
-	 }
-});  
-	
-
 
 function userGGLogin(){
 	//获取用户名

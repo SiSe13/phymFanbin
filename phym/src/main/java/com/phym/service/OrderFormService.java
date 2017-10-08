@@ -2,6 +2,7 @@ package com.phym.service;
 
 import java.util.List;
 import com.phym.entity.OrderForm;
+import com.phym.entity.OutDoorScreen;
 import com.phym.exception.OrderFormException;
 
 public interface OrderFormService {
@@ -20,4 +21,10 @@ public interface OrderFormService {
 	
 	//查询所有订单
 	public List<OrderForm> findAllOrderForm()throws OrderFormException;
+	
+	//通过订单编号查询订单
+	public List<Object> findOrderFormByNumber(String number)throws OrderFormException;
+	
+	//通过订单编号查询订单包含大屏的信息
+	public List<OutDoorScreen> findOrderMediaByNumber(String number)throws OrderFormException;
 }

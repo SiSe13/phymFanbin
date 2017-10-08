@@ -1,21 +1,54 @@
 <!doctype html>
 <html>
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>谱华云媒网络科技有限公司</title>
-<link rel="stylesheet" href="../advertiser/assets/css/amazeui.min.css" />
-<link rel="stylesheet" href="../advertiser/assets/css/admin.css">
-<link rel="stylesheet" href="../advertiser/assets/css/app.css">
-<link rel="stylesheet" href="../advertiser/assets/css/font-awesome.min.css">
-
-<script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
-
-<script src="../advertiser/assets/js/formValidator_min.js" type="text/javascript" charset="UTF-8"></script>
-<script src="../advertiser/assets/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
- <script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
- <script type="text/javascript" src="../advertiser/scripts/name.js"></script>
+<link rel="stylesheet" href="assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="assets/css/admin.css">
+<link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="uploadify/uploadify.css"/>
+<script src="assets/js/jquery-1.12.3.min.js"></script>
+<script src="uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript" src="assets/js/cookie_util.js"></script>
+<script type="text/javascript" src="scripts/name.js"></script>
+<script src="assets/js/formValidator_min.js" type="text/javascript" charset="UTF-8"></script>
+<script src="assets/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" src="scripts/changeMessage.js"></script>
+<script type="text/javascript">
+  		$(document).ready(
+  				 //上传文件
+  		       function fileUpload() {
+  		        $("#upload").uploadify({
+  		          "uploader": "upload/one.do",
+  		          "method": "post",
+  		          "progressData": "percentage",
+  		          "swf": "uploadify/uploadify.swf",
+  		          "buttonText": "选择要上传的图片",            
+  		          "multi": true,
+  		          "auto":false,
+  		          "fileSizeLimit": "1000KB",
+  		          "successTimeout": 600,  
+  		          "queueSizeLimit": 5,
+  		          "fileTypeExts" : '*.jpg; *.png; *.jpeg;', 
+  		          "onUploadSuccess": function(file, data, response) {
+  		            var JsonObjs = eval("(" + data + ")");
+  		            addCookie("js",JsonObjs.filePath,2);
+  		          	alert("上传成功");
+  		          },
+  		          "onUploadError": function(file, errorCode, errorMsg, 
+  		            errorString) {
+  		              alert("上传失败");
+  		          },
+  		          "onSelectError": function() {
+  		        	alert("上传失败");
+  		          }
+  		          
+  		      });
+  		      }
+  		);
+  	</script>
 <style type="text/css">
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
 body,button,input,select,textarea{font:12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;text-align:justify;text-justify:inter-ideograph;word-break:break-all;word-wrap:break-word}
@@ -31,7 +64,7 @@ table{border-collapse:collapse;border-spacing:0}caption,th{ text-align:left }
 body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 
 /*会员注册*/
-.login ul{/*background:url(../advertiser/images/line.png) repeat-x;*/ padding-top:10px; border-top:1px solid #fff}
+.login ul{/*background:url(../images/line.png) repeat-x;*/ padding-top:10px; border-top:1px solid #fff}
 .login ul a{ color:#005cb1}
 .login .id input,.login .pw input,.in_id,.in_mo,.reg_input,.reg_input_pic{background-color:#FFF; border:1px solid #d5cfc2;  font-size:14px; font-weight:bold; vertical-align:middle}
 .login .id input,.login .pw input{width:170px; height:30px;margin:0 5px 5px 0; line-height:30px; padding:0 5px;}
@@ -42,8 +75,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 .l_button:hover{background-position:0 0;}
 .r_button:hover{background-position:-138px 0;}
 .f_reg_but{margin:10px 0 0 115px}
-
-.reg{width:460px; font-size:14px;line-height:25px; overflow:hidden;}
+.reg{width:600px; font-size:14px;line-height:25px; overflow:hidden;}
 .reg dl{padding-left:10px; font-size:14px;}
 .reg dl dt{ margin-top:15px}
 .reg dl dd{padding:3px 0}
@@ -66,35 +98,32 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 #one1:hover,#one2:hover{background-color:#d4dfb0}
 #one1 span,#one2 span{color:#F00}
 </style>
+
 </head>
+
 <body data-type="generalComponents">
 <!-- top 开始 -->
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
         <a href="javascript:;" class="tpl-logo">
-            <img src="../advertiser/assets/img/logo.png" alt="">
+            <img src="assets/img/logo.png" >
         </a>
     </div>
-    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
-    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right"></div>
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
-
         <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
-        <li class="shopping"><a href="order.html"><img src="../advertiser/assets/img/shopping.png" alt="" >
-            <span style="color:#999;margin-top:1px;">购物车</span>          
-            </a></li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span>
                 </a>
                 <ul class="am-dropdown-content tpl-dropdown-content">
                     <li class="tpl-dropdown-content-external">
-                        <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="message.html">全部</a></li>
+                        <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="../mediaowner/message.html">全部</a></li>
                     <li>
                         <a href="#" class="tpl-dropdown-content-message">
                             <span class="tpl-dropdown-content-photo">
-                  <img src="../assets/img/user02.png" alt=""> </span>
+                  <img src="assets/img/user02.png" alt=""> </span>
                             <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> 禁言小张 </span>
                             <span class="tpl-dropdown-content-time">10分钟前 </span>
@@ -103,7 +132,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                         </a>
                         <a href="#" class="tpl-dropdown-content-message">
                             <span class="tpl-dropdown-content-photo">
-                  <img src="../assets/img/user03.png" alt=""> </span>
+                  <img src="assets/img/user03.png" alt=""> </span>
                             <span class="tpl-dropdown-content-subject">
                   <span class="tpl-dropdown-content-from"> Steam </span>
                             <span class="tpl-dropdown-content-time">18分钟前</span>
@@ -113,14 +142,14 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     </li>
                 </ul>
             </li>
-            <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
 	                </a>
 	                <ul class="am-dropdown-content">
-	              <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
-	                    <li><a href="media-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
-	                    <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+	                <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
+	                    <li><a href="../mediaowner/change-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+	                    <li><a href="../mediaowner/media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
 	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
 	                </ul>
 	           </li>
@@ -138,7 +167,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="index.html" class="nav-link ">
+                    <a href="../mediaowner/index.html" class="nav-link ">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -154,30 +183,27 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="outdoors-resources.html" >
+                            <a href="../mediaowner/media-outdoors.html" >
                                 <i class="am-icon-angle-right" ></i>
                                 <span>户外大屏</span>
-                               <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                             </a>
-                            <a href="bus-resources.html">
+                            <a href="../mediaowner/media-bus.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>公交车后视屏</span>
                             </a>
-                                <a href="text-resources.html" >
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>出租车后视屏</span>
-                                </a>
-
-
-                                    <a href="tv-resources.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>楼宇电视</span>
-                                    </a>
+                             <a href="../mediaowner/media-text.html" >
+                                 <i class="am-icon-angle-right"></i>
+                                 <span>出租车后视屏</span>
+                             </a>
+                             <a href="../mediaowner/media-tv.html">
+                                 <i class="am-icon-angle-right"></i>
+                                 <span>楼宇电视</span>
+                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="tpl-left-nav-item">
-                    <a href="order-after.html" class="nav-link tpl-left-nav-link-list">
+                    <a href="../mediaowner/media-indent.html" class="nav-link tpl-left-nav-link-list">
                         <i class="am-icon-wpforms"></i>
                         <span>订单</span>
                     </a>
@@ -190,27 +216,31 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     </a>
                     <ul class="tpl-left-nav-sub-menu">
                         <li>
-                            <a href="recharge.html">
+                            <a href="../mediaowner/media-recharge.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>充值</span>
-
-                            <a href="withdrawals.html">
+							</a>
+                            <a href="../mediaowner/media-withdrawal.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>提现</span>
-                                <a href="transact.html">
+							</a>
+                                <a href="../mediaowner/media-transact.html">
                                     <i class="am-icon-angle-right"></i>
                                     <span>交易明细</span>
-                                    <a href="form-news-list.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>银行卡绑定</span>
-
-                                    </a>
+								</a>
+                                <a href="../mediaowner/media-bank.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>银行卡绑定</span>
+                                </a>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
+
+
+
 <!-- 内容开始 -->
 <div class="tpl-content-wrapper">
 
@@ -224,87 +254,57 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     </div>
                 </div>
             </div>
-            <div class="tpl-block" style="height: 550px;">
+            <div class="tpl-block" style="height: 600px;">
 
                 <div class="am-g"  >
                     <div class="am-u-sm-12">
                     <div class="reg" style="margin:0 auto;">
         <form action="" method="post" name="form1" id="form1" style="position:relative;">
             <dl style="margin-bottom:20px;">
-                <dd><span class="title">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span><img src="../advertiser/assets/img/32.jpg" alt="" style="width: 100px;height: 100px;border-radius:50%;"></dd>
+                <dd><span class="title">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
+                	<input type="hidden" value="1" class="touxiang">
+                	<img src="assets/img/32.jpg"  id="touxiang" style="width: 100px;height: 100px;border-radius:50%;"></dd>
+                <dd>
+                	 <div class="wenjian" style="position: absolute;top:91px;left:103px">
+                            <p style="margin-left: -73px;margin-top:48px;font-size: 14px;margin-right: 130px;">上传文件：</p>
+                             <form enctype="multipart/form-data" style="margin-left:11px;margin-top:-44px;">
+                                <input id="upload" type="file" style="position: absolute;left: 6%;top:59%" />
+                            </form>
+                             <a href="javascript:$('#upload').uploadify('upload')" style="width:80px;height:40px;line-height:40px;font-size: 14px;  background-color: #0e90d2;color:#fff;border-radius: 10%;position: absolute;right: -123px;top:46%;padding-left: 25px;">上传</a> 
+                        <div id="img"></div>                   
+                        </div><!-- 文件结束 -->
+                </dd>
             </dl>
-            <dl>
-                <dd style="margin-bottom:20px;"><span class="title">真实姓名：</span><input name="iptName" id="iptName" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="iptNameTip" class="onshow"></span></dd>
-                <dd style="margin-bottom:20px;"><span class="title">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="zuoji" class="onshow"></span></dd>
-                <dd style="margin-bottom:20px;"><span class="title">座&nbsp;&nbsp;机&nbsp;号：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" onblur="return isCnn(this)" /><span id="zuoji" class="onshow"></span></dd>
-                <dd style="margin-bottom:20px;"><span class="title">邮箱地址：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" onblur="checkemail(this.value)" /><span id="t_EmailTip" class="onshow"></span></dd>
-                 <dd style="margin-bottom:20px;"><span class="title">公司名称：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" onblur="checkemail(this.value)" /><span id="t_EmailTip" class="onshow"></span></dd>
+            <dl style="margin-top:80px;">
+                <dd style="margin-bottom:20px;"><span class="title">真实姓名：</span><input name="iptName" id="iptName" class="reg_input" type="text" /><span id="iptNameTip" class="onshow" style="color:red;"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input name="zuoji" id="dizhi" class="reg_input" type="text" /><span id="dingzhi_span" class="onshow" style="color:red;"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">座&nbsp;&nbsp;机&nbsp;号：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" /><span id="zuoji_span" class="onshow" style="color:red;"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">邮箱地址：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" /><span id="t_EmailTip" class="onshow" style="color:red;"></span></dd>
+                 <dd style="margin-bottom:20px;"><span class="title">公司名称：</span><input class="reg_input" name="t_Email" type="text" id="gsMingCheng"  /><span id="gsMingCheng_span" class="onshow" style="color:red;"></span></dd>
                 <dd style="margin-bottom:20px;"><span class="title">代理商名称：</span>
-                    <span>谱华云媒网络科技有限公司</span>
-                <span id="t_EmailTip" class="onshow"></span></dd>
+                    <span id="agencyName"></span>
+                <span id="agencyName_span" class="onshow"></span></dd>
 
                 
             </dl>
         </form>
-       <a href="" style="display:block;width:100px;padding:10px 4px;border-radius:15px;background-color: #0e90d2;text-align:center;font-size:20px;color:#fff;margin-left:120px;">提交</a>                              
+       <button id="tijiao" style="display:block;width:100px;padding:10px 4px;border-radius:15px;background-color: #0e90d2;text-align:center;font-size:20px;color:#fff;margin-left:120px;">提交</button>                              
     </div>
 
-                    </div><!-- am-u-sm-12  end -->
-
-
                     </div>
-
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </div>
     <!-- 内容结束 -->
-
-
-
 <!-- footer开始 -->
 <div class="footer" style="width: 100%;height: 10%;position: relative;">
         <p style="position: absolute;left: 45%;font-size:16px;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备xxxxx号</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
         <p style="position: absolute;left: 38%;top:50%;font-size:16px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
 </div>
 <!-- footer结束 -->
-
-<script src="../advertiser/assets/js/amazeui.min.js"></script>
-<script src="../advertiser/assets/js/app.js"></script>
-<script src="../advertiser/assets/js/common.js"></script>
-
-
-    <script type="text/javascript">
-$(document).ready(function(){
-    $.formValidator.initConfig({formid:"form1",debug:false,submitonce:true,
-        onerror:function(msg,obj,errorlist){
-            //$.map(errorlist,function(msg1){alert(msg1)});
-            alert(msg);
-        }
-    });
-    $("#iptName").formValidator({onshow:"至少4个字符",onfocus:"至少4个字符"}).inputValidator({min:4,empty:{leftempty:false,rightempty:false,emptyerror:"输入有误"},onerror:"输入有误"});
-    $("#t_Email").formValidator({onshow:"6-100个字符",onfocus:"6-100个字符"}).inputValidator({min:6,max:100,onerror:"长度非法"}).regexValidator({regexp:"^([\\w-.]+)@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.)|(([\\w-]+.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(]?)$",onerror:"格式不正确"});
-    $("#zuoji").formValidator({onshow:"请输入座机号",onfocus:"请输入座机号",}).inputValidator({min:6,max:100,onerror:"长度非法"}).regexValidator({regexp:"/\d{3}-\d{8}|\d{4}-\d{7}/",onerror:"格式不正确"});
-});
-function test1(obj)
-{
-    if(obj.value=="全角字符当做1个长度")
-    {
-        $.formValidator.getInitConfig("1").wideword = false;
-        obj.value = "全角字符当做2个长度";
-    }
-    else
-    {
-        $.formValidator.getInitConfig("1").wideword = true;
-        obj.value = "全角字符当做1个长度";
-    }
-    
-}
-
-</script>
-
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
-
 </html>

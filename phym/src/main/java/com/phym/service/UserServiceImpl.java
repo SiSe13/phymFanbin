@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
 		if(user == null) {
 			throw new UserException("用户名或密码错误");
 		}
-		
 		String pwd = NoteUtil.md5(password+"谱华云媒");
 		if(!user.getUser_password().equals(pwd)) {
 			throw new PasswordException("用户名或密码错误");
@@ -55,7 +54,6 @@ public class UserServiceImpl implements UserService {
 		if(password ==null || password.trim().isEmpty()) {
 			throw new PasswordException("密码不能为空");
 		}
-		
 		User user = dao.findUserByName(name);
 		if(user == null) {
 			throw new UserException("用户名或密码错误");
@@ -265,7 +263,7 @@ public class UserServiceImpl implements UserService {
 			if(!newpass.equals(newpassAgain)) {
 				throw new PasswordException("新密码输入不一致");
 			}
-			int i = dao.updatePwd(user_nickname, newpassAgain);
+			int i = dao.updatePwd(user_nickname,NoteUtil.md5(newpass+"谱华云媒") );
 			if(i != 1) {
 				throw new UserException("密码修改失败");
 			}

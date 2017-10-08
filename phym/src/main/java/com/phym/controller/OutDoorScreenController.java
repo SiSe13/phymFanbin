@@ -1,13 +1,18 @@
 package com.phym.controller;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.phym.entity.OutDoorScreen;
 import com.phym.exception.OutDoorScreenException;
+import com.phym.service.OrderFormService;
 import com.phym.service.OutDoorScreenService;
 import com.phym.util.JsonResult;
+
+import net.sf.json.JSONArray;
 
 @RestController
 @RequestMapping("advertiser/outdoor")
@@ -15,6 +20,10 @@ public class OutDoorScreenController extends BaseController{
 	
 	@Autowired
 	private OutDoorScreenService outDoorScreenService;
+	@Autowired
+	private OrderFormService orderFormService;
+	@Autowired
+	private OrderFormService orderService;
 	
 	//删除媒体资源
 	@RequestMapping("/delout.do")
@@ -120,4 +129,33 @@ public class OutDoorScreenController extends BaseController{
 				return new JsonResult<OutDoorScreen>(doorScreen);
 		}
 		
+		//修改媒体资源
+		@RequestMapping("/modifyout.do")
+		public JsonResult<Boolean> modifyOutDoor(OutDoorScreen outDoor) throws OutDoorScreenException{
+			
+			Boolean bool = outDoorScreenService.modifyOutDoor(outDoor);
+			return new JsonResult<Boolean>(bool);
+		}
+
+		//媒体资源上传
+		@RequestMapping("/outdoor.do")
+		public JsonResult<Boolean> uploadResource(OutDoorScreen outDoor) throws OutDoorScreenException{
+			//String mediaName,String province,String city,String country,String address,String mediaType,String screenType,String screenSize,String length,String height,String startTime,String endTime,String userName,String photo,String superiority,String aptitude,String remark,String playback
+			Boolean bool = outDoorScreenService.uploadResource(outDoor);
+			return new JsonResult<Boolean>(bool);
+		}
+		
+		//通过订单编号查询订单
+		@RequestMapping("/rderIndent.do")
+		public JsonResult<List<Object>> findOrderFormByNumber(String number){
+			List<Object> list = orderFormService.findOrderFormByNumber(number);
+			return new JsonResult<List<Object>>(list);
+		}
+		
+		//通过订单编号查询订单包含大屏的信息
+		@RequestMapping("/dingdanxiangqing.do")
+		public JsonResult<List<OutDoorScreen>> findOrderMediaByNumber(String number){
+			List<OutDoorScreen> map = orderService.findOrderMediaByNumber(number);
+			return new JsonResult<List<OutDoorScreen>>(map);
+		}
 }

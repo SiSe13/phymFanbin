@@ -12,24 +12,9 @@
     <link rel="stylesheet" href="../advertiser/assets/css/layer.css">
     <script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
     <script src="../advertiser/assets/js/layer.js"></script>
-     <script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
-    <script type="text/javascript" src="../advertiser/scripts/name.js"></script>
-    
-    
-    <script>
-function hao() {
-   if (document.getElementById("ok").value=="开启")
-   {
-    document.getElementById("ok").value="暂停";
-   }
-   else
-   {
-     document.getElementById("ok").value="开启";
-   }
-}
-    </script>
-  
-
+    <script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
+	<script type="text/javascript" src="../advertiser/scripts/name.js"></script>
+	<script type="text/javascript" src="scripts/indent.js"></script>
 </head>
 
 <body data-type="generalComponents">
@@ -41,17 +26,14 @@ function hao() {
             </a>
         </div>
         <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
-
         </div>
-
         <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
         <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
 
             <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                        <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span>
                     </a>
                     <ul class="am-dropdown-content tpl-dropdown-content">
 
@@ -80,19 +62,17 @@ function hao() {
 
                     </ul>
                 </li>
-                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                        <span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                    <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
-                        <li><a href="meida-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
-                        <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
-                        <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
-                    </ul>
-                </li>
+	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
+	                </a>
+	                <ul class="am-dropdown-content">
+	              <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
+	                    <li><a href="../advertiser/media-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+	                    <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
+	                </ul>
+	           </li>
             </ul>
         </div>
 </header>
@@ -131,24 +111,18 @@ function hao() {
                                     <span>户外大屏</span>
                                    <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                                 </a>
-
                                 <a href="media-bus.html" >
                                     <i class="am-icon-angle-right"></i>
                                     <span>公交车后视屏</span>
                                 </a>
-  
-
-                                    <a href="media-text.html" >
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>出租车后视屏</span>
-                                    </a>
-
-
-                                        <a href="media-tv.html">
-                                            <i class="am-icon-angle-right"></i>
-                                            <span>楼宇电视</span>
-
-                                        </a>
+                               <a href="media-text.html" >
+                                   <i class="am-icon-angle-right"></i>
+                                   <span>出租车后视屏</span>
+                               </a>
+                                <a href="media-tv.html">
+                                    <i class="am-icon-angle-right"></i>
+                                    <span>楼宇电视</span>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -163,18 +137,13 @@ function hao() {
                                 <a href="media-withdrawals.html" class="active">
                                     <i class="am-icon-angle-right"></i>
                                     <span>出租车后视屏</span>
-
-
                                     <a href="media-transact.html"  class="active">
                                         <i class="am-icon-angle-right"></i>
                                         <span>公交车后视屏</span>
 
-
-
                                         <a href="media-tv.html">
                                             <i class="am-icon-angle-right"></i>
                                             <span>楼宇电视</span>
-
                                         </a>
                             </li>
                         </ul>
@@ -203,18 +172,14 @@ function hao() {
                                     <i class="am-icon-angle-right"></i>
                                     <span>提现</span>
                                  </a>
-
-                                    <a href="media-transact.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>交易明细</span>
-                                       </a>
-
-
-                                        <a href="media-bank.html">
-                                            <i class="am-icon-angle-right"></i>
-                                            <span>银行卡绑定</span>
-
-                                        </a>
+                                 <a href="media-transact.html">
+                                     <i class="am-icon-angle-right"></i>
+                                     <span>交易明细</span>
+                                </a>
+                                 <a href="media-bank.html">
+                                     <i class="am-icon-angle-right"></i>
+                                     <span>银行卡绑定</span>
+                                 </a>
                             </li>
                         </ul>
                     </li>
@@ -242,338 +207,22 @@ function hao() {
                                  <table class="am-table am-table-striped am-table-hover table-main">
                                     <thead>
                                         <tr>
-                                            <th class="table-id" style="width:10%;">订单ID</th>
+                                            <th class="table-id" style="width:20%;">订单编号</th>
                                             <th class="table-title" style="width: 15%;">广告名称</th>
-                                            <th class="table-address" style="width: 15%;">地址</th>
-                                            <th class="table-type" style="width: 23%;">投放时间</th>                                      
-                                            <th class="table-set" style="width: 9%;">审核</th>
-                                            <th class="table-date am-hide-sm-only" style="width: 10%;">操作</th>
-                                            <th class="table-xiangqing">详情</th> 
+                                            <th class="table-type" style="width: 15%;">创建时间</th>
+                                            <th class="table-type" style="width: 15%;">价格</th>
+                                            <th class="table-type" style="width: 15%;">投放人</th>
+                                            <th class="table-set" style="width: 15%;">审核状态</th>
+                                            <th class="table-xiangqing" style="width: 15%;">详情</th> 
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr style="width: 100%;">
-                                          
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                      
-                                            
-                                            <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: block;">审核中</span>
-                                                <span style="display: none;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                            <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                        <tr style="width: 100%;">                                            
-                                            <td id="id1" >123456789012345</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                           <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                          
-                                           <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                           <td>
-                                          <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>      
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-                                            
-                                             
-
-                                            
-                                            
-                                        </tr>
-                                          <tr style="width: 100%;">
-                                            
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                           <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                          
-                                          
-                                            
-                                            <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: none;">审核通过</a></span>
-                                                <span style="display: block;">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                             <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-                                            
-                                            
-                                        </tr>
-                                          <tr style="width: 100%;">
-                                            
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                            
-                                          
-                                            <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: none;">审核通过</a></span>
-                                                <span style="display: block;">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                             <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                        <tr style="width: 100%;">
-                                          
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                  
-                                           
-                                            
-                                             <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: none;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: block;">未使用</span>
-                                            </td>
-                                            <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                       <tr style="width: 100%;">
-                                            
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                            
-  
-                                             <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                            <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                     <tr style="width: 100%;">
-                                           
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                          
-                                          
-                                            
-                                            <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                             <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                        <tr style="width: 100%;">
-                                            
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                    
-                                           
-                                            
-                                             <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                            <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                         <tr style="width: 100%;">
-                                            
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                                       
-                                          
-                                            
-                                           <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                             <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
-                                         <tr style="width: 100%;">
-                                         
-                                            <td id="id1" >1</td>
-                                            <td ><a href="#" title="谱华传媒" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">谱华传媒jyufwci</a></td>
-                                            <td><a href="#" title="黄金四无恶意的花纹不能随意" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 150px;">黄金四无恶意的花纹不能随意sssssss焦急的沉默你看</a></td>
-                                            <td class="am-hide-sm-only-time" >2017年6月16日~2017年8月15日</td>
-                           
-                                          
-                                            
-                                           <td class="am-hide-sm-only-shenhe">
-                                                <span style="display: none;">审核中</span>
-                                                <span style="display: block;">审核通过</a></span>
-                                                <span style="display: none">已使用</span>
-                                                <span style="display: none">未使用</span>
-                                            </td>
-                                             <td>
-                                           <form name="form1" method="post" action="" >
-                                                <input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">
-                                            </form>
-                                            </td>
-                                            <td>
-                                            <div class="am-btn-toolbar">
-                                                <div class="am-btn-group am-btn-group-xs">
-                                                   <a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> 
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                            
-                                            
-                                        </tr>
+                                    <tbody class="tbody">
+                                        <!-- ajax -->
                                     </tbody>
                                 </table>
                               	
-                                    <div class="am-fr pagination" id="pagination">
-                                        <ul class="am-pagination tpl-pagination pagination">
-                                            <li class="am-disabled"><a href="#">«</a></li>
-                                            <li class="am-active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
-                                    </div>
                                 </div>
                                 <hr>
-
                             </form>
                         </div>
 
@@ -593,27 +242,9 @@ function hao() {
             <p style="position: absolute;left: 39%;top:40%;font-size: 14px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
 </div>
 <!-- footer结束 -->
-    <script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
     <script src="../advertiser/assets/js/amazeui.min.js"></script>
     <script src="../advertiser/assets/js/app.js"></script>
 
     <!-- 详情 -->
-
-    <script>
-    $(".am-icon-pencil-square-o").click(function(){
-        layer.open({
-  type: 2,
-  title: '详情页',
-  shadeClose: true,
-  shade: 0.8,
-area: ['1000px', '65%'],
-  content: 'media-indent-details.html' //url
-});
-    })
-   
-    </script>  
-
-
 </body>
-
 </html>

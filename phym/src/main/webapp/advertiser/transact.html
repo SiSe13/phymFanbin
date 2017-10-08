@@ -9,6 +9,9 @@
 <link rel="stylesheet" href="assets/css/admin.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<script src="assets/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="assets/js/cookie_util.js"></script>
+<script type="text/javascript" src="scripts/name.js"></script>
 </head>
 
 <body data-type="generalComponents">
@@ -58,34 +61,24 @@
                             <span class="tpl-dropdown-content-font"> 为了能最准确的传达所描述的问题， 建议你在反馈时附上演示，方便我们理解。 </span>
                         </a>
                     </li>
-
                 </ul>
             </li>
-            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
-
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
-                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
-                </a>
-                <ul class="am-dropdown-content">
-                <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
+	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+	                </a>
+	                <ul class="am-dropdown-content">
+	              <li style="padding-top:8px;padding-bottom: 8px;"><span class="" style="font-size:12px;margin-left:30px;">云南代理商</span></li>
 	                    <li><a href="change-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
 	                    <li><a href="change-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
 	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
-                </ul>
-            </li>
+	                </ul>
+	           </li>
         </ul>
     </div>
 </header>
 <!-- top end -->
-
-
-
-
-
-
 <div class="tpl-page-container tpl-page-header-fixed">
-
     <div class="tpl-left-nav tpl-left-nav-hover">
         <div class="tpl-left-nav-title" style="height:20px;">
             
@@ -120,24 +113,18 @@
                                 <span>户外大屏</span>
                                <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                             </a>
-
                             <a href="bus-resources.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>公交车后视屏</span>
                             </a>
-
-
-                                <a href="text-resources.html" >
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>出租车后视屏</span>
-                                </a>
-
-
-                                    <a href="tv-resources.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>楼宇电视</span>
-
-                                    </a>
+                            <a href="text-resources.html" >
+                                <i class="am-icon-angle-right"></i>
+                                <span>出租车后视屏</span>
+                            </a>
+                            <a href="tv-resources.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>楼宇电视</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -163,24 +150,18 @@
                                 <span>充值</span>
                                <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                             </a>
-
                             <a href="withdrawals.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>提现</span>
                             </a>
-
-
-                                <a href="transact.html" class="active">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>交易明细</span>
-                                </a>
-
-
-                                    <a href="form-news-list.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>银行卡绑定</span>
-
-                                    </a>
+                            <a href="transact.html" class="active">
+                                <i class="am-icon-angle-right"></i>
+                                <span>交易明细</span>
+                            </a>
+                            <a href="bank-binging.html">
+                                <i class="am-icon-angle-right"></i>
+                                <span>银行卡绑定</span>
+                            </a>
                         </li>
                     </ul>
                 </li>

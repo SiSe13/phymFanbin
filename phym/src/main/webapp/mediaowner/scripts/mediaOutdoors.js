@@ -127,6 +127,7 @@ function dataHoutai(data){
 	m = date.getMinutes() + ':';
 	s = date.getSeconds(); 
 	date=Y+M+D+h+m+s
+	return date;
 }
 
 //修改

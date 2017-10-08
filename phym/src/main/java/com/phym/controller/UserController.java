@@ -1,8 +1,6 @@
 package com.phym.controller;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.commons.httpclient.HttpClient;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.phym.entity.User;
 import com.phym.service.UserService;
 import com.phym.util.JsonResult;
-
 import net.sf.json.JSONObject;
 
 @RestController
@@ -78,12 +75,6 @@ public class UserController extends BaseController{
 	//广告登录
 	@RequestMapping("/gglogin.do")
 	public JsonResult<User> login(HttpServletRequest request,String name,String password){
-		 try {
-				name = new String(name.getBytes("iso-8859-1"), "UTF-8");
-				password = new String(password.getBytes("iso-8859-1"), "utf-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
 		User user = userService.GGlogin(name, password);
 		if(user!=null){
 			request.getSession().setAttribute("user", user);
@@ -94,13 +85,6 @@ public class UserController extends BaseController{
 	//媒体登录
 	@RequestMapping("/mtlogin.do")
 	public JsonResult<User> MTlogin(HttpServletRequest request,String name,String password){
-		 try {
-			name = new String(name.getBytes("iso-8859-1"), "UTF-8");
-			password = new String(password.getBytes("iso-8859-1"), "utf-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		 
 		User user = userService.MTlogin(name, password);
 		if(user!=null){
 			request.getSession().setAttribute("user", user);
@@ -133,11 +117,9 @@ public class UserController extends BaseController{
 		if(!auth_code.equals(object)){
 			throw new RuntimeException("验证码不正确");
 		}
-		
 		User user = userService.updatePassword(phone, auth_code, password, rePassword);
 		
 		return new JsonResult<User>(user);
-		
 	}
 	
 	//验证用户名

@@ -7,8 +7,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.phym.dao.OrderMediaDao;
 import com.phym.dao.OutDoorScreenDao;
 import com.phym.dao.UserDao;
+import com.phym.entity.OrderMedia;
 import com.phym.entity.OutDoorScreen;
 import com.phym.entity.User;
 import com.phym.exception.OutDoorScreenException;
@@ -23,7 +25,8 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 	private UserDao userDao;
 	@Autowired
 	private UserService userService;
-	
+	@Autowired
+	private OrderMediaDao mediaDao;
 	
 	//上传媒体资源
 	public Boolean uploadResource(OutDoorScreen outDoor) throws OutDoorScreenException{
@@ -74,7 +77,7 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 			throw new OutDoorScreenException("请填写内容");
 		}
 		
-		if(str.matches(reg2) || sts.matches(reg2)) {
+		if(reg2.matches(str) || reg2.matches(sts)) {
 			throw new OutDoorScreenException("请输入3-10有效数字，第一位不能为0");
 		}
 		if(outDoor.getOutdoorPlayStartTime()==null || outDoor.getOutdoorPlayEndTime()==null) {
@@ -86,9 +89,9 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		if(outDoor.getOutdoorSuperiority().length()>=150) {
 			throw new OutDoorScreenException("输入文本过长");
 		}
-		if(outDoor.getOutdoorAptitude()==null) {
+		/*if(outDoor.getOutdoorAptitude()==null) {
 			throw new OutDoorScreenException("请选择资质文件");
-		}
+		}*/
 		if(outDoor.getOutdoorRemark()==null) {
 			throw new OutDoorScreenException("请填写内容");
 		}
@@ -99,7 +102,7 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 			throw new OutDoorScreenException("请输入内容");
 		}
 		String reg3 = "^[1-9]\\d{0,3}";		
-		if(outDoor.getOutdoorPlaybackPeriod().matches(reg3)) {
+		if(reg3.matches(outDoor.getOutdoorPlaybackPeriod())) {
 			throw new OutDoorScreenException("请输入1-3位有效数字，第一位不能为0");
 		}
 		//图片
@@ -115,6 +118,8 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		outDoor.setOutdoorUnitPrice(price);		
 		outDoor.setOutdoorStatus(0);
 		outDoor.setOutdoorCheckStatus(0);
+		String fre = (Integer.parseInt(outDoor.getOutdoorPlayEndTime())-Integer.parseInt(outDoor.getOutdoorPlayStartTime()))*60/Integer.parseInt(outDoor.getOutdoorPlaybackPeriod())+"";
+		outDoor.setOutdoorFrequency(fre);
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		outDoor.setOutdoorCreatedDate(time);
 		int i = outDoorDao.insertOutDoor(outDoor);
@@ -125,24 +130,24 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 	}
 
 	//媒体主点击户外大屏显示媒体资源
-		public List<OutDoorScreen> loadOutDoor(String outdoorProvince,String outdoorCity,String outdoorCountry,String outdoorScreenType,String outdoorMediasourceType,String userId) {
-			if(userId ==null || userId.trim().isEmpty()) {
-				throw new OutDoorScreenException("错误的ID");
-			}
-			User user = userService.findUserById(userId);
-			if(user ==null) {
-				throw new OutDoorScreenException("用户不存在");
-			}
-			String outdoorUserName = user.getUser_nickname();
-			if(outdoorUserName ==null) {
-				throw new OutDoorScreenException("用户真的不存在");
-			}
-			List<OutDoorScreen> list = outDoorDao.loadOutDoor(outdoorProvince, outdoorCity, outdoorCountry, outdoorScreenType, outdoorMediasourceType, outdoorUserName);
-			if(list.isEmpty()) {
-				throw new OutDoorScreenException("您还没有上传资源");
-			}
-			return list;
+	public List<OutDoorScreen> loadOutDoor(String outdoorProvince,String outdoorCity,String outdoorCountry,String outdoorScreenType,String outdoorMediasourceType,String userId) {
+		if(userId ==null || userId.trim().isEmpty()) {
+			throw new OutDoorScreenException("错误的ID");
 		}
+		User user = userService.findUserById(userId);
+		if(user ==null) {
+			throw new OutDoorScreenException("用户不存在");
+		}
+		String outdoorUserName = user.getUser_nickname();
+		if(outdoorUserName ==null) {
+			throw new OutDoorScreenException("用户真的不存在");
+		}
+		List<OutDoorScreen> list = outDoorDao.loadOutDoor(outdoorProvince, outdoorCity, outdoorCountry, outdoorScreenType, outdoorMediasourceType, outdoorUserName);
+		if(list.isEmpty()) {
+			throw new OutDoorScreenException("您还没有上传资源");
+		}
+		return list;
+	}
 	
 	//删除媒体资源
 	public Boolean deleteMediaResource(String outdoorId) {
@@ -171,76 +176,74 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 	
 	//修改媒体资源
 	public Boolean modifyOutDoor(OutDoorScreen outDoor) throws OutDoorScreenException{
-		String outDoorId = outDoor.getOutdoorId();
-		OutDoorScreen out = outDoorDao.findOutDoorScreenById(outDoorId);
-		String outDoorName = outDoor.getOutdoorName();
-		String province = outDoor.getOutdoorProvince();
-		String city = outDoor.getOutdoorCity();
-		String country = outDoor.getOutdoorCountry();
-		String address = outDoor.getOutdoorAddress();
-		String mediasourceType = outDoor.getOutdoorMediasourceType();
-		String screenType = outDoor.getOutdoorScreenType();
-		String screenSize = outDoor.getOutdoorScreenSize();
-		String length = outDoor.getOutdoorLength();
-		String height = outDoor.getOutdoorHeight();
-		String startime = outDoor.getOutdoorPlayStartTime();
-		String endtime = outDoor.getOutdoorPlayEndTime();
-		String photo = outDoor.getOutdoorPhotoPath();
-		String superiority = outDoor.getOutdoorSuperiority();
-		String aptitude = outDoor.getOutdoorAptitude();
-		String remark = outDoor.getOutdoorRemark();
-		String playback = outDoor.getOutdoorPlaybackPeriod();
 		
-		if(out.getOutdoorName().equals(outDoorName)) {
-			outDoorName = null;
+		String outdoorId = outDoor.getOutdoorId();
+		OutDoorScreen out = outDoorDao.findOutDoorScreenById(outdoorId);
+		String outdoorName = outDoor.getOutdoorName();
+		String outdoorProvince = outDoor.getOutdoorProvince();
+		String outdoorCity = outDoor.getOutdoorCity();
+		String outdoorCountry = outDoor.getOutdoorCountry();
+		String outdoorAddress = outDoor.getOutdoorAddress();
+		String outdoorMediasourceType = outDoor.getOutdoorMediasourceType();
+		String outdoorScreenType = outDoor.getOutdoorScreenType();
+		String outdoorScreenSize = outDoor.getOutdoorScreenSize();
+		String outdoorLength = outDoor.getOutdoorLength();
+		String outdoorHeight = outDoor.getOutdoorHeight();
+		String outdoorPlayStartTime = outDoor.getOutdoorPlayStartTime();
+		String outdoorPlayEndTime = outDoor.getOutdoorPlayEndTime();
+		String outdoorPhotoPath = outDoor.getOutdoorPhotoPath();
+		String outdoorSuperiority = outDoor.getOutdoorSuperiority();
+		String outdoorRemark = outDoor.getOutdoorRemark();
+		String outdoorPlaybackPeriod = outDoor.getOutdoorPlaybackPeriod();
+		
+		if(out.getOutdoorName().equals(outdoorName)) {
+			outdoorName = null;
 		}
-		if(out.getOutdoorProvince().equals(province)) {
-			province = null	;
+		if(out.getOutdoorProvince().equals(outdoorProvince)) {
+			outdoorProvince = null	;
 		}
-		if(out.getOutdoorCity().equals(city)) {
-			city = null;
+		if(out.getOutdoorCity().equals(outdoorCity)) {
+			outdoorCity = null;
 		}
-		if(out.getOutdoorCountry().equals(country)) {
-			country = null	;
+		if(out.getOutdoorCountry().equals(outdoorCountry)) {
+			outdoorCountry = null	;
 		}
-		if(out.getOutdoorAddress().equals(address)) {
-			address = null;
+		if(out.getOutdoorAddress().equals(outdoorAddress)) {
+			outdoorAddress = null;
 		}
-		if(out.getOutdoorMediasourceType().equals(mediasourceType)) {
-			mediasourceType = null;
+		if(out.getOutdoorMediasourceType().equals(outdoorMediasourceType)) {
+			outdoorMediasourceType = null;
 		}
-		if(out.getOutdoorScreenType().equals(screenType)) {
-			screenType = null;
+		if(out.getOutdoorScreenType().equals(outdoorScreenType)) {
+			
+			outdoorScreenType = null;
 		}
-		if(out.getOutdoorScreenSize().equals(screenSize)) {
-			screenSize= null;
+		if(out.getOutdoorScreenSize().equals(outdoorScreenSize)) {
+			outdoorScreenSize= null;
 		}
-		if(out.getOutdoorLength().equals(length)) {
-			length = null;
+		if(out.getOutdoorLength().equals(outdoorLength)) {
+			outdoorLength = null;
 		}
-		if(out.getOutdoorHeight().equals(height)) {
-			height = null;
+		if(out.getOutdoorHeight().equals(outdoorHeight)) {
+			outdoorHeight = null;
 		}
-		if(out.getOutdoorPlayStartTime().equals(startime)) {
-			startime = null;
+		if(out.getOutdoorPlayStartTime().equals(outdoorPlayStartTime)) {
+			outdoorPlayStartTime = null;
 		}
-		if(out.getOutdoorPlayEndTime().equals(endtime)) {
-			endtime = null;
+		if(out.getOutdoorPlayEndTime().equals(outdoorPlayEndTime)) {
+			outdoorPlayEndTime = null;
 		}
-		if(out.getOutdoorPhotoPath().equals(photo)) {
-			photo= null;
+		if(out.getOutdoorPhotoPath().equals(outdoorPhotoPath)) {
+			outdoorPhotoPath= null;
 		}
-		if(out.getOutdoorSuperiority().equals(superiority)) {
-			superiority = null;
+		if(out.getOutdoorSuperiority().equals(outdoorSuperiority)) {
+			outdoorSuperiority = null;
 		}
-		if(out.getOutdoorAptitude().equals(aptitude)) {
-			aptitude = null;
+		if(out.getOutdoorRemark().equals(outdoorRemark)) {
+			outdoorRemark = null;
 		}
-		if(out.getOutdoorRemark().equals(remark)) {
-			remark = null;
-		}
-		if(out.getOutdoorPlaybackPeriod().equals(playback)) {
-			playback = null;
+		if(out.getOutdoorPlaybackPeriod().equals(outdoorPlaybackPeriod)) {
+			outdoorPlaybackPeriod = null;
 		}
 		
 		outDoor.setOutdoorModifyDate(new Timestamp(System.currentTimeMillis()));
@@ -338,4 +341,41 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		}
 		return lis;
 	}
+	
+	//通过媒体主id查询订单
+	public List<OrderMedia> findOrderFormByUserId(String userId) {
+		if(userId ==null || userId.trim().isEmpty()) {
+			throw new OutDoorScreenException("错误的ID");
+		}
+		User user = userService.findUserById(userId);
+		if(user ==null) {
+			throw new OutDoorScreenException("用户不存在");
+		}
+		String userName = user.getUser_nickname();
+		List<OutDoorScreen> list = outDoorDao.findOutDoorScreenByUserName(userName);
+		if(list.isEmpty()) {
+			throw new OutDoorScreenException("您还没有上传资源");
+		}
+		List<String> llt = new ArrayList<String>();
+		for(OutDoorScreen outDoor : list) {
+			llt.add(outDoor.getOutdoorId());
+		}
+		if(llt.isEmpty()) {
+			throw new OutDoorScreenException("未获取到大屏ID");
+		}
+		List<OrderMedia> list1 = new ArrayList<OrderMedia>();
+		List<OrderMedia> list2 = mediaDao.findAllOrderMedia();
+		
+		if(list2.isEmpty()) {
+			throw new OutDoorScreenException("没有订单");
+		}
+		for(OrderMedia media : list2) {
+			if(llt.contains(media.getMediaId())) {
+				list1.add(media);
+			}
+		}
+		return list1;
+	}
+
+		
 }

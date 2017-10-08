@@ -23,5 +23,7 @@ public interface OrderFormDao {
 	//查询用户所有的订单
 	public List<OrderForm> findAllUserOrder(String userId);
 	
+	//通过订单编号查询订单
+	public OrderForm findOrderFormByNumber(String number);
 	
 }

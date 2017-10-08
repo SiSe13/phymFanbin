@@ -21,6 +21,7 @@
 <!-- 上传文件 -->
  <link rel="stylesheet" href="uploadify/uploadify.css">
 <script src="uploadify/jquery.uploadify.js"></script>
+
 <script type="text/javascript" src="../mediaowner/scripts/modification.js"></script>
 <script type="text/javascript">
   		$(document).ready(
@@ -37,11 +38,11 @@
   		           "fileSizeLimit": "1000KB",
   		          "successTimeout": 600,  
   		          "queueSizeLimit": 5,
-  		          "fileTypeExts": '*.mp4',
+  		          "fileTypeExts": '*.jpg;*.png;*.jpeg',
   		          "onUploadSuccess": function(file, data, response) {
-  		            alert("上传成功");
-  		            var JsonObjs = eval("(" + data + ")");
-  		            addCookie("js",JsonObjs.filePath,2);
+  		        	var JsonObjs = eval("(" + data + ")");
+   		            addCookie("js",JsonObjs.filePath,2);
+   		         	alert("上传成功");
   		          },
   		          "onUploadError": function(file, errorCode, errorMsg, 
   		            errorString) {
@@ -51,15 +52,12 @@
   		        	alert("上传失败");
   		          },
   		        "onSelect":function(file){
-  	        	  console.log(file.id)
-  	          }
+  	         	 }
   		      });
   		      }
   		)
   	</script>
 </head>
-
-
 
 <body data-type="generalComponents">
 <!-- top 开始 -->
@@ -137,7 +135,7 @@
     <div class="tpl-left-nav-list">
         <ul class="tpl-left-nav-menu">
             <li class="tpl-left-nav-item">       
-                <a href="index.html" class="nav-link ">
+                <a href="../mediaowner/index.html" class="nav-link ">
                     <i class="am-icon-home"></i>
                     <span>首页</span>
                 </a>
@@ -154,20 +152,20 @@
                 <ul class="tpl-left-nav-sub-menu" style="display:block">
                     <li>
                         <!-- 打开状态 a 标签添加 active 即可   -->
-                        <a href="media-outdoors.html">
+                        <a href="../mediaowner/media-outdoors.html">
                             <i class="am-icon-angle-right"></i>
                             <span>户外大屏</span>
                            <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                         </a>
-                        <a href="media-bus.html" >
+                        <a href="../mediaowner/media-bus.html" >
                             <i class="am-icon-angle-right"></i>
                             <span>公交车后视屏</span>
                         </a>
-                        <a href="media-text.html" >
+                        <a href="../mediaowner/media-text.html" >
                             <i class="am-icon-angle-right"></i>
                             <span>出租车后视屏</span>
                         </a>
-                        <a href="media-tv.html">
+                        <a href="../mediaowner/media-tv.html">
                             <i class="am-icon-angle-right"></i>
                             <span>楼宇电视</span>
                         </a>
@@ -175,7 +173,7 @@
                 </ul>
             </li>
             <li class="tpl-left-nav-item">
-                <a href="media-indent.html" class="nav-link tpl-left-nav-link-list">
+                <a href="../mediaowner/media-indent.html" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-wpforms"></i>
                     <span>订单</span>
                 </a>
@@ -188,28 +186,24 @@
                 </a>
                 <ul class="tpl-left-nav-sub-menu">
                     <li>
-                        <a href="media-recharge.html">
+                        <a href="../mediaowner/media-recharge.html">
                             <i class="am-icon-angle-right"></i>
                             <span>充值</span>
                             <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                         </a>
 
-                        <a href="media-withdrawal.html">
+                        <a href="../mediaowner/media-withdrawal.html">
                             <i class="am-icon-angle-right"></i>
                             <span>提现</span>
-                            <i class="tpl-left-nav-content tpl-badge-success">
-       18
-     </i>
-                            <a href="media-transact.html">
-                                <i class="am-icon-angle-right"></i>
-                                <span>交易明细</span>
-                                <i class="tpl-left-nav-content tpl-badge-primary">
-       5
-     </i>
-                                <a href="media-bank.html">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>银行卡绑定</span>
-                                </a>
+      					</a>
+                        <a href="../mediaowner/media-transact.html">
+                            <i class="am-icon-angle-right"></i>
+                            <span>交易明细</span>
+						</a>
+                       <a href="../mediaowner/media-bank.html">
+                           <i class="am-icon-angle-right"></i>
+                           <span>银行卡绑定</span>
+                       </a>
                     </li>
                 </ul>
             </li>
@@ -270,30 +264,30 @@
                                                   <strong>*</strong>
                                                    <input class="reg_input" name="" id="outdoorHeight" type="text" style="width: 90px;"/>
                                                    <span style="color:#999;font-size: 13px;margin-left: 5px;">长*宽</span>
-                                                    
               </dd>
-
             <!--   分辨率结束 -->
             
               <dd style="position: absolute;left: 1%;top:835%;">
                 <span class="title">屏幕类型：</span>
-                 <div class="am-form-group"   id="select_screen" style="position: absolute;left: 101%;top:3%;">
+                 <div class="am-form-group" id="select_screen" style="position: absolute;left: 101%;top:3%;">
                             <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
                                                         <option value="option1">屏幕类型</option>
                                                         <option value="option1" id="heyue">横屏</option>                                                            
-                                                        <option value="option2" selected = "selected"  id="noheyue">竖屏</option>
+                                                        <option value="option2" id="noheyue">竖屏</option>
                                                         <option value="option2" id="noheyue2">跨街屏</option>
                                                         </select>
                         </div>
-
               </dd>
               <!--   屏幕类型 end -->
                 <!-- 投放类型 -->
-                <dd style="position: absolute;left: 1%;top:1037%"><span class="title" id="select_type">投放类型：</span>
-                	<input type="checkbox" id="Sex_Man" name="rb_Sex" value="0"/>
-                		<label for="Sex_Man" style="font-weight:normal;margin-left: 5px;margin-right: 15px;"> 合约式投放</label>
-                    <input type="checkbox" id="Sex_Woman" name="rb_Sex" value="0" />
-                    	<label for="Sex_Woman" style="font-weight:normal;margin-left: 5px"> 非合约式投放</label>　
+                <dd style="position: absolute;left: 1%;top:1037%"><span class="title">投放类型：</span>
+                	<div class="am-form-group" id="select_type" style="position: absolute;left: 101%;top:3%;">
+                            <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                                        <option value="option1">全部</option>
+                                                        <option value="option1" id="heyue">合约式投放</option>                                                            
+                                                        <option value="option2" id="noheyue">非合约式投放</option>
+                                                        </select>
+                        </div>
                                                     
               </dd>
              <!-- 投放类型end -->

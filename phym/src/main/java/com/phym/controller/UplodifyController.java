@@ -32,6 +32,7 @@ public class  UplodifyController extends BaseController{
 	  
 	  @RequestMapping(value = "/one.do", method = RequestMethod.POST)
 	  public String uploadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		  
 	    MultipartHttpServletRequest multipartRequest = 
 	    (MultipartHttpServletRequest) request;
 	    Iterator<String> fileNames = multipartRequest.getFileNames();
@@ -44,12 +45,18 @@ public class  UplodifyController extends BaseController{
 	    String  fname = NoteUtil.createId()+"."+fileType;
 	    String filePath = request.getSession().getServletContext().getRealPath("/");
 	   
-	    //获取前端传递的参数id
-	    String outDoorId = request.getParameter("outDoorId");
-	    List<OutDoorScreen> list = outDooorScreenService.findOutDoorContent(outDoorId);
+	  //获取前端传递的参数id
 	    String finalPath = null;
-	    for(OutDoorScreen outDoor : list) {
-	    	finalPath=saveFile(fname,outDoor,fileType,filePath, multipartFile.getBytes());
+	    String outDoorId = request.getParameter("outDoorId");
+	    if(outDoorId != null) {
+	    	List<OutDoorScreen> list = outDooorScreenService.findOutDoorContent(outDoorId);
+	    	for(OutDoorScreen outDoor : list) {
+	    		finalPath=saveFile(fname,outDoor,fileType,filePath, multipartFile.getBytes());
+	    	}
+	    	
+	    }else {
+	    	OutDoorScreen outDoor =null;
+	    	finalPath = saveFile(fname,outDoor,fileType,filePath, multipartFile.getBytes());
 	    }
 	    
 	    Map<String, String> resultMap = new HashMap<String, String>(5);

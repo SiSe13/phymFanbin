@@ -14,7 +14,7 @@ public class OrderMedia implements Serializable{
 	private	String mediaCost;   //单个大屏的费用
 	private	String videoName;	//广告名称
 	private Timestamp createTime; //订单创建时间
-	private int orderStatus; //订单状态
+	private int orderStatus; //订单状态0审核中 1 审核通过 2未通过 3支付4未支付
 	private String advertName; //广告主名称
 	public String getId() {
 		return id;

@@ -19,7 +19,6 @@ function checkshipin(){
 		$("#next").removeAttr('disabled');
 	}
 	
-	
 	if(!reg.test(checkshipin)||checkshipin==""){
 		$(".shipin_span").show();
 	}else{

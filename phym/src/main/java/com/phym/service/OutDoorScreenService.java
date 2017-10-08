@@ -1,6 +1,8 @@
 package com.phym.service;
 
 import java.util.List;
+
+import com.phym.entity.OrderMedia;
 import com.phym.entity.OutDoorScreen;
 import com.phym.exception.OutDoorScreenException;
 
@@ -27,4 +29,7 @@ public interface OutDoorScreenService {
 	//开始订单筛选
 	public List<OutDoorScreen> filtrateScreen(String outdoorProvince,String outdoorCity,String outdoorCountry, String checkshipin,
 				String shichang,String outdoorScreenType,String outdoorMediasourceType,int pager)throws OutDoorScreenException;
+	
+	//通过媒体主id查询订单
+	public List<OrderMedia> findOrderFormByUserId(String userId);
 }

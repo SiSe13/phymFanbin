@@ -1,5 +1,5 @@
 var SUCCESS=0;
-var date=null;
+
 $(function(){
 	orderForm();
 });
@@ -18,18 +18,20 @@ function orderForm(){
 	});
 }
 
+//显示订单
 function showdingdang(list){
 	var li = dingdan.replace('number',list.number)
+					.replace("number1",list.number)
 					.replace('videoName1',list.videoName)
 					.replace('videoName',list.videoName)
 					.replace('startTime',list.startTime)
 					.replace('endTime',list.endTime)
 					.replace('cost',list.cost)
-					.replace('orderType',switchType('orderType',list.orderType));
+					.replace('orderType',switchType(list.orderType));
 	$(".tbody").append(li);
 }
 
-function switchType(orderType,n){
+function switchType(n){
 	switch(n){
 	case 0:
 		orderType="审核中";
@@ -47,41 +49,41 @@ function switchType(orderType,n){
 		orderType="未支付";
 		break;
 	}
+	return orderType;
 }
 
-
-
-function dataHoutai(data){
-	date = new Date(data);
-	Y = date.getFullYear() + '-';
-	M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-	D = date.getDate() + ' ';
-	h = date.getHours() + ':';
-	m = date.getMinutes() + ':';
-	s = date.getSeconds(); 
-	date=Y+M+D+h+m+s
-}
 
 var  dingdan='<tr style="width: 100%;">  '+                                          
-'<td id="id1" >'+'number'+'</td>'+
-	'<td ><a href="#" title="'+
-	'videoName1'+'" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">'+
-	'videoName'+'</a></td>'+
-	'<td class="am-hide-sm-only-time" >'+
-	'startTime'+'~'+'endTime'+'</td>'+
-	'<td class="particulars" >'+
-	'cost'+'</td>'+
-	'<td class="am-hide-sm-only-shenhe"><span style="display: none;">'+
-	'orderType'+'</span>'+
-	'</td>'+
-	'<td>'+
-	'<input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">'+
-'</td>'+
-'<td>'+
-	'<div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs">'+
-	'<a href="javascript:void(0);"  class="am-icon-pencil-square-o">详情</a> '+
-	'</div></div>'+
-'</td>';
+				'<td id="id1" >'+'number'+'</td>'+
+					'<td ><a href="#" title="'+
+					'videoName1'+'" style=" display: block;overflow: hidden;white-space: nowrap;text-overflow:ellipsis;width: 100px;">'+
+					'videoName'+'</a></td>'+
+					'<td class="am-hide-sm-only-time" >'+
+					'startTime'+'~'+'endTime'+'</td>'+
+					'<td class="particulars" >'+
+					'cost'+'</td>'+
+					'<td class="am-hide-sm-only-shenhe"><span>'+
+					'orderType'+'</span>'+
+					'</td>'+
+					'<td>'+
+					'<input name="ok" type="button" id="ok" value="暂停" onClick="hao();" style="background-color: #fff;padding:4px 17px;border:1px solid #ddd;">'+
+				'</td>'+
+				'<td>'+
+					'<div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs">'+
+					'<a href="javascript:void(0);"onclick=details("number1") class="am-icon-pencil-square-o">详情</a> '+
+					'</div></div>'+
+				'</td>';
 
+
+function details(number){
+    layer.open({
+		type: 2,
+		title: '详情页',
+		shadeClose: true,
+		shade: 0.8,
+		area: ['1200px', '90%'],
+		content: 'order-after-details.html?number='+number //url
+		});
+}
 
 

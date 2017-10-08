@@ -33,10 +33,10 @@ body{behavior:url("css/hover_htc.htc");font-family:"Microsoft YaHei",宋体; col
 .reg_input_pic{width:80px;}
 .in_pic_s{margin-left:83px}
 .reg .img{position:absolute}
-.onShow,.onFocus,.onError,.onCorrect,.onLoad{padding-left:30px; font-size: 12px; height:25px; width:124px; display:inline-block; line-height:25px; vertical-align:middle; overflow:hidden; margin-left:6px}
+.onShow,.onFocus,.onError,.onCorrect,.onLoad{padding-left:10px; font-size: 12px; height:25px; width:108px; display:inline-block; line-height:25px; vertical-align:middle; overflow:hidden; margin-left:6px}
 .onShow{color:#999; padding-left:0px}
-.onFocus{background-position:0px -30px; color:#333}
-.onError{background-position:0px -60px; color:#333}
+.onFocus{background-position:0px -10px; color:red}
+.onError{background-position:0px -30px; color:red}
 .onCorrect{background-position:0px 0; text-indent:-9000px}
 .onLoad{background-position:0px 0}
 .reg_m{margin-left:90px}
@@ -52,4 +52,5 @@ body{behavior:url("css/hover_htc.htc");font-family:"Microsoft YaHei",宋体; col
 
 /*经过提交*/
 .button:hover{background-color: #5b9bd1;}
+
 

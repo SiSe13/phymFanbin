@@ -22,8 +22,7 @@
   		       function fileUpload() {
   		        $("#upload").uploadify({
   		          "uploader": "upload/one.do",
-  		          "formData":{"outDoorId":getCookie("userId")},
-  		          "method": "get",
+  		          "method": "post",
   		          "progressData": "percentage",
   		          "swf": "uploadify/uploadify.swf",
   		          "buttonText": "选择要上传的图片",            
@@ -34,13 +33,9 @@
   		          "queueSizeLimit": 5,
   		          "fileTypeExts" : '*.jpg; *.png; *.jpeg;', 
   		          "onUploadSuccess": function(file, data, response) {
-  		            alert("上传成功");
   		            var JsonObjs = eval("(" + data + ")");
   		            addCookie("js",JsonObjs.filePath,2);
-  		            var filepath_server=JsonObjs.filePath;
-  		            arr=filepath_server.split("\\");
-  		            arr_length = arr.length;            
-  		            var p = arr[arr_length-1];
+  		          	alert("上传成功");
   		          },
   		          "onUploadError": function(file, errorCode, errorMsg, 
   		            errorString) {
@@ -80,7 +75,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 .l_button:hover{background-position:0 0;}
 .r_button:hover{background-position:-138px 0;}
 .f_reg_but{margin:10px 0 0 115px}
-.reg{width:460px; font-size:14px;line-height:25px; overflow:hidden;}
+.reg{width:600px; font-size:14px;line-height:25px; overflow:hidden;}
 .reg dl{padding-left:10px; font-size:14px;}
 .reg dl dt{ margin-top:15px}
 .reg dl dd{padding:3px 0}
@@ -123,7 +118,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
             </a></li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span>
                 </a>
                 <ul class="am-dropdown-content tpl-dropdown-content">
                     <li class="tpl-dropdown-content-external">
@@ -271,35 +266,35 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
             <dl style="margin-bottom:20px;">
                 <dd><span class="title">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
                 	<input type="hidden" value="1" class="touxiang">
-                	<img src="assets/img/32.jpg" alt="" style="width: 100px;height: 100px;border-radius:50%;"></dd>
+                	<img src="assets/img/32.jpg"  id="touxiang" style="width: 100px;height: 100px;border-radius:50%;"></dd>
                 <dd>
                 	 <div class="wenjian" style="position: absolute;top:91px;left:103px">
                             <p style="margin-left: -73px;margin-top:48px;font-size: 14px;margin-right: 130px;">上传文件：</p>
                              <form enctype="multipart/form-data" style="margin-left:11px;margin-top:-44px;">
                                 <input id="upload" type="file" style="position: absolute;left: 6%;top:59%" />
                             </form>
-                             <a href="javascript:$('#upload').uploadify('upload')" style="width:80px;height:40px;line-height:40px;font-size: 14px;  background-color: #0e90d2;color:#fff;border-radius: 10%;position: absolute;right: -230px;top:46%;padding-left: 25px;">上传</a> 
+                             <a href="javascript:$('#upload').uploadify('upload')" style="width:80px;height:40px;line-height:40px;font-size: 14px;  background-color: #0e90d2;color:#fff;border-radius: 10%;position: absolute;right: -123px;top:46%;padding-left: 25px;">上传</a> 
                         <div id="img"></div>                   
                         </div><!-- 文件结束 -->
                 </dd>
             </dl>
             <dl style="margin-top:80px;">
                 <dd style="margin-bottom:20px;"><span class="title">真实姓名：</span><input name="iptName" id="iptName" class="reg_input" type="text" /><span id="iptNameTip" class="onshow" style="color:red;"></span></dd>
-                <dd style="margin-bottom:20px;"><span class="title">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" /><span id="zuoji" class="onshow" style="color:red;"></span></dd>
-                <dd style="margin-bottom:20px;"><span class="title">座&nbsp;&nbsp;机&nbsp;号：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" /><span id="zuoji" class="onshow" style="color:red;"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span><input name="zuoji" id="dizhi" class="reg_input" type="text" /><span id="dizhi_span" class="onshow" style="color:red;"></span></dd>
+                <dd style="margin-bottom:20px;"><span class="title">座&nbsp;&nbsp;机&nbsp;号：</span><input name="zuoji" id="zuoji" class="reg_input" type="text" /><span id="zuoji_span" class="onshow" style="color:red;"></span></dd>
                 <dd style="margin-bottom:20px;"><span class="title">邮箱地址：</span><input class="reg_input" name="t_Email" type="text" id="t_Email" /><span id="t_EmailTip" class="onshow" style="color:red;"></span></dd>
-                 <dd style="margin-bottom:20px;"><span class="title">公司名称：</span><input class="reg_input" name="t_Email" type="text" id="t_Email"  /><span id="t_EmailTip" class="onshow" style="color:red;"></span></dd>
+                 <dd style="margin-bottom:20px;"><span class="title">公司名称：</span><input class="reg_input" name="t_Email" type="text" id="gsMingCheng"  /><span id="gsMingCheng_span" class="onshow" style="color:red;"></span></dd>
                 <dd style="margin-bottom:20px;"><span class="title">代理商名称：</span>
-                    <span>谱华云媒网络科技有限公司</span>
-                <span id="t_EmailTip" class="onshow"></span></dd>
+                    <span id="agencyName"></span>
+                <span id="agencyName_span" class="onshow"></span></dd>
 
                 
             </dl>
         </form>
-       <a href="" style="display:block;width:100px;padding:10px 4px;border-radius:15px;background-color: #0e90d2;text-align:center;font-size:20px;color:#fff;margin-left:120px;">提交</a>                              
+       <button id="tijiao" style="display:block;width:100px;padding:10px 4px;border-radius:15px;background-color: #0e90d2;text-align:center;font-size:20px;color:#fff;margin-left:120px;">提交</button>                              
     </div>
 
-                    </div><!-- am-u-sm-12  end -->
+                    </div>
                     </div>
                 </div>
             </div>

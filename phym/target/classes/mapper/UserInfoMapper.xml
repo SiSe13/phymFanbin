@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
  
- <!-- parameterType="string" 参数 -->
+<!-- parameterType="string" 参数 -->
  <mapper namespace="com.phym.dao.UserInfoDao">
  	<update id="updateUserInfo"
 		parameterType="com.phym.entity.UserInfo">
@@ -40,4 +40,23 @@
 			user_id=#{userId}
 		</where>
 	</update>
+	<select id="findUserInfoByUserId" parameterType="string" resultType="com.phym.entity.UserInfo">
+		select
+						user_info_id as id,
+						user_id as userId,
+						user_info_name as name,
+						user_info_tel as tel,
+						user_info_addr as addr,
+						user_info_email as email,
+						user_info_company as company,
+						user_info_updateTime as updateTime,
+						user_info_headimg as headimg,
+						user_info_agency_name as agencyName,
+						user_info_agency_number as agencyNumber
+		from
+						user_info
+		where
+						user_id = #{userId}								
+	</select>
+	
  </mapper>

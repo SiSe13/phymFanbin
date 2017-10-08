@@ -1,6 +1,7 @@
 package com.phym.service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import com.phym.entity.User;
 import com.phym.exception.OrderFormException;
 import com.phym.exception.OrderMediaException;
 import com.phym.util.NoteUtil;
+
 @Service("orderFormService")
 public class OrderFormServiceImpl implements OrderFormService {
 	@Autowired
@@ -205,7 +207,58 @@ public class OrderFormServiceImpl implements OrderFormService {
 		return true;
 	}
 
+	//通过订单编号查询订单
+		public List<Object> findOrderFormByNumber(String number) throws OrderFormException {
+			if(number==null) {
+				throw new OrderFormException("参数错误");
+			}
+			OrderForm order = orderDao.findOrderFormByNumber(number);
+			if(order ==null) {
+				throw new OrderFormException("网络延迟");
+			}
+			String userId = order.getUserId();
+			User user = userService.findUserById(userId);
+			if(user ==null) {
+				throw new OrderFormException("查询订单失败");
+			}
+			List<Object> list = new ArrayList<Object>();
+			list.add(number);
+			list.add(order.getVideoName());
+			list.add(order.getStartTime());
+			list.add(order.getEndTime());
+			list.add(order.getVideoType());
+			list.add(order.getDuration());
+			list.add(order.getOrderType());
+			list.add(order.getStatus());
+			list.add(order.getCreateTime());
+			list.add(user.getUser_nickname());
+			list.add(order.getQtRemark());
+			list.add(order.getCost());
+			list.add(order.getHtRemark());
+			list.add(order.getAuditTime());
+			list.add(order.getAuditName());
+			if(list.isEmpty()) {
+				throw new OrderFormException("详情失败");
+			}
+			return list;
+		}
 	
-	
+		//通过订单编号查询订单包含大屏的信息
+		public List<OutDoorScreen> findOrderMediaByNumber(String number) throws OrderFormException {
+			if(number ==null) {
+				throw new OrderFormException("无效的参数");
+			}
+			List<OrderMedia> list1 = mediaDao.findOrderMediaByNumber(number);
+			
+			List<OutDoorScreen> list2 = new ArrayList<OutDoorScreen>();
+			for(OrderMedia order : list1) {
+				String ID = order.getMediaId();
+				String cost =order.getMediaCost();
+				OutDoorScreen out = outService.findOutDoorScreenById(ID);
+				out.setDemo2(cost);
+				list2.add(out);
+			}
+			return list2;
+		}
 
 }
