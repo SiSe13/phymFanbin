@@ -11,13 +11,15 @@ function  inforMation(){
 	var data={userId:getCookie("userId")};
 	$.post(url,data,function(result){
 		if(result.status==SUCCESS){
-			$("#touxiang").attr('src',result.data.headimg==null?"assets/img/32.jpg":result.data.headimg); 
+			$("#touxiang").attr('src',result.data.headimg==""?"assets/img/user01.png":"http://img.puhuayunmei.com/"+result.data.headimg); 
 			$("#iptName").val(result.data.name);
 			$("#dizhi").val(result.data.addr);
 			$("#zuoji").val(result.data.tel);
 			$("#t_Email").val(result.data.email);
 			$("#gsMingCheng").val(result.data.company);
 			$("#agencyName").text(result.data.agencyName);
+			$(".dailishangmicheng").text("所属代理商 : "+result.data.agencyName);
+			
 		}else{
 			alert(result.msg);
 		}

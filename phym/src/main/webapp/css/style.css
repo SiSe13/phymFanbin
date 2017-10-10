@@ -5,7 +5,7 @@
 .wxlogma h3 { margin-top: 10px; font-size: 14px; font-family: 'Microsoft YaHei'; color: #f60; padding: 0 14px; }
 .log_head { height: 80px; overflow: hidden; }
 .log_logo { height: 80px; width: 220px; }
-.log_logo a { position:relative; width:400px; height:80px; display:block; background:url(../images/logo.png) no-repeat center left;}
+.log_logo a { position:relative; width:400px; height:80px; display:block; background:url(../images/logo.png) no-repeat center left;background-size:170px 46px;}
 .log_logo span { text-decoration:none; color:#1997d7; font-weight:normal; font-size:24px; position:absolute; top:23px; left:180px; line-height:36px; border-left:2px solid #d6d6d6; padding-left:20px;font-family: "微软雅黑"}
 
 .login_wrap { margin-bottom: 20px;  }

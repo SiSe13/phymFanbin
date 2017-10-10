@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.phym.dao.UserDao;
+import com.phym.entity.Agency;
 import com.phym.entity.User;
 import com.phym.exception.CodeException;
 import com.phym.exception.NameException;
@@ -22,6 +23,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDao dao;
+	@Autowired
+	private AgencyService agencyService;
+	
 	//广告登录
 	public User GGlogin(String name, String password) throws NameException,PasswordException,UserException{
 		if(name ==null || name.trim().isEmpty()) {
@@ -154,33 +158,42 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	//注册
-	public User regist(String name, String phone, String password, String confirm,int type)
-			throws UserException,PasswordException {
-		
-		if(password==null||password.trim().isEmpty()){
-			throw new PasswordException("密码不能为空!");
+		public User regist(String name, String phone, String password, String confirm,int type,String number)
+				throws UserException,PasswordException {
+			
+			if(password==null||password.trim().isEmpty()||password.equals("")){
+				throw new PasswordException("密码不能为空!");
+			}
+			
+			if(!password.equals(confirm)){
+				throw new PasswordException("确认密码不正确");
+			}
+			if(number==null||number.isEmpty()||number.equals("")) {
+				number = "0000";
+			}
+			String userid = NoteUtil.createId();
+			String pwd=NoteUtil.md5(password+"谱华云媒");
+			String userInfoId = NoteUtil.createId();
+			//0为正常
+			int state=0;
+			Timestamp createTime=new Timestamp(System.currentTimeMillis());
+			
+			if(dao.findUserByName(name)!=null||dao.findUserByPhone(phone)!=null){
+				throw new RuntimeException("注册失败!");
+			}
+			//通过代理商编号查询代理商等级
+			Agency agency = agencyService.findAgencyByCode(number);
+			if(agency ==null) {
+				throw new UserException("请填写正确代理商编号,没有代理商请输入0000");
+			}
+			String level = agency.getLevel() +"";
+			
+			
+			User user =new User(userid,name,pwd,type,state,createTime,phone,level,number);
+			dao.saveUser(user);
+			dao.insertUserInfo(userInfoId, userid);
+			return user;
 		}
-		
-		if(!password.equals(confirm)){
-			throw new PasswordException("确认密码不正确");
-		}
-		
-		String userid = NoteUtil.createId();
-		String pwd=NoteUtil.md5(password+"谱华云媒");
-		String userInfoId = NoteUtil.createId();
-		
-		//0为正常
-		int state=0;
-		Timestamp createTime=new Timestamp(System.currentTimeMillis());
-		
-		if(dao.findUserByName(name)!=null||dao.findUserByPhone(phone)!=null){
-			throw new RuntimeException("注册失败!");
-		}
-		User user =new User(userid,name,pwd,type,state,createTime,phone);
-		dao.saveUser(user);
-		dao.insertUserInfo(userInfoId, userid);
-		return user;
-	}
 	
 	//修改用户状态
 	public Boolean modifyStatus(String userId, int userStatus) throws UserException {
@@ -269,5 +282,16 @@ public class UserServiceImpl implements UserService {
 			}
 			return true;
 		}
-	
+		
+		//检测代理商编码是否正确
+		public Boolean checkNumber(String number) {
+			if(number==null||number.isEmpty()||number.equals("")) {
+				throw new UserException("请输入代理商编号");
+			}
+			Agency agency = agencyService.findAgencyByCode(number);
+			if(agency==null) {
+				throw new UserException("请输入正确的代理商编号，或者填写默认0000编号");
+			}
+			return true;
+		}
 }

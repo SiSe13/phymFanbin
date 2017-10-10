@@ -113,17 +113,17 @@ public class OrderFormServiceImpl implements OrderFormService {
 	}
 	
 	//查询用户所有订单
-		public List<OrderForm> findAllUserOrder(String userId) throws OrderFormException {
-			if(userId == null) {
-				throw new OrderFormException("无效的用户ID");
-			}
-			List<OrderForm> list = orderDao.findAllUserOrder(userId);
-			if(list.isEmpty()) {
-				throw new OrderFormException("你还没有订单");
-			}
-			
-			return list;
+	public List<OrderForm> findAllUserOrder(String userId) throws OrderFormException {
+		if(userId == null) {
+			throw new OrderFormException("无效的用户ID");
 		}
+		List<OrderForm> list = orderDao.findAllUserOrder(userId);
+		if(list.isEmpty()) {
+			throw new OrderFormException("你还没有订单");
+		}
+		
+		return list;
+	}
 	
 	
 	
@@ -154,6 +154,9 @@ public class OrderFormServiceImpl implements OrderFormService {
 		if(userId ==null ||userId.trim().isEmpty()) {
 			throw new OrderFormException("用户ID错误");
 		}
+		System.out.println(filePath);
+		filePath=filePath.substring(2);
+		System.out.println(filePath);
 		OrderForm orderForm = new OrderForm();
 		List<OutDoorScreen> list = outService.findOutDoorContent(outDoorId);
 		Map<String,Integer> map = new HashMap<String, Integer>();

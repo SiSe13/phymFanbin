@@ -16,7 +16,7 @@ $(function(){
 function sendCode(){
 	var phone = $("#phone").val().trim();
 	$.ajax({
-		url:"/user/send.do",
+		url:"user/send.do",
 		type:"post",
 		data:{"phone":phone},
 		dataType:"json",
@@ -67,7 +67,7 @@ function checkPhone(){
 	var phone = $("#phone").val().trim();
 	$(".name_phone span").text("");
 	$.ajax({
-		url:"/user/checkphone.do",
+		url:"user/checkphone.do",
 		type:"post",
 		data:{"phone":phone},
 		dataTpye:"json",
@@ -123,7 +123,7 @@ function changePassword(){
 	var password = $("#password").val().trim();
 	var rePassword = $("#rePassword").val().trim();		
 		$.ajax({
-			url:"/user/authcode.do",
+			url:"user/authcode.do",
 			type:"post",
 			data:{"phone":phone,"auth_code":auth_code,"password":password,"rePassword":rePassword},
 			dataType:"json",

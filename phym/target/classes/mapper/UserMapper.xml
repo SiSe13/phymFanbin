@@ -29,7 +29,9 @@
  							user_type,
  							user_state,
  							user_create_time,
- 							user_Phone_num
+ 							user_Phone_num,
+ 							user_level,
+ 							user_demo
  			)values(
  							#{user_id},
 			 				#{user_nickname},
@@ -37,7 +39,9 @@
  							#{user_type},
 			 				#{user_state},
 			 				#{user_create_time},
-			 				#{user_Phone_num}
+			 				#{user_Phone_num},
+			 				#{user_level},
+			 				#{user_demo}
  			)
  	
  	</insert>

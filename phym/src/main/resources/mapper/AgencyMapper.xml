@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.AgencyDao">
+	<insert id="insertAgency" parameterType="com.phym.entity.Agency">
+		insert into agency(
+							agency_id,
+							agency_name,
+							agency_password,
+							agency_level,
+							agency_code,
+							agency_balance,
+							agency_deposit,
+							agency_phone,
+							agency_province,
+							agency_city,
+							agency_area,
+							agency_manager,
+							agency_createtime,
+							agency_status,
+							agency_demo2,
+							agency_demo3,
+							agency_demo4
+		)values(
+							#{id},
+							#{name},
+							#{password},
+							#{level},
+							#{code},
+							#{balance},
+							#{deposit},
+							#{phone},
+							#{province},
+							#{city},
+							#{area},
+							#{manager},
+							#{createTime},
+							#{status},
+							#{demo2},
+							#{demo3},
+							#{demo4}
+		)
+	</insert>	
+	<select id="findAgencyById" parameterType="string" resultType="com.phym.entity.Agency">
+		select
+							agency_id as id,
+							agency_name as name,
+							agency_password as password,
+							agency_level as level,
+							agency_code as code,
+							agency_balance as balance,
+							agency_deposit as deposit,
+							agency_phone as phone,
+							agency_province as province,
+							agency_city as city,
+							agency_area as area,
+							agency_manager as manager,
+							agency_createtime as createTime,
+							agency_status as status,
+							agency_demo2 as demo2,
+							agency_demo3 as demo3,
+							agency_demo4 as demo4
+		from
+							agency
+		where
+							agency_id = #{id}										
+	</select>
+	<select id="findAllAgency" resultType="com.phym.entity.Agency">
+		select
+							agency_id as id,
+							agency_name as name,
+							agency_password as password,
+							agency_level as level,
+							agency_code as code,
+							agency_balance as balance,
+							agency_deposit as deposit,
+							agency_phone as phone,
+							agency_province as province,
+							agency_city as city,
+							agency_area as area,
+							agency_manager as manager,
+							agency_createtime as createTime,
+							agency_status as status,
+							agency_demo2 as demo2,
+							agency_demo3 as demo3,
+							agency_demo4 as demo4
+		from
+							agency
+		order by agency_createtime desc					
+	</select>
+	<delete id="deleteAgencyById" parameterType="string">
+		delete
+							from
+		agency
+							where
+		agency_id = #{id}										
+	</delete>
+	<select id="findAgencyByName" parameterType="string" resultType="com.phym.entity.Agency">
+		select
+							agency_id as id,
+							agency_name as name,
+							agency_password as password,
+							agency_level as level,
+							agency_code as code,
+							agency_balance as balance,
+							agency_deposit as deposit,
+							agency_phone as phone,
+							agency_province as province,
+							agency_city as city,
+							agency_area as area,
+							agency_manager as manager,
+							agency_createtime as createTime,
+							agency_status as status,
+							agency_demo2 as demo2,
+							agency_demo3 as demo3,
+							agency_demo4 as demo4
+		from
+							agency
+		where
+							agency_name = #{name}
+	</select>
+	<select id="findAgencyByCode" parameterType="string" resultType="com.phym.entity.Agency">
+		select
+							agency_id as id,
+							agency_name as name,
+							agency_password as password,
+							agency_level as level,
+							agency_code as code,
+							agency_balance as balance,
+							agency_deposit as deposit,
+							agency_phone as phone,
+							agency_province as province,
+							agency_city as city,
+							agency_area as area,
+							agency_manager as manager,
+							agency_createtime as createTime,
+							agency_status as status,
+							agency_demo2 as demo2,
+							agency_demo3 as demo3,
+							agency_demo4 as demo4
+		from
+							agency
+		where
+							agency_code = #{code}
+	</select>
+ </mapper>

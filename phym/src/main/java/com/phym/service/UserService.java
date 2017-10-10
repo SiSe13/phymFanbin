@@ -26,7 +26,7 @@ public interface UserService {
 	//检查用户名	 
 	public Object checkName(String name)throws NameException,UserException;
 	//注册用户
-	public User regist(String name,String phone,String password,String confirm,int type)throws
+	public User regist(String name,String phone,String password,String confirm,int type,String number)throws
 				UserException,NameException,PasswordException;
 	
 	//修改用户状态
@@ -42,4 +42,8 @@ public interface UserService {
 	
 	//根据用户修改密码
 	public Boolean updatePwd(String user_nickname,String user_password,String newpass,String newpassAgain)throws UserException,NameException,PasswordException;
+
+	//检测代理商编码是否正确
+	public Boolean checkNumber(String number);
+	
 }

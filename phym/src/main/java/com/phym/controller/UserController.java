@@ -39,7 +39,8 @@ public class UserController extends BaseController{
 				/*
 				 * 随机生成的6位验证码
 				 */
-				int mobile_code=(int) ((Math.random()*9+1)*100000);			
+				int mobile_code=(int) ((Math.random()*9+1)*100000);	
+				
 				//发送短信内容
 				String content= new String("您的验证码是:"+mobile_code+"。请在页面中提交验证码完成验证。");
 				//发送请求
@@ -99,6 +100,14 @@ public class UserController extends BaseController{
 		User user = userService.checkPhone(phone);
 		return new JsonResult<User>(user);
 	}
+	
+	//检查代理商编号
+	@RequestMapping("/number.do")
+	public JsonResult<Boolean> checkNumber(String number){
+		Boolean bool = userService.checkNumber(number);
+		return new JsonResult<Boolean>(bool);
+	}
+	
 	//检测手机号
 	@RequestMapping("/checkphone_r.do")
 	public JsonResult<User> checkPhone_r(String phone){
@@ -129,9 +138,10 @@ public class UserController extends BaseController{
 		return new JsonResult<Object>(n);
 
 	}
+	
 	//注册
 	@RequestMapping("/register.do")
-	public JsonResult<User> Register(HttpServletRequest request,String name, String phone, String password, String confirm,int type,String verifyNo){
+	public JsonResult<User> Register(HttpServletRequest request,String name, String phone, String password, String confirm,int type,String verifyNo,String number){
 		HttpSession session = request.getSession(); 
 		String object=session.getAttribute(phone).toString();
 		
@@ -140,13 +150,12 @@ public class UserController extends BaseController{
 		}
 		if(!verifyNo.equals(object)){
 			throw new RuntimeException("验证码不正确");
-			//System.out.println("验证码不正确！");
 		}else{
-			//System.out.println("验证码ok！");
-			User user=userService.regist(name, phone, password, confirm, type);
+			User user=userService.regist(name, phone, password, confirm, type,number);
 			return new JsonResult<User>(user);
 		}
 	}
+	
 	
 	
 }

@@ -62,7 +62,7 @@ function showorderIndent(list){
 						.replace('endTime',list[3])
 						.replace('duration',list[5])
 						.replace('orderType',switchType(list[6]))
-						.replace('videoType',list[4]);
+						.replace('videoType',"http://video.puhuayunmei.com/"+list[4]);
 	$('#tbody').append(li);
 }
 

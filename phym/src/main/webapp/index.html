@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>谱华云媒网络科技有限公司</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<style>
+* { margin: 0; padding: 0;}
+body { font: 16px/1.8 "Microsoft Yahei",verdana;}
+/* 右侧导航 */
+#fullPage-nav { _display: none; font-size: 12px;}
+
+#fullPage-nav li { width: 90px; height: 21px; margin: 10px 0 0; vertical-align: middle;}
+
+#fullPage-nav li a { float: right; width: 21px; height: 21px; color: #8F9DA4; text-decoration: none; text-align: right; background: url(images/dot.png) 5px 5px no-repeat;}
+
+#fullPage-nav li .active { background-position: 0 bottom;}
+
+#fullPage-nav span { display: none;}
+
+.fullPage-tooltip { float: left; top: 0; margin-right: 5px; font: 12px "Microsoft Yahei"; color: #8F9DA4; line-height: 21px;}
+
+
+
+.section { position: relative; overflow: hidden;}
+
+.section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+
+.section .bg img { display: block; width: 100%; height: 100%;}
+
+
+
+.hgroup { position: absolute; width: 554px; height: 176px; left: 50%; top: 25%; margin: 0 0 0 -277px; text-indent: -9999px; background-image: url(images/slogan.png); opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+
+.p11 { position: absolute; left: 50%; top: 50%; width: 600px; margin: 0 0 0 -280px; font-size: 14px; color: #94a7c6; opacity: 0; transition: all 0.5s;}
+
+.mail { position: absolute; left: 50%; top: -26px; width: 375px; height: 26px; margin-left: -187px; transition: all 1s;}
+
+.mail { float: left; height: 26px; text-indent: -9999px;}
+
+
+
+.bg101 { position: absolute; width: 100%; height: 100%; background: url(images/bg101.png) 50% 20% no-repeat;}
+
+.bg102 { position: absolute; width: 100%; top: 25%; height: 79px; background: url(images/bg102.png) 50% 0 no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+
+.bg103 { position: absolute; width: 100%; top: 25%; height: 37px; margin-top: 110px; background: url(images/bg103.png) 50% 0 no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+
+.go { position: absolute; left: 50%; top: 55%; width: 254px; height: 70px; margin-top: 220px; margin-left: -127px; text-indent: -9999px; background-image: url(images/btn.png); opacity: 0; transition: all 1s;}
+
+
+
+.copyright { position: absolute; left: 0; bottom: 20px; width: 100%; text-align: center; font-size: 0;}
+
+.copyright a, .copyright span { margin: 0 7px; font-size: 12px; color: #a0a0a0;}
+
+
+
+/* CSS3过度及动画 */
+
+.active strong, .active h3 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+
+.active .p1 { opacity: 1; transition-delay: 1.7s;}
+
+
+.active .hgroup { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+
+.active .mail { top: 25px; transition-delay: 0.7s;}
+
+.active .p11 { opacity: 1; transition-duration: 1s; transition-delay: 2s;}
+
+
+.active .bg102, .active .bg103 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+
+.active .go { top: 25%; opacity: 1; transition-delay: 1.2s;}
+
+
+.ltie10 .bg102, .ltie10 .bg103 { opacity: 1; transform:scale(1, 1); transition-delay: 0.7s;}
+
+.ltie10 .go { top: 25%; opacity: 1; transform:scale(1, 1); transition-delay: 1.2s;}
+
+</style>
+
+
+<script src="http://www.jq22.com/jquery/1.8.3/jquery.min.js"></script>
+
+<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
+
+<script src="js/jquery.fullPage.min.js"></script>
+
+<script>
+
+$(function(){
+
+	if($.browser.msie && $.browser.version < 10){
+
+		$('body').addClass('ltie10');
+
+	}
+
+	$.fn.fullpage({
+
+		verticalCentered: false,
+
+		anchors: [ 'page1','page2'],
+
+		navigation: true,
+
+		navigationTooltips: [ '谱华云媒','马上体验']
+
+	});
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="section section1">
+
+	<div class="bg"><img src="images/section1.jpg" alt=""></div>
+
+	<div class="bg11"></div>
+
+	<div class="hgroup">
+
+		<h1><a href="http://www.jq22.com/">谱华云媒</a></h1>
+
+		<h2>改变，不止所见。</h2>
+
+	</div>
+
+	<p class="p11">谱华云媒&mdash;&mdash;2017年最具创意气质的云科技，重生光华，为之瞩目。<br>共享共担&nbsp;&nbsp;共同进步&nbsp;&nbsp;1+1>2&nbsp;,&nbsp;是目标更是荣耀！相互支持，一起成长，携手俱进，共赢天下！</p>
+
+</div>
+
+
+
+<div class="section section10">
+
+	<div class="bg"><img src="images/section10.jpg" alt=""></div>
+
+	<div class="bg101"></div>
+
+	<div class="bg102"></div>
+
+	<div class="bg103"></div>
+
+	<a class="go" href="login.html">马上体验</a>
+
+</div>
+
+</body>
+
+</html>

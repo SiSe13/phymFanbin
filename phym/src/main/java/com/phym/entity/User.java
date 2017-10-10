@@ -20,12 +20,30 @@ public class User implements Serializable{
 	private String user_level;//媒体主等级
 	private String user_demo;//代理商编号
 	private UserInfo userInfo;
+	
 	public UserInfo getUserInfo() {
 		return userInfo;
 	}
 	public void setUserInfo(UserInfo userInfo) {
 		this.userInfo = userInfo;
 	}
+	
+	public User(String user_id, String user_nickname, String user_password, int user_type, int user_state,
+			Timestamp user_create_time, String user_Phone_num, String user_level, String user_demo) {
+		super();
+		this.user_id = user_id;
+		this.user_nickname = user_nickname;
+		this.user_password = user_password;
+		this.user_type = user_type;
+		this.user_state = user_state;
+		this.user_create_time = user_create_time;
+		this.user_Phone_num = user_Phone_num;
+		this.user_level = user_level;
+		this.user_demo = user_demo;
+	}
+	
+	
+	
 	public String getUser_id() {
 		return user_id;
 	}

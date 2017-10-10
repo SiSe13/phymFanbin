@@ -5,6 +5,7 @@ $(function(){
 	$("#btn_part2").click(ButtonRegister);
 	$("#adminNo").blur(checkName);
 	$("#phone").blur(checkPhone);
+	$("#agents").blur(checkAgents);
 	$("#adminNo").select();
 });
 
@@ -49,6 +50,27 @@ function checkName(){
 			$(".namespan span").text(result.msg);
 			$(".namespan span").css({"color":"red","height":"34px","line-height":"34px"});
 		}
+	});
+}
+
+//检查代理商编号
+function checkAgents(){
+	var number=$("#agents").val();
+	var url="user/number.do";
+	var data={number:number};
+	$("#dailishang_span").empty();
+	$.post(url,data,function(result){
+		if(result.status==SUCCESS){
+			$("#dailishang_span").parent().find("label:first").removeClass('hide');
+			$("#btn_part1").removeAttr('disabled');
+		}else{
+			$("#btn_part1").attr("disabled","disabled");
+			$("#dailishang_span").parent().find("label:first").addClass('hide');
+			$("#dailishang_span").text(result.msg);
+			$("#dailishang_span").css({"color":"red","height":"34px","line-height":"34px"});
+		}
+		
+		
 	});
 }
 

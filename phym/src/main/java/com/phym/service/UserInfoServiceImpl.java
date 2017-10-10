@@ -50,6 +50,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 			throw new UserInfoException("固话格式不正确");
 		}
 		
+		headimg=headimg.substring(2);
+		
 		if(info.getName().equals(name)) {
 			name = null;
 		}
@@ -68,6 +70,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		if(headimg.equals(info.getHeadimg())) {
 			headimg = null;
 		}
+		userInfo.setHeadimg(headimg);
 		int n=infoDao.updateUserInfo(userInfo);
 		if(n!=1){
 			throw new UserInfoException("网络异常");

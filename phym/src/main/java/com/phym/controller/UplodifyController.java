@@ -30,6 +30,8 @@ public class  UplodifyController extends BaseController{
 	  @Autowired
 	  private OutDoorScreenService outDooorScreenService;
 	  
+	  private static final  String SAVEPATH = "D:";  
+	  
 	  @RequestMapping(value = "/one.do", method = RequestMethod.POST)
 	  public String uploadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		  
@@ -43,20 +45,18 @@ public class  UplodifyController extends BaseController{
 	    String fileType = name.split("[.]")[1];
 	    //新的文件的名字
 	    String  fname = NoteUtil.createId()+"."+fileType;
-	    String filePath = request.getSession().getServletContext().getRealPath("/");
-	   
 	  //获取前端传递的参数id
 	    String finalPath = null;
 	    String outDoorId = request.getParameter("outDoorId");
 	    if(outDoorId != null) {
 	    	List<OutDoorScreen> list = outDooorScreenService.findOutDoorContent(outDoorId);
 	    	for(OutDoorScreen outDoor : list) {
-	    		finalPath=saveFile(fname,outDoor,fileType,filePath, multipartFile.getBytes());
+	    		finalPath=saveFile(fname,outDoor,fileType,SAVEPATH, multipartFile.getBytes());
 	    	}
 	    	
 	    }else {
 	    	OutDoorScreen outDoor =null;
-	    	finalPath = saveFile(fname,outDoor,fileType,filePath, multipartFile.getBytes());
+	    	finalPath = saveFile(fname,outDoor,fileType,SAVEPATH, multipartFile.getBytes());
 	    }
 	    
 	    Map<String, String> resultMap = new HashMap<String, String>(5);
@@ -66,16 +66,16 @@ public class  UplodifyController extends BaseController{
 	  }
 	
 	  //保存文件
-	  public String saveFile( String fname,OutDoorScreen outDoor,String fileType,String filePath, byte[] content) throws IOException {
+	  public String saveFile( String fname,OutDoorScreen outDoor,String fileType,String SAVEPATH, byte[] content) throws IOException {
 	    BufferedOutputStream bos = null;
 	    String fil =null;
 	    try {
 	    	if(fileType.equals("jpg")||fileType.equals("jpeg")||fileType.equals("png")){
-	    		 fil=filePath+"imgs\\"+fname;
+	    		 fil=SAVEPATH+"imgs/"+fname;
 	    	}else if(fileType.equals("mp4")){
-	    		 fil=filePath+"videos\\"+outDoor.getOutdoorId()+"\\"+fname;
+	    		 fil=SAVEPATH+"videos/"+outDoor.getOutdoorId()+"/"+fname;
 	    	}else if(fileType.equals("txt")) {
-	    		fil=filePath+"files\\"+fname;
+	    		fil=SAVEPATH+"files/"+fname;
 	    	}else{
 	    		throw new RuntimeException("类型不匹配");
 	    	}

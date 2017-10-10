@@ -38,6 +38,8 @@
 			<mvc:exclude-mapping path="/user/mtlogin.do"/>
 			<mvc:exclude-mapping path="/user/mtlogin.do"/>
 			<mvc:exclude-mapping path="/upload/one.do"/>
+			<mvc:exclude-mapping path="/user/number.do"/>
+			
 			<!-- ref 引用Bean 的 ID -->
 			<ref bean="accessInterceptor"/>
 		</mvc:interceptor>
