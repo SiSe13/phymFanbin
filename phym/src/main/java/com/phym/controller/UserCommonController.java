@@ -13,7 +13,7 @@ public class UserCommonController extends BaseController{
 	@Autowired
 	private UserService userService; 
 	
-	//根据用户名修改密码
+	//根据用户名修改密码(广告主)
 	@RequestMapping("/checkpassword.do")
 	public JsonResult<Boolean> updatePwd(String user_nickname, String user_password, String newpass, String newpassAgain){
 			Boolean bool = userService.updatePwd(user_nickname, user_password, newpass, newpassAgain);

@@ -24,13 +24,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 
 @RestController
-@RequestMapping("advertiser/upload")
+@RequestMapping(value={"advertiser/upload","mediaowner/upload"})
 public class  UplodifyController extends BaseController{
 	
 	  @Autowired
 	  private OutDoorScreenService outDooorScreenService;
 	  
-	  private static final  String SAVEPATH = "D:";  
+	  private static final  String SAVEPATH = "E:/www/ROOT/";  
 	  
 	  @RequestMapping(value = "/one.do", method = RequestMethod.POST)
 	  public String uploadFile(HttpServletRequest request, HttpServletResponse response) throws IOException {

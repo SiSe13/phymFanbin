@@ -86,7 +86,7 @@
 .zhuce-tab { cursor: pointer; font-size: 16px; color: #999; background: #eee; display: inline-block; font-family: 'Microsoft YaHei'; }
 .zhuce-tab .xz { border-top: solid 2px #f60; font-size: 16px; color: #666; background: #fff; }
 .zhuce-tab ul li { float: left; height: 40px; line-height: 40px; padding: 0 20px; border-right: solid 1px #ddd; }
-.btn { margin-left: 10px; border: 1px solid #dddddd; padding: 0; width: 106px; height: 30px; background: #f4f4f4; margin-top: 0; text-align: center; line-height: 30px; color: #333; text-decoration: none; display: inline-block; }
+.btn { margin-left: 10px; border: 1px solid #dddddd; padding: 0; width: 137px; height: 30px; background: #f4f4f4; margin-top: 0; text-align: center; line-height: 30px; color: #333; text-decoration: none; display: inline-block; }
 #codedl{ display: none;} 
 
 

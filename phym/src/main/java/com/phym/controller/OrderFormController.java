@@ -24,7 +24,7 @@ public class OrderFormController extends BaseController{
 		return new JsonResult<Boolean>(bool);
 	}
 	
-	//查询所有订单
+	//查询所有订单(广告主)
 	@RequestMapping("/orderForm.do")
 	public JsonResult<List<OrderForm>> findAllUserOrder(String userId){
 		List<OrderForm> list = orderService.findAllUserOrder(userId);

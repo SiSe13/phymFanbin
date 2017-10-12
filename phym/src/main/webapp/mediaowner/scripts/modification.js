@@ -11,7 +11,7 @@ var id=url.substr(a+1,len);   //截取问号之后的内容
 
 //修改大屏信息
 function showModification(){
-	url="outdoor/findout.do";
+	url="mtout/findout.do";
 	var data={"outDoorId":id};
 	$.post(url,data,function(result){
 		if(result.status == SUCCESS){
@@ -39,7 +39,7 @@ function showModification(){
 
 //提交修改信息
 function amendBtn(){
-	var url="outdoor/modifyout.do";
+	var url="mtout/modifyout.do";
 	var data={outdoorId:id,outdoorName:$("#t_UserName").val(),outdoorScreenSize:$("#outdoorScreenSize").val(),outdoorPlaybackPeriod:$("#outdoorPlaybackPeriod").val(),
 			outdoorPlayStartTime:$("#outdoorPlayStartTime").val(),outdoorPlayEndTime:$("#outdoorPlayEndTime").val(),outdoorLength:$("#outdoorLength").val(),
 			outdoorHeight:$("#outdoorHeight").val(),outdoorScreenType:$("#select_screen span:first").html(),outdoorMediasourceType:$("#select_type span:first").html(),
@@ -53,9 +53,6 @@ function amendBtn(){
 			alert(result.msg);
 		}
 	});
-	
-	
-
 }
 
 

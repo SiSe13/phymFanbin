@@ -132,6 +132,6 @@ function dataHoutai(data){
 
 //修改
 function modification(outDoorId){
-	window.location.href="../advertiser/media-modification.html?outDoorId="+outDoorId;
+	window.location.href="media-modification.html?outDoorId="+outDoorId;
 }
 

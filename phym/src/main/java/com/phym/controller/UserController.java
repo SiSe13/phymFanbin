@@ -39,7 +39,7 @@ public class UserController extends BaseController{
 				/*
 				 * 随机生成的6位验证码
 				 */
-				int mobile_code=(int) ((Math.random()*9+1)*100000);	
+				int mobile_code=(int) ((Math.random()*9+1)*100000);
 				
 				//发送短信内容
 				String content= new String("您的验证码是:"+mobile_code+"。请在页面中提交验证码完成验证。");
@@ -127,7 +127,6 @@ public class UserController extends BaseController{
 			throw new RuntimeException("验证码不正确");
 		}
 		User user = userService.updatePassword(phone, auth_code, password, rePassword);
-		
 		return new JsonResult<User>(user);
 	}
 	
@@ -155,7 +154,4 @@ public class UserController extends BaseController{
 			return new JsonResult<User>(user);
 		}
 	}
-	
-	
-	
 }

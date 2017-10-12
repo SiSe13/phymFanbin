@@ -25,7 +25,11 @@ function  inforMation(){
 	var data={userId:getCookie("userId")};
 	$.post(url,data,function(result){
 		if(result.status==SUCCESS){
-			$(".dailishangmicheng").text("所属代理商 : "+result.data.agencyName);
+			if(null==result.data.agencyName){
+				$(".dailishangmicheng").text("所属代理商 : "+"谱华云媒");
+			}else{
+				$(".dailishangmicheng").text("所属代理商 : "+result.data.agencyName);
+			}
 		}else{
 			alert(result.msg);
 		}

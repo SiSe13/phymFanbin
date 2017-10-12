@@ -1,11 +1,9 @@
 package com.phym.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.phym.entity.OrderMedia;
 import com.phym.entity.OutDoorScreen;
 import com.phym.exception.OutDoorScreenException;
@@ -88,18 +86,34 @@ public class MTOutDoorScreenController extends BaseController{
 	}
 	
 	
-	//根据用户名修改密码
+	//根据用户名修改密码(媒体主)
 	@RequestMapping("/checkpassword.do")
 	public JsonResult<Boolean> updatePwd(String user_nickname, String user_password, String newpass, String newpassAgain){
 			Boolean bool = userService.updatePwd(user_nickname, user_password, newpass, newpassAgain);
 			return new JsonResult<Boolean>(bool);
 	}
 	
+	//修改媒体资源
+	@RequestMapping("/modifyout.do")
+	public JsonResult<Boolean> modifyOutDoor(OutDoorScreen outDoor) throws OutDoorScreenException{
+		Boolean bool = outDoorScreenService.modifyOutDoor(outDoor);
+		return new JsonResult<Boolean>(bool);
+	}
 	
+	//媒体资源上传
+	@RequestMapping("/outdoor.do")
+	public JsonResult<Boolean> uploadResource(OutDoorScreen outDoor) throws OutDoorScreenException{
+		//String mediaName,String province,String city,String country,String address,String mediaType,String screenType,String screenSize,String length,String height,String startTime,String endTime,String userName,String photo,String superiority,String aptitude,String remark,String playback
+		Boolean bool = outDoorScreenService.uploadResource(outDoor);
+		return new JsonResult<Boolean>(bool);
+	}
 	
-	
-	
-	
+	//删除媒体资源
+	@RequestMapping("/delout.do")
+	public JsonResult<Boolean> deleteOutDoor(String outDoorId) throws OutDoorScreenException{
+		Boolean bool = outDoorScreenService.deleteMediaResource(outDoorId);
+		return new JsonResult<Boolean>(bool);
+	}
 	
 	
 	

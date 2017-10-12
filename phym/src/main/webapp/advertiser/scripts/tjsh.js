@@ -77,7 +77,6 @@ function refersub(){
 	if(remarks == "请输入需要备注的信息!"){
 		remarks = "";
 	}
-	console.log(videoName);
 	$.ajax({
 		url:"order/uploads.do",
 		type:"post",
@@ -87,7 +86,6 @@ function refersub(){
 		success:function(result){
 			if(result.status==SUCCESS){
 				var boolean=result.data;
-				console.log(boolean);
 				if(boolean){
 					delCookie("gwc");
 					window.location.href ="success.html";

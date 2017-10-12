@@ -1,9 +1,9 @@
 var SUCCESS=0;
-
 $(function(){
 	orderForm();
 });
 
+//查询所有订单
 function orderForm(){
 	var url="order/orderForm.do";
 	var data={userId:getCookie("userId")}

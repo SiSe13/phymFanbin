@@ -3,7 +3,6 @@ var page = 1;
 $(function(){
 	shopping();
 });
-
 function shopping(){
 	var url=window.location.href;	  //获取当前页面的url
 	var b=url.split("?")[1]; //获取第一个参数以后的内容 
@@ -13,13 +12,11 @@ function shopping(){
 	 	 var d=c[i].split("=")[1]; //从=处将字符串分割成字符串数组,并选择第2个元素
 	         arr.push(decodeURI(d));	 //将获取的元素存入到数组中	
 	}
-	
 	setCookie("bofangshichang",arr[1]);
 	
 	var url="outdoor/filtrateScreen.do";
 	var data={checkshipin:arr[0],shichang:arr[1],outdoorProvince:arr[2],outdoorCity:arr[3],outdoorCountry:arr[4],
 			outdoorScreenType:arr[5],outdoorMediasourceType:arr[6],pager:page};
-	
 	$.post(url,data,function(result){
 		if(result.status==SUCCESS){
 			var list=result.data;
@@ -33,7 +30,6 @@ function shopping(){
 				var timeSt = list[i].outdoorPlayStartTime;
 				var timeEnd = list[i].outdoorPlayEndTime;
 				var outDoorId = list[i].outdoorId;
-				
 				createTr(i+1,screenName,address,price,remainTime,scrtype,timeSt,timeEnd,outDoorId);
 			}
 		}
@@ -83,7 +79,6 @@ function loadOutDoorAction(){
 			var cook=getCookie("gwc").split(",");
 			var ne="";
 			for(var i=0;i<cook.length;i++){
-				
 			}
 			delCookie("gwc");
 			addCookie("gwc",ne,2);

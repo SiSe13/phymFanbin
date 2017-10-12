@@ -27,7 +27,8 @@
 							outdoor_screen_createdDate,
 							outdoor_screen_remark,
 							outdoor_screen_frequency,
-							outdoor_screen_playbackPeriod
+							outdoor_screen_playbackPeriod,
+							outdoor_screen_remainTime
  			)values(
  							#{outdoorId},
 							#{outdoorName},
@@ -52,8 +53,8 @@
 							#{outdoorCreatedDate},
 							#{outdoorRemark},
 							#{outdoorFrequency},
-							#{outdoorPlaybackPeriod}
-							
+							#{outdoorPlaybackPeriod},
+							#{remainTime}
  			)	
  	</insert>
  	<select id="findOutDoorScreenById" parameterType="string" resultType="com.phym.entity.OutDoorScreen">

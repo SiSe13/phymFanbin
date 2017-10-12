@@ -154,9 +154,7 @@ public class OrderFormServiceImpl implements OrderFormService {
 		if(userId ==null ||userId.trim().isEmpty()) {
 			throw new OrderFormException("用户ID错误");
 		}
-		System.out.println(filePath);
 		filePath=filePath.substring(2);
-		System.out.println(filePath);
 		OrderForm orderForm = new OrderForm();
 		List<OutDoorScreen> list = outService.findOutDoorContent(outDoorId);
 		Map<String,Integer> map = new HashMap<String, Integer>();

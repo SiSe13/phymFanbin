@@ -4,18 +4,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>谱华云媒网络科技有限公司</title>
-<link rel="stylesheet" href="assets/css/amazeui.min.css" />
-<link rel="stylesheet" href="assets/css/admin.css">
-<link rel="stylesheet" href="assets/css/app.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="uploadify/uploadify.css"/>
-<script src="assets/js/jquery-1.12.3.min.js"></script>
-<script src="uploadify/jquery.uploadify.js"></script>
-<script type="text/javascript" src="assets/js/cookie_util.js"></script>
+<link rel="stylesheet" href="../advertiser/assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="../advertiser/assets/css/admin.css">
+<link rel="stylesheet" href="../advertiser/assets/css/app.css">
+<link rel="stylesheet" href="../advertiser/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../advertiser/uploadify/uploadify.css"/>
+<link rel="icon" type="image/png" href="../advertiser/assets/img/logosmall.png"> 
+<script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
+<script src="../advertiser/uploadify/jquery.uploadify.js"></script>
+<script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
 <script type="text/javascript" src="../scripts/name.js"></script>
-<script src="assets/js/formValidator_min.js" type="text/javascript" charset="UTF-8"></script>
-<script src="assets/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
-<script type="text/javascript" src="scripts/changeMessage.js"></script>
+<script src="../advertiser/assets/js/formValidator_min.js" type="text/javascript" charset="UTF-8"></script>
+<script src="../advertiser/assets/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" src="../advertiser/scripts/changeMessage.js"></script>
 <script type="text/javascript">
   		$(document).ready(
   				 //上传文件
@@ -24,11 +25,11 @@
   		          "uploader": "upload/one.do",
   		          "method": "post",
   		          "progressData": "percentage",
-  		          "swf": "uploadify/uploadify.swf",
+  		          "swf": "../advertiser/uploadify/uploadify.swf",
   		          "buttonText": "选择要上传的图片",            
   		          "multi": true,
   		          "auto":false,
-  		          "fileSizeLimit": "1000KB",
+  		          "fileSizeLimit": "1MB",
   		          "successTimeout": 600,  
   		          "queueSizeLimit": 5,
   		          "fileTypeExts" : '*.jpg; *.png; *.jpeg;', 
@@ -100,15 +101,13 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 #one1:hover,#one2:hover{background-color:#d4dfb0}
 #one1 span,#one2 span{color:#F00}
 </style>
-
 </head>
-
 <body data-type="generalComponents">
 <!-- top 开始 -->
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
         <a href="javascript:;" class="tpl-logo">
-            <img src="assets/img/logo.png" >
+            <img src="../advertiser/assets/img/logo.png" >
         </a>
     </div>
     <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right"></div>
@@ -126,12 +125,12 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                 </li>
              <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
 	                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="assets/img/user01.png"></span>
+	                    <span class="tpl-header-list-user-nick" id="userName"></span><span class="tpl-header-list-user-ico"> <img src="../advertiser/assets/img/user01.png"></span>
 	                </a>
 	                <ul class="am-dropdown-content">
 	                    <li style="padding-top:8px;padding-bottom: 8px;"><span class="dailishangmicheng" style="font-size:12px;margin-left:20px;"></span></li>
-	                    <li><a href="../mediaowner/change-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
-	                    <li><a href="../mediaowner/media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
+	                    <li><a href="change-message.html"><span class="am-icon-bell-o"></span> 资料修改</a></li>
+	                    <li><a href="media-password.html"><span class="am-icon-cog"></span> 密码修改</a></li>
 	                    <li><a href="javascript:;" onclick=dropOut();><span class="am-icon-power-off"></span> 退出</a></li>
 	                </ul>
 	           </li>
@@ -149,7 +148,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
                 <li class="tpl-left-nav-item">
-                    <a href="../mediaowner/index.html" class="nav-link ">
+                    <a href="index.html" class="nav-link ">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
@@ -158,26 +157,26 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     <!-- 打开状态 a 标签添加 active 即可   -->
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                         <i class="am-icon-table"></i>
-                        <span>媒体信息</span>
+                        <span>资源管理</span>
                         <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                     </a>
                     <ul class="tpl-left-nav-sub-menu" style="display:block">
                         <li>
                             <!-- 打开状态 a 标签添加 active 即可   -->
-                            <a href="../mediaowner/media-outdoors.html" >
+                            <a href="media-outdoors.html" >
                                 <i class="am-icon-angle-right" ></i>
                                 <span>户外大屏</span>
                             </a>
-                            <a href="../mediaowner/media-bus.html">
+                            <a href="media-bus.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>公交车后视屏</span>
                             </a>
-                             <a href="../mediaowner/media-text.html" >
+                             <a href="media-text.html" >
                                  <i class="am-icon-angle-right"></i>
                                  <span>出租车后视屏</span>
                              </a>
-                             <a href="../mediaowner/media-tv.html">
+                             <a href="media-tv.html">
                                  <i class="am-icon-angle-right"></i>
                                  <span>楼宇电视</span>
                              </a>
@@ -185,7 +184,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     </ul>
                 </li>
                 <li class="tpl-left-nav-item">
-                    <a href="../mediaowner/media-indent.html" class="nav-link tpl-left-nav-link-list">
+                    <a href="media-indent.html" class="nav-link tpl-left-nav-link-list">
                         <i class="am-icon-wpforms"></i>
                         <span>订单</span>
                     </a>
@@ -198,15 +197,15 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                     </a>
                     <ul class="tpl-left-nav-sub-menu">
                         <li>
-                            <a href="../mediaowner/media-recharge.html">
+                            <a href="media-recharge.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>充值</span>
 							</a>
-                            <a href="../mediaowner/media-withdrawal.html">
+                            <a href="media-withdrawal.html">
                                 <i class="am-icon-angle-right"></i>
                                 <span>提现</span>
 							</a>
-                                <a href="../mediaowner/media-transact.html">
+                                <a href="media-transact.html">
                                     <i class="am-icon-angle-right"></i>
                                     <span>交易明细</span>
 								</a>
@@ -217,6 +216,12 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
                         </li>
                     </ul>
                 </li>
+                <li class="tpl-left-nav-item">
+        				<a href="media-qualification.html" class="nav-link">
+            			<i class="fa fa-file-text-o fa-sm"></i>
+           				 <span>资质管理</span>
+        				</a>
+    				</li>
             </ul>
         </div>
     </div>
@@ -225,7 +230,6 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
 
 <!-- 内容开始 -->
 <div class="tpl-content-wrapper">
-
         <div class="tpl-portlet-components" >
             <div class="portlet-title">
                 <div class="caption font-green bold">
@@ -245,7 +249,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
             <dl style="margin-bottom:20px;">
                 <dd><span class="title">头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
                 	<input type="hidden" value="1" class="touxiang">
-                	<img src="assets/img/user01.png"  id="touxiang" style="width: 100px;height: 100px;border-radius:50%;"></dd>
+                	<img src="../advertiser/assets/img/user01.png"  id="touxiang" style="width: 100px;height: 100px;border-radius:50%;"></dd>
                 <dd>
                 	 <div class="wenjian" style="position: absolute;top:91px;left:103px">
                             <p style="margin-left: -73px;margin-top:48px;font-size: 14px;margin-right: 130px;">上传文件：</p>
@@ -286,7 +290,7 @@ body{font-family:"Microsoft YaHei",宋体; color:#333;}/*hover*/
         <p style="position: absolute;left: 38%;top:50%;font-size:16px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
 </div>
 <!-- footer结束 -->
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="../advertiser/assets/js/amazeui.min.js"></script>
+<script src="../advertiser/assets/js/app.js"></script>
 </body>
 </html>

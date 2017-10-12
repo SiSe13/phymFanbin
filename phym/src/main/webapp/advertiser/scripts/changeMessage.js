@@ -1,6 +1,5 @@
 var SUCCESS=0;
 $(function(){
-	
 	inforMation();
 	$("#tijiao").click(updateUserInfo);
 });
@@ -18,8 +17,13 @@ function  inforMation(){
 			$("#t_Email").val(result.data.email);
 			$("#gsMingCheng").val(result.data.company);
 			$("#agencyName").text(result.data.agencyName);
-			$(".dailishangmicheng").text("所属代理商 : "+result.data.agencyName);
-			
+			if(null==result.data.agencyName){
+				$("#agencyName").text("谱华云媒");
+				$(".dailishangmicheng").text("所属代理商 : "+"谱华云媒");
+			}else{
+				$("#agencyName").text(result.data.agencyName);
+				$(".dailishangmicheng").text("所属代理商 : "+result.data.agencyName);
+			}
 		}else{
 			alert(result.msg);
 		}

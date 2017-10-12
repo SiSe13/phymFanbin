@@ -8,13 +8,13 @@ import com.phym.service.UserInfoService;
 import com.phym.util.JsonResult;
 
 @RestController
-@RequestMapping("advertiser/userInfo")
+@RequestMapping(value={"advertiser/userInfo","mediaowner/userInfo"})
 public class UserInfoController extends BaseController{
 	
 	@Autowired
 	private UserInfoService infoService;
 	
-	//通过用户id查询完善资料
+	//通过用户id查询完善资料(广告主)
 	@RequestMapping("userId.do")
 	public JsonResult<UserInfo> findUserInfoByUserId(String userId){
 		UserInfo info = infoService.findUserInfoByUserId(userId);
@@ -22,7 +22,7 @@ public class UserInfoController extends BaseController{
 	}
 	
 				
-	//完善用户资料
+	//完善用户资料(广告主)
 	@RequestMapping("updateUserInfo.do")
 	public JsonResult<Boolean> updateUserInfo(UserInfo userInfo){
 		

@@ -4,27 +4,26 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>谱华云媒网络科技有限公司</title>
-<link rel="stylesheet" href="assets/css/amazeui.min.css" />
-<link rel="stylesheet" href="assets/css/admin.css">
-<link rel="stylesheet" href="assets/css/app.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../advertiser/assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="../advertiser/assets/css/admin.css">
+<link rel="stylesheet" href="../advertiser/assets/css/app.css">
+<link rel="stylesheet" href="../advertiser/assets/css/font-awesome.min.css">
+<link rel="icon" type="image/png" href="../advertiser/assets/img/logosmall.png"> 
 <!--  详情 -->
-<script src="assets/js/jquery-1.12.3.min.js"></script>
+<script src="../advertiser/assets/js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="../advertiser/assets/js/cookie_util.js"></script>
+<script type="text/javascript" src="../scripts/name.js"></script>
 <!-- 地区 -->
-<link rel="stylesheet" href="assets/css/jquery.inputbox.css">     
-<script src="assets/js/jquery.ganged.js"></script>
-<script src="assets/js/jquery.inputbox.js"></script>
-<script src="assets/js/resources.js"></script>
-<script src="assets/js/formValidator_min.js"></script>
-<script src="assets/js/formValidatorRegex.js"></script>
- <link rel="stylesheet" href="assets/css/media-resources.css">
- <script type="text/javascript" src="assets/js/cookie_util.js"></script>
- <script type="text/javascript" src="../scripts/name.js"></script>
-
+<link rel="stylesheet" href="../advertiser/assets/css/jquery.inputbox.css">     
+<script src="../advertiser/assets/js/jquery.ganged.js"></script>
+<script src="../advertiser/assets/js/jquery.inputbox.js"></script>
+<script src="../advertiser/assets/js/resources.js"></script>
+ <link rel="stylesheet" href="../advertiser/assets/css/media-resources.css">
 <!-- 上传文件 -->
- <link rel="stylesheet" href="uploadify/uploadify.css">
-<script src="uploadify/jquery.uploadify.js"></script>
-<script type="text/javascript" src="../mediaowner/scripts/resources.js"></script>
+ <link rel="stylesheet" href="../advertiser/uploadify/uploadify.css">
+<script src="../advertiser/uploadify/jquery.uploadify.js"></script>
+
+<script type="text/javascript" src="scripts/modification.js"></script>
 <script type="text/javascript">
   		$(document).ready(
   				 //上传文件
@@ -33,11 +32,11 @@
   		          "uploader": "upload/one.do",
   		          "method": "post",
   		          "progressData": "percentage",
-  		          "swf": "uploadify/uploadify.swf",
-  		          "buttonText": "选择要上传的文件",            
+  		          "swf": "../advertiser/uploadify/uploadify.swf",
+  		          "buttonText": "选择要上传的图片",            
   		          "multi": true,
   		          "auto":false,
-  		           "fileSizeLimit": "1000KB",
+  		           "fileSizeLimit": "1MB",
   		          "successTimeout": 600,  
   		          "queueSizeLimit": 5,
   		          "fileTypeExts": '*.jpg;*.png;*.jpeg',
@@ -54,7 +53,7 @@
   		        	alert("上传失败");
   		          },
   		        "onSelect":function(file){
-  	          }
+  	         	 }
   		      });
   		      }
   		)
@@ -66,15 +65,12 @@
 <header class="am-topbar am-topbar-inverse admin-header">
 <div class="am-topbar-brand">
     <a href="javascript:;" class="tpl-logo">
-        <img src="assets/img/logo.png" alt="">
+        <img src="../advertiser/assets/img/logo.png" alt="">
     </a>
 </div>
 <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
-
 </div>
-
 <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
-
 <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
     <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
        <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
@@ -105,16 +101,14 @@
 <!-- content -->
 <div class="tpl-page-container tpl-page-header-fixed" style="position: relative;">
 
-
 <!-- 侧导航开始 -->
 <div class="tpl-left-nav tpl-left-nav-hover">
     <div class="tpl-left-nav-title" style="height:20px;">
-        
     </div>
     <div class="tpl-left-nav-list">
         <ul class="tpl-left-nav-menu">
             <li class="tpl-left-nav-item">       
-                <a href="../mediaowner/index.html" class="nav-link ">
+                <a href="index.html" class="nav-link ">
                     <i class="am-icon-home"></i>
                     <span>首页</span>
                 </a>
@@ -124,27 +118,27 @@
                 <!-- 打开状态 a 标签添加 active 即可   -->
                 <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-table"></i>
-                    <span>媒体资源</span>
+                    <span>资源管理</span>
                     <!-- 列表打开状态的i标签添加 tpl-left-nav-more-ico-rotate 图表即90°旋转  -->
                     <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                 </a>
                 <ul class="tpl-left-nav-sub-menu" style="display:block">
                     <li>
                         <!-- 打开状态 a 标签添加 active 即可   -->
-                        <a href="../mediaowner/media-outdoors.html">
+                        <a href="media-outdoors.html">
                             <i class="am-icon-angle-right"></i>
                             <span>户外大屏</span>
                            <!--  <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i> -->
                         </a>
-                        <a href="../mediaowner/media-bus.html" >
+                        <a href="media-bus.html" >
                             <i class="am-icon-angle-right"></i>
                             <span>公交车后视屏</span>
                         </a>
-                        <a href="../mediaowner/media-text.html" >
+                        <a href="media-text.html" >
                             <i class="am-icon-angle-right"></i>
                             <span>出租车后视屏</span>
                         </a>
-                        <a href="../mediaowner/media-tv.html">
+                        <a href="media-tv.html">
                             <i class="am-icon-angle-right"></i>
                             <span>楼宇电视</span>
                         </a>
@@ -152,7 +146,7 @@
                 </ul>
             </li>
             <li class="tpl-left-nav-item">
-                <a href="../mediaowner/media-indent.html" class="nav-link tpl-left-nav-link-list">
+                <a href="media-indent.html" class="nav-link tpl-left-nav-link-list">
                     <i class="am-icon-wpforms"></i>
                     <span>订单</span>
                 </a>
@@ -165,17 +159,17 @@
                 </a>
                 <ul class="tpl-left-nav-sub-menu">
                     <li>
-                        <a href="../mediaowner/media-recharge.html">
+                        <a href="media-recharge.html">
                             <i class="am-icon-angle-right"></i>
                             <span>充值</span>
                             <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                         </a>
 
-                        <a href="../mediaowner/media-withdrawal.html">
+                        <a href="media-withdrawal.html">
                             <i class="am-icon-angle-right"></i>
                             <span>提现</span>
       					</a>
-                        <a href="../mediaowner/media-transact.html">
+                        <a href="media-transact.html">
                             <i class="am-icon-angle-right"></i>
                             <span>交易明细</span>
 						</a>
@@ -195,7 +189,7 @@
     <div class="tpl-portlet-components">
         <div class="portlet-title">
             <div class="caption  bold">
-              媒体资源添加:
+              媒体资源修改:
             </div>
             <div class="tpl-portlet-input tpl-fz-ml">
                 <div class="portlet-input input-small input-inline">
@@ -211,52 +205,51 @@
 			    <div class="reg" style="height: 500px;float: left;">
         <form action="" method="post" name="form1" id="form1"  style="position: relative;">
             <dl style="width:56%">
-                <dd style="margin-bottom: 20px; margin-left:10px;"><span class="title">大屏名称：</span><input class="reg_input" name="t_UserName" id="t_UserName" type="text"/>
-                	<span id="t_UserNameTip" class="onshow "></span>
-                  </dd>
+                <dd style="margin-bottom: 20px; margin-left:10px;"><span class="title">大屏名称：</span><input class="reg_input" name="t_UserName" id="t_UserName" onblur="checkusername(this.value);" type="text" /><span id="t_UserNameTip" class="onshow"></span></dd>
                       <!-- 屏幕尺寸 strat -->
               <dd style="position: absolute;left: 1%;top:161%;">
                  <span class="title">屏幕尺寸：</span>
-                 <input class="reg_input" name="" id="outdoorScreenSize" type="text" style="position: absolute;left: 100%;top:6px;" />
-                 <span id="outdoorScreenSizeTip" style="position: absolute;top:11%;left:290%;width:118px;color:;font-size: 8px;display: none"></span>
+                 <input class="reg_input" name="" id="outdoorScreenSize" type="text" style="position: absolute;left: 100%;top:6px;"/><span style="position: absolute;top:11%;left:290%;color:#999;">寸</span>
+
+
               </dd>
               <!-- 播放周期 -->
                   <dd style="position: absolute;left: 1%;top:320%">
-                   <span class="title">播放周期：</span>
-                 <input class="reg_input" name="" id="outdoorPlaybackPeriod" type="text" style="position: absolute;left: 100%;top:4px;"/><span id="outdoorPlaybackPeriodTip" style="position: absolute;top:11%;left:290%;width:118px;color:;font-size: 8px;display: none"></span>
+                                                  <span class="title">播放周期：</span>
+                 <input class="reg_input" name="" id="outdoorPlaybackPeriod" type="text" style="position: absolute;left: 100%;top:4px;"/><span style="position: absolute;top:11%;left:283%;width:30px;color:#999;">分钟</span>
+                                                    
               </dd>
             <!--   播放周期end -->
             <!-- 播放时间 -->
                 <dd style="position: absolute;left: 1%;top:485%"><span class="title">播放时间：</span>
-                   <input class="reg_input" name="" id="outdoorPlayStartTime" type="text" style="width: 90px;position: left:1px;"/>
-                   
-                     <strong>*</strong>
-                      <input class="reg_input" name="" id="outdoorPlayEndTime" type="text" style="width: 90px;"/>
-                      <span style="color:#999;font-size: 13px;margin-left: 5px;"></span>
-                      <span id="outdoorPlayStartTimeTip" style="font-size: 8px;color:;display: none"></span>
-                      
+                                                   
+                                                   <input class="reg_input" name="" id="outdoorPlayStartTime" type="text" style="width: 90px;position: left:1px;"/>
+                                                  <strong>*</strong>
+                                                 
+                                                   <input class="reg_input" name="" id="outdoorPlayEndTime" type="text" style="width: 90px;"/>
+                                                   <span style="color:#999;font-size: 13px;margin-left: 5px;">开始时间*结束时间</span>
                                                     
               </dd>
             <!--  时间end -->
                        <!-- 分辨率 -->
                 <dd style="position: absolute;left: 1%;top:660%;"><span class="title">分辨率：</span>
-                             <input class="reg_input" name="" id="outdoorLength" type="text" style="width: 90px;"/> <strong>*</strong>
-                             <input class="reg_input" name="" id="outdoorHeight" type="text" style="width: 90px;"/>
-                             <span style="color:#999;font-size: 13px;margin-left: 5px;"></span>
-                             <span id="outdoorLengthTip" style="font-size: 8px;color:;margin-left: 10px;display: none">分辨率不能为空</span>
+                                                   <input class="reg_input" name="" id="outdoorLength" type="text" style="width: 90px;"/>
+                                                  <strong>*</strong>
+                                                   <input class="reg_input" name="" id="outdoorHeight" type="text" style="width: 90px;"/>
+                                                   <span style="color:#999;font-size: 13px;margin-left: 5px;">长*宽</span>
               </dd>
             <!--   分辨率结束 -->
             
               <dd style="position: absolute;left: 1%;top:835%;">
                 <span class="title">屏幕类型：</span>
                  <div class="am-form-group" id="select_screen" style="position: absolute;left: 101%;top:3%;">
-                            <select data-am-selected="{btnSize: 'sm'}" style="display: none;" id="select_screen_s">
-                                                        <option value="">屏幕类型</option>
-                                                        <option value="option1" id="heyue">横屏</option>   <option value="option2" id="noheyue">竖屏</option>
+                            <select data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                                        <option value="option1">屏幕类型</option>
+                                                        <option value="option1" id="heyue">横屏</option>                                                            
+                                                        <option value="option2" id="noheyue">竖屏</option>
                                                         <option value="option2" id="noheyue2">跨街屏</option>
                                                         </select>
                         </div>
-                <span id="select_screen_sTip" style="position: absolute;top:11%;left:250%;font-size: 8px;margin-left: 10px;display: none"></span>
               </dd>
               <!--   屏幕类型 end -->
                 <!-- 投放类型 -->
@@ -298,11 +291,10 @@
                 </dd>
                <!--  省市区end -->
                        <!--  地址start -->
-               <dd style="position: absolute;left: 49%;top:150%;min-width: 500px"><span class="address">详细地址：</span><input class="reg_input" name="t_UserName" id="outdoorAddress" type="text" style="width:305px;"/><span id="outdoorAddressTip" class="onshow" style="position: absolute;top:11%;left:80%;z-index: 100"></span></dd>
+               <dd style="position: absolute;left: 49%;top:150%"><span class="address">详细地址：</span><input class="reg_input" name="t_UserName" id="outdoorAddress" type="text" style="width:325px;"/><span id="t_UserNameTip" class="onshow"></span></dd>
                <!--  地址end -->
            <!--   上传文件    -->
            <dd style="position: absolute;top:296%;left: 46.7%;">
-
            <span class="title" style="margin-left:29px;">上传文件：</span>
                  <div class="wenjian">                     
                              <form enctype="multipart/form-data" >
@@ -327,12 +319,11 @@
           </dd>
           <!-- 备注end -->
         <dd>
-            <input type="button" id="amendBtn"  value="添加"  style="position: absolute;left:424px;bottom:-410px;padding:10px 20px;border-radius: 10px;">
+            <a href="javaScript:void(0);"><input type="button" id="amendBtn" value="修改" class="button" style="position: absolute;left:424px;bottom:-410px;padding:10px 20px;border-radius: 10px;"></a>
         </dd>
         </dl>
         </form>                              
     </div>
-
 
    <!--  图片 -->
    <div class="reg1" style="float: left;position:absolute;right:55px;top:160px">
@@ -349,31 +340,13 @@
 
 <!-- footer开始 -->
 <div class="footer" style="width: 100%;height: 10%;position: relative;">
-    <p style="position: absolute;left: 45%;    font-size: 14px;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备xxxxx号</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <p style="position: absolute;left: 45%;    font-size: 14px;">网站ICP备案号：<a rel="nofollow" href="javascript:;" target="_blank">冀ICP备17021938号-1</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
     <p style="position: absolute;left: 39%;top:40%;font-size: 14px;">Copyright ©  2017  谱华云媒网络科技有限公司  All Rights Reserved</p>
 </div>
 <!-- footer结束 -->
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="../advertiser/assets/js/amazeui.min.js"></script>
+<script src="../advertiser/assets/js/app.js"></script>
 <!-- 上传文件 -->
-<script>
-$(document).ready(function(){
-    $.formValidator.initConfig({formid:"form1",debug:false,submitonce:true,
-        onerror:function(msg,obj,errorlist){
-            //$.map(errorlist,function(msg1){alert(msg1)});
-            alert(msg);
-        }
-    });
-    $("#t_UserName").formValidator({onshow:"5-10个字符",onfocus:"大屏名称不能为空"}).inputValidator({min:5,max:10,onerror:"输入有误"});
-    $("#outdoorScreenSize").formValidator({onshow:"选择尺寸",onfocus:"大屏尺寸不能为空"}).inputValidator({min:1,max:10,onerror:"输入有误"});
-    
-    $("#outdoorPlaybackPeriod").formValidator({onshow:"分钟",onfocus:"播放周期不能为空"}).inputValidator({min:1,max:10,onerror:"输入有误"});
-    //$("#outdoorPlayEndTime").formValidator({onshow:"点",onfocus:"播放时间不能为空"}).inputValidator({min:1,max:2,onerror:"输入有误"});
-    $("#outdoorPlayStartTime").formValidator({onshow:"点",onfocus:"播放时间不能为空"}).inputValidator({min:1,max:2,onerror:"输入有误"});
-    $("#outdoorLength").formValidator({onshow:"长*宽",onfocus:"分辨率不能为空"}).inputValidator({min:1,max:5,onerror:"输入有误"});
-    $("#outdoorAddress").formValidator({onshow:"请输入地址",onfocus:"地址不能为空"}).inputValidator({min:4,max:50,onerror:"输入有误"});
-    $("#select_screen_s").formValidator({tipid:"select_screen_sTip",onshow:"请选择屏幕类型",onfocus:"请选择屏幕类型",oncorrect:"&nbsp;"}).inputValidator({min:1,max:50,onerror:"请选择屏幕类型"}); 
-});
-</script>
+
 </body>
 </html>

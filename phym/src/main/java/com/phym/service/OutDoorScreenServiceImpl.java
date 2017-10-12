@@ -65,8 +65,8 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		if(outDoor.getOutdoorScreenSize()==null) {
 			throw new OutDoorScreenException("请输入内容");
 		}
-		String reg4 = "^[1-9]\\d{2,4}";
-		if(outDoor.getOutdoorScreenSize().matches(reg4)) {
+		
+		if(outDoor.getOutdoorScreenSize().equals("")) {
 			throw new OutDoorScreenException("请输入3-5位有效数字，第一位不能为0");
 		}
 		
@@ -122,6 +122,7 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		outDoor.setOutdoorFrequency(fre);
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		outDoor.setOutdoorCreatedDate(time);
+		outDoor.setRemainTime(Integer.parseInt(outDoor.getOutdoorPlaybackPeriod())*60);
 		int i = outDoorDao.insertOutDoor(outDoor);
 		if(i !=1) {
 			throw new OutDoorScreenException("上传资源失败");
@@ -144,7 +145,7 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		}
 		List<OutDoorScreen> list = outDoorDao.loadOutDoor(outdoorProvince, outdoorCity, outdoorCountry, outdoorScreenType, outdoorMediasourceType, outdoorUserName);
 		if(list.isEmpty()) {
-			throw new OutDoorScreenException("您还没有上传资源");
+			throw new OutDoorScreenException("没有本地资源");
 		}
 		return list;
 	}

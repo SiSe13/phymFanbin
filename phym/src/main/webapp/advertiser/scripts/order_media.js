@@ -1,5 +1,4 @@
 var SUCCESS = 0;
-
 $(function(){
 	loadOrder();
 });

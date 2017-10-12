@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="assets/img/logosmall.png"> 
 
     <!-- 上传文件 -->
    <link rel="stylesheet" href="uploadify/uploadify.css">
     <script src="assets/js/jquery-1.12.3.min.js"></script>
 	<script src="uploadify/jquery.uploadify.js"></script>
-   
-   	<script type="text/javascript" src="assets/js/cookie_util.js"></script>
-    <script type="text/javascript" src="../scripts/name.js"></script>
+   	<script src="assets/js/cookie_util.js"></script>
+    <script src="../scripts/name.js"></script>
     <!-- 可选时间 -->
     <script src="assets/js/yui-min.js"></script>
 	<script src="scripts/tjsh.js"></script>
@@ -29,30 +29,25 @@
   		          "method": "get",
   		          "progressData": "percentage",
   		          "swf": "uploadify/uploadify.swf",
-  		          "buttonText": "选择要上传的文件",            
+  		          "buttonText": "选择要上传的视频",            
   		          "multi": true,
   		          "auto":false,
-  		           "fileSizeLimit": "1000KB",
+  		           "fileSizeLimit": "20MB",
   		          "successTimeout": 600,  
   		          "queueSizeLimit": 5,
   		          "fileTypeExts": '*.mp4',
   		          "onUploadSuccess": function(file, data, response) {
-  		            alert("上传成功");
   		            var JsonObjs = eval("(" + data + ")");
   		            addCookie("js",JsonObjs.filePath,2);
-  		            var filepath_server=JsonObjs.filePath;
-  		            arr=filepath_server.split("\\");
-  		            arr_length = arr.length;            
-  		            var p = arr[arr_length-1];
+  		          	path=JsonObjs.filePath.substring(2);
+  		          	alert("上传成功");
   		          },
-  		          "onUploadError": function(file, errorCode, errorMsg, 
-  		            errorString) {
+  		          "onUploadError": function(file, errorCode, errorMsg, errorString) {
   		              alert("上传失败");
   		          },
   		          "onSelectError": function() {
   		        	alert("上传失败");
   		          }
-  		          
   		      });
   		      }
   		);

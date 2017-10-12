@@ -18,7 +18,6 @@ function checkshipin(){
 	}else{
 		$("#next").removeAttr('disabled');
 	}
-	
 	if(!reg.test(checkshipin)||checkshipin==""){
 		$(".shipin_span").show();
 	}else{
@@ -29,8 +28,8 @@ function checkshipin(){
 	}else{
 		$(".bofang_span").hide();
 	}
-	
 }
+
 function finishShaiXuan(){
 	var checkshipin=$(".shipinshichang").val();
 	var bofangshichang=$(".bofangshichang").val();
@@ -39,8 +38,6 @@ function finishShaiXuan(){
 	var outdoorCountry = $("#area_div div:first").html();
 	var outdoorScreenType = $("#select_screen option:checked").html();
 	var outdoorMediasourceType=$("input[type='radio']:checked").val();
-	
-	
 	window.location.href='shopping-cart.html?checkshipin='+checkshipin+
 											'&bofangshichang='+bofangshichang+
 											'&outdoorProvince='+outdoorProvince+

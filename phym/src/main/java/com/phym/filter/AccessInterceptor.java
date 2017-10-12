@@ -20,13 +20,14 @@ public class AccessInterceptor implements HandlerInterceptor {
 		User user=(User)req.getSession().getAttribute("user");
 		//System.out.println("user:"+user);
 		if(user==null){
-			String json=
-			"{\"state\":1,\"message\":\"需要登录\"}";
+			String json="{\"state\":1,\"message\":\"需要登录\"}";
 			res.setContentType("text/html; charset=utf-8");
 			res.getWriter().print(json);
 			return false;
 		}
 		return true;
+		
+		
 	}
 
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
