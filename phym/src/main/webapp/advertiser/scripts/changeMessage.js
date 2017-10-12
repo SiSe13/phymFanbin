@@ -3,14 +3,14 @@ $(function(){
 	inforMation();
 	$("#tijiao").click(updateUserInfo);
 });
-
 //页面加载显示完善资料信息
 function  inforMation(){
 	var url ="userInfo/userId.do";
 	var data={userId:getCookie("userId")};
 	$.post(url,data,function(result){
 		if(result.status==SUCCESS){
-			$("#touxiang").attr('src',result.data.headimg==""?"assets/img/user01.png":"http://img.puhuayunmei.com/"+result.data.headimg); 
+			
+			$("#touxiang").attr('src',result.data.headimg==null?"assets/img/user01.png":"http://img.puhuayunmei.com/"+result.data.headimg); 
 			$("#iptName").val(result.data.name);
 			$("#dizhi").val(result.data.addr);
 			$("#zuoji").val(result.data.tel);

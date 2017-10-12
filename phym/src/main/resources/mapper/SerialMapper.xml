@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.AgencyDao">
+	<select id="findAllSerial" resultType="com.phym.entity.Serial">
+		select 
+							serial_id as id,
+							serial_number as number,
+							serial_status as status
+		from
+							serial
+		where
+							serial_status = 0					
+	</select>
+	<update id="updateSerialStatus" parameterType="string">
+		update
+							serial	
+		set
+							serial_status = 1
+		where
+							serial_number = #{number}										
+	</update>
+ </mapper>

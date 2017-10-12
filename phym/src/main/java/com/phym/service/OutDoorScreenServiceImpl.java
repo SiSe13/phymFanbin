@@ -180,6 +180,7 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		
 		String outdoorId = outDoor.getOutdoorId();
 		OutDoorScreen out = outDoorDao.findOutDoorScreenById(outdoorId);
+		System.out.println(out);
 		String outdoorName = outDoor.getOutdoorName();
 		String outdoorProvince = outDoor.getOutdoorProvince();
 		String outdoorCity = outDoor.getOutdoorCity();
@@ -196,7 +197,8 @@ public class OutDoorScreenServiceImpl implements OutDoorScreenService {
 		String outdoorSuperiority = outDoor.getOutdoorSuperiority();
 		String outdoorRemark = outDoor.getOutdoorRemark();
 		String outdoorPlaybackPeriod = outDoor.getOutdoorPlaybackPeriod();
-		
+		System.out.println(outdoorName);
+		System.out.println(out.getOutdoorName());
 		if(out.getOutdoorName().equals(outdoorName)) {
 			outdoorName = null;
 		}

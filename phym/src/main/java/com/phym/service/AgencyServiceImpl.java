@@ -1,5 +1,6 @@
 package com.phym.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,14 +8,20 @@ import org.springframework.stereotype.Service;
 
 import com.phym.dao.AgencyDao;
 import com.phym.entity.Agency;
+import com.phym.entity.ChannelManager;
+import com.phym.entity.Serial;
 import com.phym.exception.AgencyException;
-import com.phym.exception.NameException;
 import com.phym.util.NoteUtil;
 @Service("agencyService")
 public class AgencyServiceImpl implements AgencyService {
 	
 	@Autowired
 	private AgencyDao dao;
+	@Autowired
+	private SerialService serialService;
+	@Autowired
+	private ChannelManagerService managerService;
+	
 	//添加代理商
 	public Boolean insertAgency(Agency agency) throws AgencyException{
 		if(agency ==null) {
@@ -39,10 +46,55 @@ public class AgencyServiceImpl implements AgencyService {
 		if(level<0) {
 			throw new AgencyException("123");
 		}
-		
-		
-		
-		return null;
+		if(phone==null||phone.isEmpty()||phone.equals("")) {
+			throw new AgencyException("请输入手机号");
+		}
+		//手机号正则
+		String reg="^1(3\\d|5[0-35-9]|8[025-9]|47)\\d{8}$";
+		if(!phone.matches(reg)){
+			throw new AgencyException("手机号码的格式不正确");
+		}
+		if(province==null||province.isEmpty()||province.equals("")) {
+			throw new AgencyException("请选择省");
+		}
+		if(city==null||city.isEmpty()||city.equals("")) {
+			throw new AgencyException("请选择市");
+		}
+		if(area==null||area.isEmpty()||area.equals("")) {
+			throw new AgencyException("请选择区/县");
+		}
+		if(manager==null||manager.isEmpty()||manager.equals("")) {
+			throw new AgencyException("请填写区域经理");
+		}
+		ChannelManager man = managerService.findManagerByName(manager);
+		if(man==null) {
+			throw new AgencyException("请输入正确的经理人");
+		}
+		agency.setId(NoteUtil.createId());
+		String pwd = NoteUtil.md5("123456a"+"谱华云媒");
+		agency.setPassword(pwd);
+		List<Serial> list = serialService.findAllSerial();
+		if(list.isEmpty()) {
+			throw new AgencyException("网络延迟");
+		}
+		String number = list.get(0).getNumber();
+		if(number==null||number.isEmpty()||number.equals("")) {
+			throw new AgencyException("获取编号失败");
+		}
+		Boolean bool = serialService.updateSerialStatus(number);
+		if(!bool) {
+			throw new AgencyException("更新代理商编号失败");
+		}
+		agency.setCode(number);
+		agency.setBalance(0);
+		agency.setDeposit(0);
+		agency.setCreateTime(new Timestamp(System.currentTimeMillis()));
+		agency.setStatus(status);
+		int n = dao.insertAgency(agency);
+		if(n!=1) {
+			throw new AgencyException("添加代理商失败");
+		}
+		return true;
 	}
 	//通过id查询代理商
 	public Agency findAgencyById(String id) throws AgencyException{

@@ -25,6 +25,7 @@ function findOrderDetails(){
 }
 
 function showOrderDetails(list){
+	console.log(list[13]);
 	var li=orderDetails.replace('number',list[0])
 						.replace('videoName',list[1])
 						.replace('createTime',dataHoutai(list[8]))
@@ -34,12 +35,13 @@ function showOrderDetails(list){
 						.replace('duration',list[5])
 						.replace('orderType',switchType(list[6]))
 						.replace('qtRemark',list[10])
-						.replace('auditName',list[14])
-						.replace('auditTime',dataHoutai(list[13]))
-						.replace('htRemark',list[12]);
+						.replace('auditName',list[14]==null?"":list[14])
+						.replace('auditTime',list[13]==null?"":dataHoutai(list[13]))
+						.replace('htRemark',list[12]==null?"":list[12]);
 	$("#tbody").append(li);
 }
 
+//详情大屏
 function tanchu(){
 	window.location.href ="loading-outdoor.html?number="+arr[0];
 }

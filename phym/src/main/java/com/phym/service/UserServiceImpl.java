@@ -294,4 +294,15 @@ public class UserServiceImpl implements UserService {
 			}
 			return true;
 		}
+		
+		//用户退出
+		public Boolean dropOut(String userId)throws UserException {
+			if(userId==null||userId==""){
+				throw new UserException("网络异常,请检查您的网络");
+			}
+			User user=dao.findUserById(userId);
+			user.setUser_lastlog_time(new Timestamp(System.currentTimeMillis()));
+			Boolean boo=dao.updateLastlogTime(user);
+			return boo;
+		}
 }

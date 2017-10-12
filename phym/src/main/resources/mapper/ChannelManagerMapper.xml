@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ 
+ <!-- parameterType="string" 参数 -->
+ <mapper namespace="com.phym.dao.ChannelManagerDao">
+ 	<insert id="insertManager" parameterType="com.phym.entity.ChannelManager">
+ 		insert into channel_manager(
+ 							manager_id,
+							manager_name,
+							manager_phone,
+							manager_createtime,
+							manager_demo1,
+							manager_demo2
+		)values(
+							#{id},
+							#{name},
+							#{phone},
+							#{createTime},
+							#{demo1},
+							#{demo2}
+		)
+ 	</insert>
+	<select id="findManagerById" parameterType="string" resultType="com.phym.entity.ChannelManager">
+		select 
+							manager_id as id,
+							manager_name as name,
+							manager_phone as phone,
+							manager_createtime as createTime,
+							manager_demo1 as demo1,
+							manager_demo2 as demo2
+		from	
+							channel_manager
+		where
+							manager_id = #{id}										
+	</select>
+	<select id="findManagerByName" parameterType="string" resultType="com.phym.entity.ChannelManager">
+		select 
+							manager_id as id,
+							manager_name as name,
+							manager_phone as phone,
+							manager_createtime as createTime,
+							manager_demo1 as demo1,
+							manager_demo2 as demo2
+		from	
+							channel_manager
+		where
+							manager_name = #{name}										
+	</select>
+	<select id="findManagerByPhone" parameterType="string" resultType="com.phym.entity.ChannelManager">
+		select 
+							manager_id as id,
+							manager_name as name,
+							manager_phone as phone,
+							manager_createtime as createTime,
+							manager_demo1 as demo1,
+							manager_demo2 as demo2
+		from	
+							channel_manager
+		where
+							manager_phone = #{phone}										
+	</select>
+	<select id="findAllManager" resultType="com.phym.entity.ChannelManager">
+		select 
+							manager_id as id,
+							manager_name as name,
+							manager_phone as phone,
+							manager_createtime as createTime,
+							manager_demo1 as demo1,
+							manager_demo2 as demo2
+		from	
+							channel_manager
+	</select>
+	<delete id="deleteManagerById" parameterType="string">
+		delete
+							from
+		channel_manager
+							where
+		manager_id = #{id}										
+	</delete>
+	<delete id="deleteManagerByName" parameterType="string">
+		delete
+							from
+		channel_manager
+							where
+		manager_name = #{name}										
+	</delete>
+	<delete id="deleteManagerByPhone" parameterType="string">
+		delete
+							from
+		channel_manager
+							where
+		manager_phone = #{phone}										
+	</delete>
+ </mapper>

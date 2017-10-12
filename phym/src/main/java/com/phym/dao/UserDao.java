@@ -42,4 +42,7 @@ public interface UserDao {
 	//根据用户名修改密码
 	public int updatePwd(@Param("user_nickname") String user_nickname,@Param("newpass") String newpass);
 	
+	//退出
+	public boolean updateLastlogTime(User user);
+	
 }

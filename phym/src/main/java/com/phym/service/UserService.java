@@ -46,4 +46,7 @@ public interface UserService {
 	//检测代理商编码是否正确
 	public Boolean checkNumber(String number);
 	
+	//退出
+	public Boolean dropOut(String userId)throws UserException;
+	
 }

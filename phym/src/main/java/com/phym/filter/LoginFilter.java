@@ -29,7 +29,8 @@ public class LoginFilter implements Filter {
 		//2. 如果没有登录用户信息，重定向到 log_in.html
 		String path = request.getRequestURI();
 		
-		if(path.endsWith("login.html") ||path.endsWith("password.html") || path.endsWith("register.html")||path.endsWith("index.html")){ 
+		if(path.endsWith("login.html") ||path.endsWith("password.html") || path.endsWith("register.html")||path.endsWith("index.html")
+				||path.endsWith("details.html")){ 
 				//设置HTTP协议头，避免浏览器缓存html页面
 				response.addHeader("Cache-Control", "no-cache");
 				chain.doFilter(req, res);

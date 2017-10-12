@@ -73,7 +73,7 @@ var outDoorsTemplate='<table id="addCont" width="100%" border="0" cellspacing="0
 						'</tr>'+
 						'<tr>'+
 							'<td align="center" valign="top" class="box_td_left" style="padding-top: 45px;">照片：</td><td width="20%" class="box_td_right"  colspan="3">'+      
-								'<img src="'+
+								'<img src="http://img.puhuayunmei.com/'+
 								'outdoorPhotoPath'+'" alt="" style="width:100px;height:100px; float: left;margin-right: 5px"/ >'+
 							'</td>'+
 						'</tr>'+      

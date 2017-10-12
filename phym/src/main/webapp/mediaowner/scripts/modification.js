@@ -16,36 +16,46 @@ function showModification(){
 	$.post(url,data,function(result){
 		if(result.status == SUCCESS){
 			var outdoor=result.data;
-			$("#t_UserName").val(outdoor.outdoorName);
+			$("#name").val(outdoor.outdoorName);
 			$("#outdoorScreenSize").val(outdoor.outdoorScreenSize);
 			$("#outdoorPlaybackPeriod").val(outdoor.outdoorPlaybackPeriod);
 			$("#outdoorPlayStartTime").val(outdoor.outdoorPlayStartTime);
 			$("#outdoorPlayEndTime").val(outdoor.outdoorPlayEndTime);
 			$("#outdoorLength").val(outdoor.outdoorLength);
 			$("#outdoorHeight").val(outdoor.outdoorHeight);
-			$("#outdoorAddress").val(outdoor.outdoorAddress);
+			$("#address").val(outdoor.outdoorAddress);
 			$("#outdoorSuperiority").text(outdoor.outdoorSuperiority);
 			$("#outdoorRemark").text(outdoor.outdoorRemark);
-			$("#select_screen span:first").html(outdoor.outdoorScreenType);
 			$("#province_div div:first").html(outdoor.outdoorProvince);
 			$("#city_div div:first").html(outdoor.outdoorCity);
 			$("#area_div div:first").html(outdoor.outdoorCountry);
-			$("#select_type span:first").html(outdoor.outdoorMediasourceType);
+			
 		}else{
 			alert(result.msg);
 		}
 	});
 }
 
+function screen(){
+	var n=$("#screen").val();
+	return n;
+}
+function type(){
+	var s=$("#type").val();
+	return s;
+}
+
 //提交修改信息
 function amendBtn(){
+	outdoorScreenType=screen();
+	outdoorMediasourceType=type();
 	var url="mtout/modifyout.do";
-	var data={outdoorId:id,outdoorName:$("#t_UserName").val(),outdoorScreenSize:$("#outdoorScreenSize").val(),outdoorPlaybackPeriod:$("#outdoorPlaybackPeriod").val(),
+	var data={outdoorName:$("#name").val(),outdoorScreenSize:$("#outdoorScreenSize").val(),outdoorPlaybackPeriod:$("#outdoorPlaybackPeriod").val(),
 			outdoorPlayStartTime:$("#outdoorPlayStartTime").val(),outdoorPlayEndTime:$("#outdoorPlayEndTime").val(),outdoorLength:$("#outdoorLength").val(),
-			outdoorHeight:$("#outdoorHeight").val(),outdoorScreenType:$("#select_screen span:first").html(),outdoorMediasourceType:$("#select_type span:first").html(),
+			outdoorHeight:$("#outdoorHeight").val(),outdoorScreenType:outdoorScreenType,outdoorMediasourceType:outdoorMediasourceType,
 			outdoorProvince:$("#province_div div:first").html(),outdoorCity:$("#city_div div:first").html(),outdoorCountry:$("#area_div div:first").html(),
-			outdoorAddress:$("#outdoorAddress").val(),outdoorSuperiority:$("#outdoorSuperiority").text(),outdoorRemark:$("#outdoorRemark").text(),
-			outdoorUserName:getCookie("username"),outdoorPhotoPath:getCookie("js")};
+			outdoorAddress:$("#address").val(),outdoorSuperiority:$("#outdoorSuperiority").text(),outdoorRemark:$("#outdoorRemark").text(),
+			outdoorId:id,outdoorPhotoPath:getCookie("js")};
 	$.post(url,data,function(result){
 		if(result.status == SUCCESS){
 			window.location.href="../mediaowner/media-modification-success.html";

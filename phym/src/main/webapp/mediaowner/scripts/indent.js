@@ -98,8 +98,8 @@ var outDoorsTemplate='<tr style="width: 100%;">'+
     					'</td>'+
     					'<td>'+
     						'<div class="am-btn-toolbar"><div class="am-btn-group am-btn-group-xs">'+
-    							'<a href="javascript:void(0);"onclick=details("number1","mediaId","mediaCost1") class="am-icon-pencil-square-o">详情</a>'+ 
-    													'</div>'+
+    							'<a href="javascript:void(0);" onclick=details("number1","mediaId","mediaCost1") class="am-icon-pencil-square-o">详情</a>'+ 
+    						'</div>'+
     						'</div>'+
     					'</td>'+
 					'</tr>';

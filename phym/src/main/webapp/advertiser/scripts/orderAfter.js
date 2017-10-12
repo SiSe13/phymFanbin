@@ -81,7 +81,7 @@ function details(number){
 		title: '详情页',
 		shadeClose: true,
 		shade: 0.8,
-		area: ['1200px', '90%'],
+		area: ['1100px', '48%'],
 		content: 'order-after-details.html?number='+number //url
 		});
 }

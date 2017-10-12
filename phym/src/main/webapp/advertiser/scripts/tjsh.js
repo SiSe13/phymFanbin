@@ -23,7 +23,6 @@ function danjian(){
 	});
 }
 
-
 //便利数组，并查询出单价
 function jisuanjige(){
 	var bofang_time=getCookie("bofangshichang")
@@ -44,7 +43,6 @@ function jisuanjige(){
 		}
 	}
 }
-
 
 //检测名称
 function checkName(){

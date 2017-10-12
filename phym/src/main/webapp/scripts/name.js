@@ -12,7 +12,7 @@ function funName(){
 //退出
 function dropOut(){
 	var url="purpose/exit.do";
-	var data={};
+	var data={userId:getCookie("userId")};
 	$.post(url,data,function(){
 		window.location.href = "../login.html";	
 	});

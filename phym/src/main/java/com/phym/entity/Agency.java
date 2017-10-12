@@ -5,9 +5,6 @@ import java.sql.Timestamp;
 
 public class Agency implements Serializable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -305650413958407271L;
 	private String id; // 代理商id
 	private String name;//代理商用户名
@@ -23,7 +20,7 @@ public class Agency implements Serializable{
 	private String manager;//渠道经理
 	private Timestamp createTime;//创建时间
 	private int status;//状态 1广告代理商  2媒体代理商
-	private String demo2;//
+	private String demo2;// 真实姓名
 	private String demo3;//
 	private String demo4;//
 	public String getId() {

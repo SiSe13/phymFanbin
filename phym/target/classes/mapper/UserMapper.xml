@@ -155,4 +155,13 @@
  				user_nickname = #{user_nickname}				
  	</update>
  	
+ 	<!-- 退出 -->
+ 	<update id="updateLastlogTime" parameterType="com.phym.entity.User">
+ 		update 
+ 				user	
+ 		set
+ 				user_lastlog_time = #{user_lastlog_time}
+ 		where
+ 				user_id = #{user_id}				
+ 	</update>
  </mapper>

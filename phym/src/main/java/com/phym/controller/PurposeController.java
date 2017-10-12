@@ -9,6 +9,7 @@ import com.phym.entity.UserInfo;
 import com.phym.exception.OutDoorScreenException;
 import com.phym.service.OutDoorScreenService;
 import com.phym.service.UserInfoService;
+import com.phym.service.UserService;
 import com.phym.util.JsonResult;
 
 @RestController
@@ -19,6 +20,9 @@ public class PurposeController {
 	private OutDoorScreenService outDoorScreenService;
 	@Autowired
 	private UserInfoService infoService;
+	@Autowired
+	private UserService userService;
+	
 	
 	//通过id查找媒体资源
 	@RequestMapping("/findout.do")
@@ -36,8 +40,12 @@ public class PurposeController {
 	
 	//退出
 	@RequestMapping("/exit.do")
-	public void exit(HttpServletRequest request){
-		request.getSession().removeAttribute("user");
+	public void exit(HttpServletRequest request,String userId){
+		Boolean boo=userService.dropOut(userId);
+		if(boo){
+			request.getSession().removeAttribute("user");
+		}
+		
 	}
 	
 	
